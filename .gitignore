@@ -1,0 +1,16 @@
+# Node.js dependencies
+node_modules/
+
+# Cloudflare Wrangler local state and generated files
+.wrangler/
+worker/.wrangler/
+
+# Local environment files may contain secrets
+.dev.vars
+.dev.vars.*
+worker/.dev.vars
+worker/.dev.vars.*
+
+# Logs and OS/editor files
+*.log
+.DS_Store
