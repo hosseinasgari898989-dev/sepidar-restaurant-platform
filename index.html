@@ -854,6 +854,12 @@ input,textarea,select,[contenteditable="true"],[data-allow-select],code,pre{
  #sh .stb{margin-inline:-2px!important;padding-inline:2px!important}
 }
 
+
+.photo-required{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;min-height:160px;background:linear-gradient(145deg,var(--palette-page),var(--palette-surface))!important;color:var(--mut)!important}
+.photo-required .fe{font-size:40px}
+.photo-required small,.photo-required-note{font-size:12px;color:var(--mut);text-align:center}
+.photo-required-note{position:absolute;inset:auto 12px 12px;z-index:5;padding:8px 12px;border:1px solid var(--palette-border);border-radius:12px;background:var(--palette-surface);color:var(--fg)}
+body[data-theme="dark"] .photo-required{background:linear-gradient(145deg,var(--palette-page),var(--palette-surface))!important;color:var(--fg)!important}
 </style>
 </head>
 <body>
@@ -1387,6 +1393,7 @@ function glInit(){try{const c=document.createElement('canvas');c.width=c.height=
 function ph(c,it,st='',big,i){
  const style=`background:linear-gradient(135deg,${c.c[0]},${c.c[1]});${st}`;
  if(it[4])return `<div class="ph photo-mode" style="${style}"><img class="food-photo" src="${E(it[4])}" alt="${E(it[0])}" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div>`;
+ if(c.id==='other')return `<div class="ph photo-required" style="${style}"><span class="fe">📷</span><small>بارگذاری عکس واقعی الزامی است</small></div>`;
  return `<div class="ph" style="${style}"><span class="fe">${it[3]}</span><canvas class="pxc" width="256" height="256" data-k="${c.id}:${i}"></canvas></div>`
 }
 const CARD={};let pq=[],pt=0,busy=0;
@@ -1433,7 +1440,7 @@ function quick(cid,i){const c=CATS.find(x=>x.id==cid);cart.push(line(c,c.items[i
 
 /* --- پنجره شخصی‌سازی: عکس همیشه بالای پنجره می‌ماند و با اسکرول گم نمی‌شود --- */
 function openItem(cid,i){const c=CATS.find(x=>x.id==cid);cur={c,it:c.items[i],sel:defSel(c,c.items[i]),rem:new Set(),q:1,note:''};mode='item';
- $('#sh').innerHTML=`<div class="ph stk ${cur.it[4]?'photo-mode':''}" id="phw" style="background:linear-gradient(135deg,${c.c[0]},${c.c[1]})">${cur.it[4]?'<img class="food-photo" src="'+E(cur.it[4])+'" alt="'+E(cur.it[0])+'" loading="lazy" decoding="async" referrerpolicy="no-referrer">':''}<canvas class="pxc" id="big" width="${HI}" height="${HI}"></canvas><button class="x" data-x="1" style="position:absolute;top:8px;left:8px;z-index:7" aria-label="بستن">✕</button>${cur.it[4]?'':'<span class="hnt">👆 بکشید تا هر طرف بچرخد</span>'}</div><div id="ib"></div>`;
+ $('#sh').innerHTML=`<div class="ph stk ${(cur.it[4]||cur.c.id==='other')?'photo-mode':''}" id="phw" style="background:linear-gradient(135deg,${c.c[0]},${c.c[1]})">${cur.it[4]?'<img class="food-photo" src="'+E(cur.it[4])+'" alt="'+E(cur.it[0])+'" loading="lazy" decoding="async" referrerpolicy="no-referrer">':''}<canvas class="pxc" id="big" width="${HI}" height="${HI}"></canvas><button class="x" data-x="1" style="position:absolute;top:8px;left:8px;z-index:7" aria-label="بستن">✕</button>${cur.it[4]?'':cur.c.id==='other'?'<span class="photo-required-note">📷 برای دسته «سایر» عکس واقعی محصول را بارگذاری کنید.</span>':'<span class="hnt">👆 بکشید تا هر طرف بچرخد</span>'}</div><div id="ib"></div>`;
  $('#sh').scrollTop=0;$('#ov').classList.add('on');drawItem();bindSheet()}
 const price=()=>calc(cur.c,cur.it,cur.sel);
 const remIdx=()=>{const c=cur.c,list=remList(c,cur.it),bb=(cur.it[6]&&cur.it[6].b)||'',m=RMS[c.id]||{},sas=recipe(c,cur.it,cur.sel,new Set()).sas;return list.map((r,i)=>i).filter(i=>{const r=list[i];return r=='بدون سس'?sas>0:!m[r]||bb.includes(m[r])})};
