@@ -648,6 +648,43 @@ body[data-theme="dark"] .review-empty {
   background:var(--palette-surface)!important;color:var(--mut)!important;border-color:var(--palette-border)!important;
 }
 
+
+
+/* آخرین جزئیات: هدر سه‌بعدی غذای انتخاب‌شده، کارت امتیاز و متن‌های نظر */
+body[data-theme="dark"] #phw {
+  background:radial-gradient(ellipse at 50% 20%,color-mix(in srgb,var(--or) 22%,transparent),transparent 58%),
+    linear-gradient(145deg,var(--palette-page),var(--palette-surface))!important;
+  border:1px solid var(--palette-border);
+}
+body[data-theme="dark"] .review-score,
+body[data-theme="dark"] .review-form-title>span,
+body[data-theme="dark"] .star-choice,
+body[data-theme="dark"] .star-choice.selected,
+body[data-theme="dark"] .star-choice:hover,
+body[data-theme="dark"] .star-choice.preview {
+  background:var(--palette-soft)!important;
+  border-color:var(--palette-border)!important;
+  color:var(--fg)!important;
+}
+body[data-theme="dark"] .review-score strong,
+body[data-theme="dark"] .review-form-title>span,
+body[data-theme="dark"] .review-reply b,
+body[data-theme="dark"] .review-comment,
+body[data-theme="dark"] .review-form-title b,
+body[data-theme="dark"] .review-submit,
+body[data-theme="dark"] .rating-hint {color:var(--fg)!important}
+body[data-theme="dark"] .review-form-title small,
+body[data-theme="dark"] .review-score small,
+body[data-theme="dark"] .review-comment,
+body[data-theme="dark"] .review-field>span small {color:var(--mut)!important}
+body[data-theme="dark"] .review-submit {
+  background:linear-gradient(135deg,var(--or),var(--or2))!important;
+  color:#111824!important;
+  border-color:var(--or)!important;
+}
+body[data-theme="dark"] .review-score>span,
+body[data-theme="dark"] .star-choice.selected {color:var(--or-ink)!important}
+
 </style>
 </head>
 <body>
