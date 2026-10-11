@@ -93,23 +93,193 @@ h2{font-size:22px;font-weight:800}.sub{color:var(--mut);margin:0 0 12px;font-siz
 .own input,.own textarea{width:100%;padding:11px 13px;border-radius:12px;border:1px solid var(--line);font-size:15px}
 footer{background:#1f2430;color:#cbd0dc;text-align:center;padding:22px;margin-top:50px;font-size:14px}
 footer .ow{color:#cbd0dc}
+.fc.na{opacity:.55}.fc.na .pl{display:none}.er{color:#c00;font-size:13px;margin:6px 0}.bnr{background:#fff0f0;border:1px solid #f3c1c1;color:#a40000;border-radius:12px;padding:10px 14px;margin:10px 0;font-weight:600}#bn:empty{display:none}#rv select,#rv input,#rv textarea{width:100%;margin-top:6px;border:2px solid var(--line);border-radius:12px;padding:10px;font-size:14px}#rv form{margin-top:14px}
+/* ===== سپیدار / تجربه‌ی بصری نسل جدید ===== */
+:root{
+ --or:#eb672d;--or2:#ffad58;--soft:#fff0e4;--fg:#202820;--mut:#71776d;--line:#ece5d9;
+ --forest:#142b23;--forest2:#203d31;--cream:#fffaf1;--card:#fffdf8;--sage:#bfd0a6;
+ --shadow:0 18px 45px #3c2a1610;--mx:0;--my:0;
+}
+html{scroll-behavior:smooth;scroll-padding-top:96px}
+body{
+ color:var(--fg);background:
+ radial-gradient(ellipse at 7% 13%,#ffb15a18,transparent 29rem),
+ radial-gradient(ellipse at 94% 40%,#b0cba022,transparent 34rem),
+ linear-gradient(180deg,#fffdf9 0%,#fbf8f0 52%,#fffaf4 100%);
+}
+body:before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.18;background-image:radial-gradient(#9d8060 0.55px,transparent .55px);background-size:7px 7px;mask-image:linear-gradient(to bottom,black,transparent 65%)}
+#scrollProgress{position:fixed;top:0;right:0;width:100%;height:3px;z-index:100;background:linear-gradient(90deg,var(--or2),#ffd9a6,var(--or));transform:scaleX(0);transform-origin:right center;box-shadow:0 0 12px #ff7a3c66;pointer-events:none}
+.w{max-width:1180px;padding-inline:clamp(14px,3.2vw,30px)}
+header{background:#fffdf8df;border-bottom:1px solid #e8dfd2aa;backdrop-filter:blur(18px) saturate(1.2);-webkit-backdrop-filter:blur(18px) saturate(1.2);box-shadow:0 5px 20px #28201608}
+header .w{height:70px}
+.logo{font-size:21px;letter-spacing:-.35px;text-shadow:0 2px 18px #ff8b3520}
+.hd .btn{border-radius:15px;padding:11px 18px;box-shadow:0 9px 22px #eb672d26;transition:transform .2s,box-shadow .2s}
+.btn{background:linear-gradient(135deg,var(--or),#f47d34 66%,var(--or2));border-radius:14px;box-shadow:0 8px 18px #eb672d20;transition:transform .2s,box-shadow .2s,filter .2s}
+.btn:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 13px 26px #eb672d36;filter:saturate(1.07)}
+.btn:focus-visible,.chip:focus-visible,.pl:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #f4ad70;outline-offset:3px}
+.btn:disabled{opacity:.55;cursor:not-allowed;box-shadow:none}
+.sr{padding-top:17px;position:relative;z-index:1}
+.sr input{border-color:#e8dfd2;background:#fffdf9ed;box-shadow:0 8px 26px #34221408;padding:14px 18px;border-radius:17px;transition:border-color .2s,box-shadow .2s}
+.sr input:focus{border-color:var(--or);box-shadow:0 0 0 4px #eb672d14,0 8px 26px #34221408}
+.hero-scene{
+ margin-top:17px;min-height:365px;padding:clamp(24px,4.5vw,52px);
+ border:1px solid #ffffff20;border-radius:30px;display:grid;grid-template-columns:minmax(0,1.04fr) minmax(260px,.96fr);
+ align-items:center;gap:18px;position:relative;isolation:isolate;overflow:hidden;color:#fff;
+ background:radial-gradient(ellipse at 76% 50%,#375644 0%,transparent 35%),
+ radial-gradient(ellipse at 4% 110%,#e86a2d4a 0%,transparent 44%),
+ linear-gradient(122deg,#12281f 0%,#1c382b 52%,#243d2b 100%);
+ box-shadow:0 24px 65px #23362924,inset 0 1px #ffffff16;perspective:1100px;
+}
+.hero-scene:before{content:"";position:absolute;inset:-30%;z-index:-1;opacity:.18;background:repeating-linear-gradient(125deg,transparent 0 44px,#d5e5ca12 45px 46px,transparent 47px 90px);transform:translate3d(calc(var(--mx)*-12px),calc(var(--my)*-9px),0)}
+.hero-scene:after{content:"";position:absolute;width:430px;height:430px;border:1px solid #e6f0dc12;border-radius:50%;right:30%;top:-45%;z-index:-1;box-shadow:0 0 0 34px #e6f0dc08,0 0 0 70px #e6f0dc05;pointer-events:none}
+.hero-copy{position:relative;z-index:2;max-width:590px}
+.hero-kicker{display:inline-flex;gap:9px;align-items:center;font-size:12px;font-weight:700;letter-spacing:.2px;color:#dce9cf;background:#ffffff0d;border:1px solid #ffffff20;border-radius:30px;padding:7px 12px}
+.hero-kicker i{width:7px;height:7px;background:#a7d78a;border-radius:50%;box-shadow:0 0 12px #9add7d;display:inline-block}
+.hero h1{font-size:clamp(32px,4.6vw,53px);line-height:1.45;letter-spacing:-1.2px;margin:15px 0 8px;font-weight:800}
+.hero h1 strong{color:#ffb66a;text-shadow:0 5px 30px #ff8e3830}
+.hero-copy>p{max-width:490px;color:#e0e8dd;line-height:2;font-size:clamp(13px,1.4vw,15.5px);margin:0}
+.hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-top:23px}
+.hero-cta{display:inline-flex;align-items:center;gap:12px;background:linear-gradient(135deg,#ff9a50,#ffc17e);color:#233126;padding:12px 19px;font-weight:800}
+.hero-note{font-size:11.5px;color:#c7d5c3}
+.hero-visual{height:280px;position:relative;display:grid;place-items:center;transform-style:preserve-3d;transform:translate3d(calc(var(--mx)*9px),calc(var(--my)*7px),0);transition:transform .25s ease-out}
+.plate{position:absolute;width:min(68%,270px);aspect-ratio:1;border-radius:50%}
+.plate-back{background:linear-gradient(145deg,#68806b,#283d30);transform:translate3d(18px,13px,-18px) rotateX(58deg) rotateZ(22deg);box-shadow:0 28px 32px #07160d75,inset 0 3px #ffffff2b}
+.plate-front{display:grid;place-items:center;background:radial-gradient(circle,#fff9e9 0 53%,#e5dac5 54% 59%,#f5eddf 60% 68%,#c3b49d 69% 71%,#ede2d0 72%);transform:translate3d(-2px,-3px,32px) rotateX(56deg) rotateZ(-18deg);box-shadow:0 27px 36px #06160c6a,inset 0 5px #ffffffdb}
+.hero-food{font-size:clamp(88px,10vw,128px);filter:drop-shadow(0 17px 12px #1a241e42);transform:translate3d(0,-26px,75px) rotateX(-56deg) rotateZ(18deg) rotate(-7deg);animation:foodHover 5s ease-in-out infinite;line-height:1}
+.hero-orbit{position:absolute;border:1px solid #e7f3df39;border-radius:50%;width:80%;height:44%;transform:rotate(-22deg) rotateX(57deg);pointer-events:none}
+.orbit-b{width:96%;height:59%;transform:rotate(32deg) rotateX(62deg);border-color:#ffbe7b35}
+.hero-float{position:absolute;display:flex;align-items:center;gap:8px;z-index:4;border:1px solid #ffffff27;background:#eff5e7ed;color:#263529;padding:10px 13px;border-radius:15px;box-shadow:0 14px 28px #06180f45;font-size:12px;font-weight:800;backdrop-filter:blur(10px);animation:floatBadge 5.5s ease-in-out infinite}
+.float-top{top:16%;right:0}.float-top>span{color:#e46e30;font-size:18px}
+.float-bottom{bottom:12%;left:0;animation-delay:-2s}.float-bottom b{display:grid;place-items:center;background:#eb672d;color:white;border-radius:10px;min-width:27px;height:27px}
+.hero-spark{position:absolute;color:#ffc887;text-shadow:0 0 18px #ffa34d9c;font-size:27px}.spark-one{top:9%;left:22%}.spark-two{bottom:9%;right:14%;font-size:37px}
+@keyframes foodHover{0%,100%{translate:0 0}50%{translate:0 -8px}}
+@keyframes floatBadge{0%,100%{translate:0 0}50%{translate:0 -6px}}
+.cats{top:70px;background:#fffdf8e8;border-block:1px solid #e8dfd2a8;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);padding:11px max(16px,calc((100vw - 1120px)/2));box-shadow:0 7px 16px #37281708}
+.chip{border-color:#e7ddcf;background:#fffdf8;border-radius:15px;padding:8px 14px;transition:background .18s,border-color .18s,transform .18s,box-shadow .18s}
+.chip:hover{border-color:#e6a77d;transform:translateY(-1px)}
+.chip.on{background:linear-gradient(135deg,#fff0e1,#fff9ed);border-color:#ee9b69;color:#a83c16;box-shadow:inset 0 0 0 1px #eb672d0e}
+main{padding-bottom:90px}
+.hint{font-size:13px;line-height:1.9}
+.ct{font-size:clamp(20px,2.5vw,26px);letter-spacing:-.45px;margin:26px 0 13px;display:flex;align-items:center;gap:10px}
+.ct:before{content:"";width:5px;height:25px;background:linear-gradient(var(--or2),var(--or));border-radius:5px;box-shadow:0 0 12px #eb672d22}
+.mg{gap:17px;grid-template-columns:repeat(auto-fill,minmax(min(100%,190px),1fr))}
+.fc{position:relative;border:1px solid #e9dfd1;border-radius:23px;background:linear-gradient(155deg,#fffefa,#fffaf1);box-shadow:0 6px 17px #35220d08;transform:perspective(1000px) translateY(0) rotateX(0deg);transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease;backface-visibility:hidden}
+.fc:before{content:"";position:absolute;inset:0;border-radius:inherit;z-index:0;pointer-events:none;background:linear-gradient(135deg,#ffffff8c,transparent 38%);opacity:.55}
+.fc:hover{border-color:#e8bd99;box-shadow:0 18px 34px #4b2a1317,0 2px 6px #eb672d0d;transform:perspective(1000px) translateY(-5px) rotateX(2deg) rotateY(-1deg)}
+.ph{height:174px;background:radial-gradient(ellipse at 50% 30%,#ffffff9c,transparent 64%),linear-gradient(135deg,#fae7cf,#f2d7b8);isolation:isolate}
+.fe{filter:drop-shadow(0 11px 10px #6b47263c);text-shadow:0 1px #ffffff75}
+.pxc{z-index:2}
+.fc .fb{position:relative;z-index:1;padding:14px 15px 15px}
+.fb b{font-size:15.5px;line-height:1.6}
+.fb small{font-size:12.5px;min-height:38px}
+.pr{color:#c94f1d;padding-top:12px;font-size:14px}
+.pl{background:linear-gradient(135deg,var(--or),#f68d3b);box-shadow:0 6px 13px #eb672d3b;transition:transform .18s}
+.pl:hover{transform:scale(1.06)}
+.fc.na{filter:grayscale(.18);opacity:.66}
+#bar{background:linear-gradient(105deg,#173327,#28523d);border:1px solid #6e90753b;box-shadow:0 17px 38px #183b2e4a;border-radius:19px;padding:14px 19px;backdrop-filter:blur(14px);transition:transform .2s,box-shadow .2s}
+#bar:hover{transform:translateY(-3px);box-shadow:0 20px 44px #183b2e55}
+#ts{background:#1a2c22;border:1px solid #ffffff20;box-shadow:0 14px 35px #0002;border-radius:14px}
+.ov{background:#10201791;backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px)}
+.sh{background:linear-gradient(165deg,#fffefa,#fff8ed);border:1px solid #ffffffa6;box-shadow:0 26px 80px #07190e40}
+.stk{box-shadow:inset 0 -24px 35px #24372a09}
+.stb{background:#fffaf2ee;border-top:1px solid #eee2d3;backdrop-filter:blur(12px)}
+.lb{font-weight:800}
+.sh textarea,.sh input{background:#fffdf9;border-color:#e7ddcf}
+.qt button,.qs button{border-color:#e3a27a;color:#c75320;background:#fffaf2}
+.qs button:hover{background:#fff0e4}
+.x{background:#fff0e4}
+.low{margin-top:70px}
+.why{border-color:#e4dacb;border-radius:30px;box-shadow:var(--shadow)}
+.why .l{background:radial-gradient(circle at 10% 10%,#ffffff20,transparent 42%),linear-gradient(145deg,#e9652d,#b94720);padding:clamp(23px,4vw,36px)}
+.why .l h2{font-size:25px}
+.why .r{background:#fffdf8}
+.why .r div{padding:18px 24px;border-color:#eee5d8}
+.why .r b{color:#bd4d21}
+.tl{gap:20px;margin-top:29px}
+.tl div{padding:18px 12px;border:1px solid #ebe1d3;border-radius:22px;background:#fffdf8a8;box-shadow:0 8px 22px #38271208;transition:transform .22s,box-shadow .22s}
+.tl div:hover{transform:translateY(-4px);box-shadow:0 15px 28px #38271212}
+.tl div span{background:linear-gradient(135deg,#e9672e,#f8a24f);box-shadow:0 7px 17px #eb672d30}
+.own{gap:18px;margin-top:50px}
+.own .a{position:relative;overflow:hidden;background:radial-gradient(circle at 85% 0%,#ffffff22,transparent 35%),linear-gradient(145deg,#18382a,#244c37);border:1px solid #ffffff15;box-shadow:0 20px 42px #1c372a20;padding:clamp(23px,4vw,34px)}
+.own .a:after{content:"";position:absolute;left:-35px;bottom:-80px;width:210px;height:210px;border:1px solid #ffffff18;border-radius:50%;box-shadow:0 0 0 22px #ffffff08,0 0 0 45px #ffffff05;pointer-events:none}
+.own form{background:#fffdf8;border-color:#e8dfd3;box-shadow:var(--shadow);border-radius:25px}
+.own input,.own textarea{background:#fffaf2;border-color:#e4dacd}
+#rv .ord{background:#fffdf8;border-color:#e7ddd0;box-shadow:0 7px 20px #3e29100a}
+#rv form{padding:18px;background:#fffdf8;border:1px solid #e8dfd3;border-radius:24px}
+#rv .btn{margin-top:10px}
+footer{background:linear-gradient(110deg,#12281f,#203d30);border-top:3px solid #e76b31;color:#d3e1d0;padding:28px 16px}
+@media(max-width:760px){
+ .hero-scene{grid-template-columns:1fr;gap:0;padding:25px 22px 16px;border-radius:25px;min-height:unset}
+ .hero-copy{order:0}.hero h1{font-size:clamp(31px,7.8vw,43px);margin-top:12px}
+ .hero-copy>p{font-size:13.5px;max-width:100%}
+ .hero-actions{margin-top:18px;gap:11px}.hero-note{font-size:10.5px}
+ .hero-visual{height:218px;margin-top:7px}
+ .plate{width:204px}.hero-food{font-size:97px}
+ .float-top{top:9%;right:1%}.float-bottom{bottom:3%;left:1%}
+ .hero-spark.spark-one{top:5%;left:14%}
+ .mg{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+ .ph{height:clamp(130px,39vw,175px)}
+ .fc{border-radius:18px}
+ .fc:hover{transform:translateY(-2px)}
+ .fc .fb{padding:11px 10px 12px}
+ .fb b{font-size:14px}.fb small{font-size:11.5px;min-height:34px}
+ .pr{font-size:12px}.pl{width:29px;height:29px}
+ .why .l{padding:22px}.why .r div{padding:13px 17px}
+ .tl{gap:10px}.tl div{padding:15px 8px;border-radius:17px;font-size:13px}
+ .tl small{font-size:11px}
+ .own{margin-top:35px}
+ .sh{padding:14px 15px 22px;max-height:94dvh}
+}
+@media(max-width:380px){
+ .hero-scene{padding:20px 17px 12px}
+ .hero-note{max-width:170px;line-height:1.7}
+ .mg{gap:8px}.ph{height:125px}
+ .fb b{font-size:13px}
+ .fb small{font-size:11px}
+}
+@media(prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto}
+ *,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+ .hero-visual{transform:none!important}
+}
+@media(hover:none){.fc:hover,.tl div:hover{transform:none}}
+
 </style>
 </head>
 <body>
 <header><div class="w">
 <div class="logo" id="lg"></div>
-<div class="hd"><button class="ow">🔒 ورود رستوران‌دار</button><button class="btn" id="cb">🛒 <span id="cc"></span></button></div>
+<div class="hd"><button class="btn" id="cb">🛒 <span id="cc"></span></button></div>
 </div></header>
 
 <div class="w">
 <div class="sr"><input id="q" placeholder="🔍 جستجوی غذا..." aria-label="جستجو"></div>
-<div class="hero"><span>برای سفارش و شخصی‌سازی غذا به پایین بروید 👇</span><button class="btn" id="go">حالا بساز</button></div>
+<section class="hero hero-scene" aria-label="معرفی سفارش آنلاین سپیدار">
+  <div class="hero-copy">
+    <span class="hero-kicker"><i></i> تجربه‌ی تازه‌ی سفارش غذا</span>
+    <h1>غذای دلخواهت،<br><strong>با سلیقه‌ی خودت.</strong></h1>
+    <p>غذایت را انتخاب کن، مواد و مخلفات را تغییر بده و سفارش را مستقیم برای آشپزخانه بفرست.</p>
+    <div class="hero-actions">
+      <button class="btn hero-cta" id="go">دیدن منو <span aria-hidden="true">←</span></button>
+      <span class="hero-note">منوی زنده · انتخاب‌های دلخواه · سفارش آسان</span>
+    </div>
+  </div>
+  <div class="hero-visual" aria-hidden="true">
+    <div class="hero-orbit orbit-a"></div><div class="hero-orbit orbit-b"></div>
+    <div class="plate plate-back"></div><div class="plate plate-front"><span class="hero-food">🍔</span></div>
+    <div class="hero-float float-top"><span>✦</span> انتخابِ خودت</div>
+    <div class="hero-float float-bottom"><b>+۱</b><span>مخلفات دلخواه</span></div>
+    <span class="hero-spark spark-one">✦</span><span class="hero-spark spark-two">✧</span>
+  </div>
+</section>
 </div>
 
 <div class="cats" id="cats"></div>
 <main class="w">
+<div id="bn"></div>
 <p class="hint">روی ➕ بزنید تا سریع اضافه شود، روی خود غذا بزنید تا هر چیزی را تغییر دهید؛ در پنجره غذا، با کشیدن انگشت آن را به هر طرف بچرخانید.</p>
 <div id="menu"></div>
+<section id="rv" style="margin-top:32px"></section>
 
 <div class="low">
 <section id="why">
@@ -136,34 +306,31 @@ footer .ow{color:#cbd0dc}
 <section class="own" id="own">
 <div class="a">
 <h2>برای رستوران‌دارها</h2>
-<ul><li>✓ طراحی و راه‌اندازی سایت اختصاصی</li><li>✓ پنل مدیریت سفارش‌ها با جزئیات کامل</li><li>✓ ورود به پنل با کد دسترسی، پس از تأیید سپیدار</li><li>✓ اتصال به پرداخت اینترنتی و پیک (در صورت نیاز)</li></ul>
+<ul><li>✓ طراحی و راه‌اندازی سایت اختصاصی</li><li>✓ پنل مدیریت سفارش‌ها با جزئیات کامل</li></ul>
 <div class="pills" style="margin-top:12px"><span>راه‌اندازی: یک‌بار</span><span>اشتراک پشتیبانی</span><span>سهم از سفارش (اختیاری)</span></div>
 </div>
-<form id="f"><b>درخواست مشاوره و دریافت کد دسترسی</b>
-<input required placeholder="نام رستوران" aria-label="نام رستوران">
-<input required placeholder="شماره تماس" inputmode="tel" aria-label="شماره تماس">
-<textarea rows="2" placeholder="توضیحات (اختیاری)" aria-label="توضیحات"></textarea>
-<button class="btn">ارسال</button><div id="ok" style="color:#11773a;font-weight:600"></div>
+<form id="f"><b>درخواست همکاری با سپیدار</b>
+<input required name="restaurant_name" maxlength="60" placeholder="نام رستوران" aria-label="نام رستوران">
+<input required name="phone" maxlength="20" placeholder="شماره تماس" inputmode="tel" aria-label="شماره تماس">
+<textarea name="note" maxlength="400" rows="2" placeholder="توضیحات (اختیاری)" aria-label="توضیحات"></textarea>
+<button class="btn">ارسال</button><div id="ok" style="font-weight:600"></div>
 </form>
 </section>
 </div>
 </main>
-<footer>© هلدینگ سپیدار — SEPIDAR GROUP · <span id="ph"></span> · <button class="ow">ورود رستوران‌دار</button></footer>
+<footer>© هلدینگ سپیدار — SEPIDAR GROUP · <span id="ph"></span></footer>
 
 <div id="bar"><span id="bc"></span><span id="bt"></span></div>
 <div id="ts"></div>
 <div class="ov" id="ov"><div class="sh" id="sh"></div></div>
 
 <script>
-/* ============================================================
-   ۱) اطلاعات رستوران — اینجا را ویرایش کنید
-   ============================================================ */
-const SHOP={name:'رستوران نمونه',slogan:'',phone:'۰۲۱-۰۰۰۰۰۰۰۰'};
-
-/* کدهای دسترسی پنل رستوران‌دار — بعد از تأیید هر رستوران، یک کد برایش اینجا اضافه کنید.
-   توجه: چون این فایل فقط سمت مرورگر است، این قفل امنیت کامل ندارد؛
-   برای امنیت واقعی باید بعداً به سرور (بک‌اند) وصل شود. */
-const OWNER_CODES=['SEPIDAR-1234'];
+/* اتصال به API واقعی پنل: اطلاعات رستوران و منو از سرور می‌آیند؛ ?r= شناسه رستوران است. */
+const API='https://sepidar-restaurant-panel.willow-poppy-10df.workers.dev';
+const RID_RAW=new URLSearchParams(location.search).get('r');
+const RID=RID_RAW===null?'main':RID_RAW;
+const RID_OK=/^[a-z0-9-]{1,40}$/.test(RID);
+let SHOP={name:'',phone:'',status:'',accepting:false};
 
 /* ============================================================
    ۲) گزینه‌های شخصی‌سازی: g(عنوان, 'one' یا 'many', [[نام, قیمت اضافه], ...])
@@ -172,66 +339,15 @@ const OWNER_CODES=['SEPIDAR-1234'];
    ============================================================ */
 const g=(t,type,list)=>({t,type,list});
 
-/* ============================================================
-   ۳) منو — هر دسته: نام، ایموجی، رنگ پس‌زمینه، گزینه‌ها، حذف‌ها، غذاها
-      هر غذا: [نام, توضیح, قیمت(تومان), ایموجی, آدرس عکس, آدرس مدل سه‌بعدی .glb]
-      - عکس: آدرس اینترنتی یا نام فایل (مثل 'images/pizza.jpg') — خالی = فقط ایموجی سه‌بعدی
-      - مدل سه‌بعدی واقعی (اختیاری): آدرس فایل .glb در خانه ششم؛ در پنجره غذا چرخان نمایش داده می‌شود
-   ============================================================ */
-const CATS=[
-{id:'burger',n:'برگر',e:'🍔',c:['#ffe0c2','#ffb36b'],
- opts:[g('نوع پروتئین','one',[['گوشت',0],['مرغ',-15000],['وگان',-10000]]),
-  g('اضافات','many',[['پنیر چدار',15000],['قارچ',12000],['هالوپینو',8000],['بیکن',25000],['تخم‌مرغ',10000]]),
-  g('سس','many',[['سس مخصوص',5000],['سس قارچ',8000],['سس چیلی',5000],['سس سیر',5000]]),
-  g('همراه (کنار برگر نمایش داده می‌شود)','one',[['بدون همراه',0],['سیب‌زمینی',30000],['نوشابه',20000],['سیب‌زمینی + نوشابه',50000]])],
- rem:['بدون پیاز','بدون ترشی','بدون کاهو','بدون گوجه','بدون پنیر','بدون سس'],
- items:[['برگر کلاسیک','گوشت گریل، کاهو، گوجه، ترشی',185000,'🍔','','',{b:'ltpo'}],['چیزبرگر','دو لایه پنیر چدار',210000,'🧀','','',{b:'ltpoc'}],['دبل برگر','دو پتی گوشت',265000,'🍔','','',{b:'ltpoc',d:1}],['برگر مرغ کریسپی','فیله مرغ سوخاری',175000,'🍗','','',{b:'ltpo',s:{0:1}}]]},
-{id:'pizza',n:'پیتزا',e:'🍕',c:['#ffd9d0','#ff9f8a'],
- opts:[g('سایز','one',[['متوسط',0],['کوچک',-40000],['بزرگ',60000]]),
-  g('نوع خمیر','one',[['نازک',0],['ضخیم',10000],['لبه پنیری',25000]]),
-  g('اضافات','many',[['پنیر اضافه',20000],['قارچ',12000],['زیتون',10000],['پپرونی',25000],['فلفل دلمه',8000]])],
- rem:['بدون پیاز','بدون فلفل','بدون زیتون','بدون قارچ','بدون پپرونی','بدون ریحان'],
- items:[['مارگاریتا','پنیر موزارلا و ریحان',220000,'🍕','','',{b:'b'}],['پپرونی','سوسیس پپرونی تند',260000,'🍕','','',{b:'po'}],['مخصوص','ژامبون، قارچ، فلفل',285000,'🍕','','',{b:'hmgon'}],['مرغ و قارچ','مرغ گریل و قارچ',270000,'🍕','','',{b:'cmn'}]]},
-{id:'kebab',n:'کباب و غذای ایرانی',e:'🍢',c:['#fde7c8','#f4b96a'],
- opts:[g('مقدار','one',[['یک سیخ',0],['دو سیخ',110000]]),
-  g('همراه','one',[['برنج',0],['نان سنگک',-15000],['برنج + نان',10000]]),
-  g('اضافات','many',[['گوجه کبابی',10000],['کره',8000],['سماق',0],['زعفران بیشتر',15000],['سالاد شیرازی',25000]])],
- rem:['بدون پیاز','بدون ریحان','بدون ترشی','بدون گوجه'],
- items:[['چلوکباب کوبیده','دو سیخ کوبیده با برنج',240000,'🍢','','',{f:'k',b:'otrp'}],['جوجه کباب','سینه مرغ زعفرانی',230000,'🍗','','',{f:'j',b:'otrp'}],['چلوکباب برگ','فیله گوساله',320000,'🥩','','',{f:'v',b:'otrp'}],['زرشک‌پلو با مرغ','مرغ و زرشک',210000,'🍛','','',{f:'Z',b:'otr'}]]},
-{id:'sand',n:'ساندویچ',e:'🥪',c:['#fff0c9','#ffd36b'],
- opts:[g('نوع نان','one',[['باگت',0],['تورتیلا',0],['نان همبرگر',-10000]]),
-  g('اضافات','many',[['پنیر',12000],['قارچ',10000],['ذرت',6000],['ژامبون',15000]]),
-  g('سس','many',[['سس کچاپ',0],['سس مایونز',0],['سس تند',0],['سس سیر',5000]])],
- rem:['بدون پیاز','بدون ترشی','بدون کاهو','بدون گوجه','بدون سس'],
- items:[['ساندویچ فیله مرغ','مرغ گریل و سبزیجات',150000,'🥪','','',{f:'c',b:'ltop'}],['هات‌داگ ویژه','سوسیس آلمانی',120000,'🌭','','',{f:'s',b:'op'}],['فلافل','نخود، سبزی و ادویه',90000,'🧆','','',{f:'f',b:'ltop'}],['رپ مرغ','تورتیلا و مرغ',140000,'🌯','','',{f:'c',b:'ltop',s:{0:1}}]]},
-{id:'start',n:'پیش‌غذا و سالاد',e:'🥗',c:['#e6f6d8','#a9dc7c'],
- opts:[g('اندازه','one',[['معمولی',0],['کوچک',-20000],['بزرگ',30000]]),
-  g('سس','many',[['سس ران',5000],['سس پنیر',10000],['سس چیلی',5000],['سس سیر',5000]]),
-  g('اضافات','many',[['پنیر پارمزان',15000],['مرغ گریل',35000],['زیتون',10000]])],
- rem:['بدون پیاز','بدون ادویه','بدون کروتون','بدون پارمزان','بدون زیتون','بدون خیار','بدون گوجه','بدون فتا','بدون سس'],
- items:[['سالاد سزار','کاهو، مرغ، پارمزان',130000,'🥗','','',{f:'C',b:'up'}],['سالاد یونانی','خیار، گوجه، فتا',120000,'🥗','','',{f:'G',b:'qtfon'}],['سیب‌زمینی سرخ‌کرده','طلایی و ترد',75000,'🍟','','',{f:'F',b:'x'}],['حلقه پیاز','سوخاری',85000,'🧅','','',{f:'O',b:'x'}]]},
-{id:'drink',n:'نوشیدنی',e:'🥤',c:['#d9eefe','#8cc9f5'],
- opts:[g('اندازه','one',[['متوسط',0],['کوچک',-10000],['بزرگ',15000]]),
-  g('یخ','one',[['یخ معمولی',0],['بدون یخ',0],['یخ زیاد',0]]),
-  g('شیرینی','one',[['شیرینی معمولی',0],['کم‌شیرین',0],['بدون شکر',0]])],
- rem:['بدون نی','بدون نعنا','بدون لیمو','بدون خامه'],
- items:[['نوشابه','انتخاب طعم با شما',25000,'🥤','','',{f:'D',b:'s'}],['دوغ','محلی',20000,'🥛','','',{f:'Q',b:'sn'}],['لیموناد','لیمو و نعنا',45000,'🍋','','',{f:'L',b:'sln'}],['میلک‌شیک شکلات','بستنی و شکلات',85000,'🥤','','',{f:'M',b:'sm'}]]},
-{id:'dessert',n:'دسر',e:'🍰',c:['#ffe3ee','#ff9fc2'],
- opts:[g('اندازه','one',[['تک‌نفره',0],['دونفره',70000]]),
-  g('رویه','many',[['سس شکلات',8000],['بستنی وانیل',20000],['گردو',10000],['خامه',8000]])],
- rem:['بدون خامه','بدون بلوبری'],
- items:[['چیزکیک','بلوبری یا کارامل',95000,'🍰','','',{f:'C',b:'mb'}],['بستنی','سه اسکوپ',60000,'🍨','','',{f:'I',b:'m'}],['کیک شکلاتی','گرم با سس',85000,'🍫','','',{f:'K',b:'m'}],['کرم کارامل','سنتی',70000,'🍮','','',{f:'F',b:'m'}]]}
-];
+/* منو از API دریافت می‌شود (تابع boot). */
+let CATS=[];
 
 /* ============================================================
    از اینجا به پایین کد برنامه است؛ معمولاً نیازی به تغییر نیست
    ============================================================ */
 const F=n=>n.toLocaleString('fa-IR'),$=s=>document.querySelector(s);
-let cat='all',q='',cur=null,mode='',cart=[],orders=[],owner=0,who='';
-const stN=['جدید','در حال آماده‌سازی','آماده تحویل'];
-try{orders=JSON.parse(localStorage.getItem('sp_orders')||'[]')}catch(e){}
-const save=()=>{try{localStorage.setItem('sp_orders',JSON.stringify(orders))}catch(e){}};
-$('#lg').textContent='🍽️ '+SHOP.name;$('#ph').textContent=SHOP.phone;
+let cat='all',q='',cur=null,mode='',cart=[],who='';
+const applyShop=()=>{$('#lg').textContent='🍽️ '+(SHOP.name||'سپیدار');$('#ph').textContent=SHOP.phone||''};applyShop();
 $('#go').onclick=()=>$('#cats').scrollIntoView({behavior:'smooth'});
 
 function renderCats(){$('#cats').innerHTML=[{id:'all',n:'همه',e:'✨'},...CATS].map(c=>`<button class="chip${c.id==cat?' on':''}" data-c="${c.id}">${c.e} ${c.n}</button>`).join('')}
@@ -246,9 +362,9 @@ const tags=x=>x.o.map(t=>`<span class="tg">${t}</span>`).join('')+x.r.map(t=>`<s
 function renderMenu(){let h='';
  CATS.forEach(c=>{if(cat!='all'&&cat!=c.id)return;
   const its=c.items.map((it,i)=>[it,i]).filter(([it])=>!q||(it[0]+it[1]).includes(q));if(!its.length)return;
-  h+=`<h2 class="ct">${c.e} ${c.n}</h2><div class="mg">${its.map(([it,i])=>`<article class="fc" data-k="${c.id}:${i}">${ph(c,it,'',0,i)}<div class="fb"><b>${it[0]}</b><small>${it[1]}</small><div class="pr"><span>${F(it[2])} تومان</span><button class="pl" aria-label="افزودن سریع">+</button></div></div></article>`).join('')}</div>`});
+  h+=`<h2 class="ct">${c.e} ${c.n}</h2><div class="mg">${its.map(([it,i])=>`<article class="fc${it[6]&&it[6].na?' na':''}" data-k="${c.id}:${i}">${ph(c,it,'',0,i)}<div class="fb"><b>${it[0]}</b><small>${it[1]}</small><div class="pr"><span>${F(it[2])} تومان</span><button class="pl" aria-label="افزودن سریع">+</button></div></div></article>`).join('')}</div>`});
  $('#menu').innerHTML=h||'<p class="em">موردی پیدا نشد</p>';paintAll()}
-$('#menu').onclick=e=>{const a=e.target.closest('[data-k]');if(!a)return;const[k,i]=a.dataset.k.split(':');e.target.closest('.pl')?quick(k,+i):openItem(k,+i)};
+$('#menu').onclick=e=>{const a=e.target.closest('[data-k]');if(!a)return;const[k,i]=a.dataset.k.split(':'),cc=CATS.find(x=>x.id==k),m=cc&&cc.items[+i]&&cc.items[+i][6];if(m&&m.na){toast('این غذا فعلاً موجود نیست');return}e.target.closest('.pl')?quick(k,+i):openItem(k,+i)};
 
 /* --- ساخت یک ردیف سفارش --- */
 /* ===== موتور سه‌بعدی ووکسلی: همه غذاها، چرخش آزاد به هر جهت، کیفیت بالا ===== */
@@ -277,7 +393,7 @@ const phyl=(n,R,i)=>{const a=i*2.39996,p=(.1+.82*sq((i+.5)/n))*R;return[p*Math.c
 const RMS={pizza:{'بدون پیاز':'n','بدون فلفل':'g','بدون زیتون':'o','بدون قارچ':'m','بدون پپرونی':'p','بدون ریحان':'b'},burger:{'بدون پیاز':'o','بدون ترشی':'p','بدون کاهو':'l','بدون گوجه':'t','بدون پنیر':'c'},sand:{'بدون پیاز':'o','بدون ترشی':'p','بدون کاهو':'l','بدون گوجه':'t'},kebab:{'بدون پیاز':'o','بدون ریحان':'r','بدون ترشی':'p','بدون گوجه':'t'},start:{'بدون پیاز':'n','بدون ادویه':'x','بدون کروتون':'u','بدون پارمزان':'p','بدون زیتون':'o','بدون خیار':'q','بدون گوجه':'t','بدون فتا':'f'},drink:{'بدون نی':'s','بدون نعنا':'n','بدون لیمو':'l','بدون خامه':'m'},dessert:{'بدون خامه':'m','بدون بلوبری':'b'}};
 const XS={pizza:{'پپرونی':'p','قارچ':'m','زیتون':'o','فلفل دلمه':'g'},burger:{'پنیر چدار':'c','قارچ':'m','هالوپینو':'j','بیکن':'k','تخم‌مرغ':'e'},sand:{'پنیر':'c','قارچ':'m','ذرت':'q','ژامبون':'h'},kebab:{'گوجه کبابی':'t','کره':'u','سماق':'m','زعفران بیشتر':'y','سالاد شیرازی':'s'},start:{'پنیر پارمزان':'p','مرغ گریل':'c','زیتون':'o'},dessert:{'سس شکلات':'s','بستنی وانیل':'i','گردو':'w','خامه':'m'}};
 function recipe(c,it,sel,rm){const nm=[];c.opts.forEach((o,gi)=>[...sel[gi]].forEach(i=>nm.push(o.list[i][0])));
- const has=s=>nm.includes(s),m=it[6]||{},rn=[...rm].map(i=>c.rem[i]),k=c.id;let b=m.b||'';
+ const has=s=>nm.includes(s),m=it[6]||{},rn=[...rm].map(i=>remList(c,it)[i]),k=c.id;let b=m.b||'';
  rn.forEach(r=>{const l=RMS[k]&&RMS[k][r];if(l)b=b.split(l).join('')});
  nm.forEach(n=>{const l=XS[k]&&XS[k][n];if(l)b+=b.toLowerCase().includes(l)?l.toUpperCase():l});
  const sas=nm.map(n=>SAUCE[n]).filter(Boolean);
@@ -469,7 +585,7 @@ function buildDessert(rc){const F=rc.f,B=rc.b,sc=rc.sz==2?1.18:1,PR=46*sc,CM='#f
 /* ---- ساخت صحنه ---- */
 const BLD={burger:buildBurger,sand:buildBurger,pizza:buildPizza,kebab:buildKebab,start:buildStart,drink:buildDrink,dessert:buildDessert};
 function ensure(rc){const key=JSON.stringify(rc);if(key==BK)return;BK=key;V.fill(0);C0.fill(32767);C1.fill(-1);PAL=[0];GL=[0];GS=[0];PM={};EX=[1e9,-1,1e9,-1,1e9,-1];
- BLD[rc.k](rc);if(rc.k=='burger'){if(rc.fr)fries(-74,1.25,null,0);if(rc.dr)cup(72,{sz:2,ice:1,sw:0,b:'s'},'D')}
+ if(BLD[rc.k])BLD[rc.k](rc);else{cyl(0,0,0,2,46,'#f6f3ee');sph(0,18,0,22,(x,z,r,h)=>h<6?'#e0a043':r>18?'#d38a34':'#f4c56b',.7)}if(rc.k=='burger'){if(rc.fr)fries(-74,1.25,null,0);if(rc.dr)cup(72,{sz:2,ice:1,sw:0,b:'s'},'D')}
  VC=[(EX[0]+EX[1]+1)/2,(EX[2]+EX[3]+1)/2,(EX[4]+EX[5]+1)/2];let m=0;
  for(let iz=EX[4];iz<=EX[5];iz++)for(let ix=EX[0];ix<=EX[1];ix++){const ci=ix+GX*iz;if(C1[ci]<0)continue;const d=(ix+.5-VC[0])**2+(iz+.5-VC[2])**2+Math.max((C0[ci]-VC[1])**2,(C1[ci]+1-VC[1])**2);if(d>m)m=d}
  BR=sq(m)/Q+1;blurField()}
@@ -625,12 +741,13 @@ const CARD={};let pq=[],pt=0,busy=0;
 const io='IntersectionObserver' in window?new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){io.unobserve(e.target);pq.push(e.target)}});if(pq.length&&!busy)stepPaint()},{rootMargin:'250px'}):null;
 function paintAll(){document.querySelectorAll('canvas[data-k]').forEach(cv=>{if(io)io.observe(cv);else pq.push(cv)});if(!io&&!busy)stepPaint()}
 function showCard(cv,k){if(!cv.isConnected||!CARD[k])return;cv.getContext('2d').drawImage(CARD[k],0,0,cv.width,cv.height);const e=cv.previousSibling;if(e&&e.className=='fe')e.remove()}
+function cardCacheKey(c,it,k){const raw=JSON.stringify([c.id,c.c,c.opts,c.rem,it]);let h=2166136261;for(let i=0;i<raw.length;i++){h^=raw.charCodeAt(i);h=Math.imul(h,16777619)}return 'cd11_'+k.replace(':','_')+'_'+(h>>>0).toString(36)}
 function stepPaint(){const cv=pq.shift();if(!cv){busy=0;return}busy=1;
  if(mode){pq.unshift(cv);pt=setTimeout(stepPaint,500);return}
  const k=cv.dataset.k;let wait=0;
- if(cv.isConnected&&!CARD[k]){let u=null;try{u=localStorage.getItem('cd10_'+k)}catch(e){}
+ if(cv.isConnected&&!CARD[k]){const[a,b]=k.split(':'),c=CATS.find(x=>x.id==a),it=c&&c.items[+b],cacheKey=c&&it?cardCacheKey(c,it,k):null;let u=null;try{if(cacheKey)u=localStorage.getItem(cacheKey)}catch(e){}
   if(u){const im=new Image();im.onload=()=>{const t=document.createElement('canvas');t.width=t.height=256;t.getContext('2d').drawImage(im,0,0);CARD[k]=t;showCard(cv,k)};im.src=u}
-  else{const[a,b]=k.split(':'),c=CATS.find(x=>x.id==a),it=c.items[+b],t=document.createElement('canvas');t.width=t.height=256;draw(t,rcOf(c,it,defSel(c,it),new Set()),M0,256);CARD[k]=t;wait=8;try{localStorage.setItem('cd10_'+k,t.toDataURL('image/webp',.92))}catch(e){}}}
+  else if(c&&it){const t=document.createElement('canvas');t.width=t.height=256;draw(t,rcOf(c,it,defSel(c,it),new Set()),M0,256);CARD[k]=t;wait=8;try{if(cacheKey)localStorage.setItem(cacheKey,t.toDataURL('image/webp',.92))}catch(e){}}}
  showCard(cv,k);pt=setTimeout(stepPaint,wait)}
 /* چرخش آزاد با انگشت: به هر طرف بکشید؛ می‌چرخد و بعد از مدتی آرام می‌ایستد؛ با هر تغییر شخصی‌سازی، به حالت اول برمی‌گردد */
 let M=M0,vx=0,vy=0,drag=0,raf=0,dirty=1,hiq=0,goHome=0,mvd=0,job=null,lastK='',wasMv=0;
@@ -657,7 +774,7 @@ function bindSheet(){const cv=$('#big'),w=$('#phw');cancelAnimationFrame(raf);M=
 function calc(c,it,sel){const s=ss=>c.opts.reduce((a,gr,gi)=>a+[...ss[gi]].reduce((b,i)=>b+gr.list[i][1],0),0);return it[2]+s(sel)-s(defSel(c,it))}
 function line(c,it,sel,rm,qn,note){const o=[];c.opts.forEach((gr,gi)=>[...sel[gi]].forEach(i=>o.push(gr.list[i][0])));
  const cv=document.createElement('canvas');cv.width=cv.height=224;draw(cv,rcOf(c,it,sel,rm),M0,224);
- return{n:it[0],e:it[3],cc:c.c,im:it[4],sn:cv.toDataURL(),p:calc(c,it,sel),q:qn,o,r:[...rm].map(i=>c.rem[i]),note}}
+ const rems=remList(c,it);return{n:it[0],e:it[3],cc:c.c,im:it[4],sn:cv.toDataURL(),p:calc(c,it,sel),q:qn,o,r:[...rm].map(i=>rems[i]),note,iid:it[6]&&it[6].id,sl:Object.fromEntries(c.opts.map((g,gi)=>[U(g.t),[...sel[gi]].map(i=>U(g.list[i][0]))])),rr:[...rm].map(i=>U(rems[i]))}}
 const defSel=(c,it)=>c.opts.map((o,gi)=>new Set(o.type=='one'?[(it&&it[6]&&it[6].s&&it[6].s[gi])||0]:[]));
 function quick(cid,i){const c=CATS.find(x=>x.id==cid);cart.push(line(c,c.items[i],defSel(c,c.items[i]),new Set(),1,''));bar();toast('اضافه شد ✅')}
 
@@ -666,11 +783,11 @@ function openItem(cid,i){const c=CATS.find(x=>x.id==cid);cur={c,it:c.items[i],se
  $('#sh').innerHTML=`<div class="ph stk" id="phw" style="background:linear-gradient(135deg,${c.c[0]},${c.c[1]})"><canvas class="pxc" id="big" width="${HI}" height="${HI}"></canvas><button class="x" data-x="1" style="position:absolute;top:8px;left:8px;z-index:7" aria-label="بستن">✕</button><span class="hnt">👆 بکشید تا هر طرف بچرخد</span></div><div id="ib"></div>`;
  $('#sh').scrollTop=0;$('#ov').classList.add('on');drawItem();bindSheet()}
 const price=()=>calc(cur.c,cur.it,cur.sel);
-const remIdx=()=>{const c=cur.c,bb=(cur.it[6]&&cur.it[6].b)||'',m=RMS[c.id]||{},sas=recipe(c,cur.it,cur.sel,new Set()).sas;return c.rem.map((r,i)=>i).filter(i=>{const r=c.rem[i];return r=='بدون سس'?sas>0:m[r]&&bb.includes(m[r])})};
+const remIdx=()=>{const c=cur.c,list=remList(c,cur.it),bb=(cur.it[6]&&cur.it[6].b)||'',m=RMS[c.id]||{},sas=recipe(c,cur.it,cur.sel,new Set()).sas;return list.map((r,i)=>i).filter(i=>{const r=list[i];return r=='بدون سس'?sas>0:!m[r]||bb.includes(m[r])})};
 function drawItem(){const{c,it}=cur,sc=$('#sh').scrollTop,ri=remIdx();[...cur.rem].forEach(i=>{if(!ri.includes(i))cur.rem.delete(i)});
  $('#ib').innerHTML=`<h2 style="margin:10px 0 0">${it[0]}</h2><p class="sub">${it[1]}</p>`
  +c.opts.map((o,gi)=>`<div class="lb">${o.t}${o.type=='one'?'':' <small>(اختیاری)</small>'}</div><div class="chips">${o.list.map((x,i)=>`<button class="chip${cur.sel[gi].has(i)?' on':''}" data-g="${gi}" data-i="${i}">${x[0]}${x[1]?` ${x[1]>0?'+':'−'}${F(Math.abs(x[1]))}`:''}</button>`).join('')}</div>`).join('')
- +(ri.length?`<div class="lb">حذف مواد</div><div class="chips">${ri.map(i=>`<button class="chip rm${cur.rem.has(i)?' on':''}" data-r="${i}">${c.rem[i]}</button>`).join('')}</div>`:'')
+ +(ri.length?`<div class="lb">حذف مواد</div><div class="chips">${ri.map(i=>`<button class="chip rm${cur.rem.has(i)?' on':''}" data-r="${i}">${E(remList(c,it)[i])}</button>`).join('')}</div>`:'')
  +`<textarea id="nt" rows="2" placeholder="توضیحات برای آشپز (مثلاً: کم‌نمک)">${cur.note}</textarea>`
  +`<div class="stb"><span class="qs"><button data-q="-1">−</button><b>${F(cur.q)}</b><button data-q="1">+</button></span><button class="btn" style="flex:1;padding:12px" data-add="1">افزودن به سبد — ${F(price()*cur.q)} تومان</button></div>`;
  $('#nt').oninput=e=>cur.note=e.target.value.replace(/</g,'');$('#sh').scrollTop=sc}
@@ -689,39 +806,88 @@ $('#sh').onclick=e=>{const b=e.target.closest('button');if(!b)return;const d=b.d
   if(d.rm!=null){cart.splice(+d.rm,1);bar();cart.length?drawCart():closeOv()}
   else if(d.cq!=null){const[i,v]=d.cq.split(':');cart[+i].q=Math.max(1,cart[+i].q+ +v);bar();drawCart()}
   else if(d.send){send()}
- }else if(mode=='login'){
-  if(d.login){if(OWNER_CODES.includes($('#ac').value.trim())){owner=1;openPanel()}else $('#er').textContent='کد درست نیست یا هنوز تأیید نشده است.'}
-  else if(d.req){closeOv();$('#own').scrollIntoView({behavior:'smooth'})}
- }else if(mode=='panel'){
-  if(d.o!=null){orders[+d.o].s++;save();drawPanel()}else if(d.out){owner=0;closeOv()}
  }};
 
 /* --- سبد خرید و ثبت سفارش --- */
 const tot=()=>cart.reduce((s,c)=>s+c.p*c.q,0);
 function bar(){const n=cart.reduce((s,c)=>s+c.q,0);$('#cc').textContent=n?'('+F(n)+')':'';
  $('#bar').style.display=n?'flex':'none';$('#bc').textContent='🛒 مشاهده سبد و ثبت سفارش';$('#bt').textContent=F(tot())+' تومان'}
+
 function drawCart(){mode='cart';$('#sh').innerHTML=`<h2 style="margin:0 0 6px">🛒 سبد خرید</h2>`+(cart.length?cart.map((c,i)=>`<div class="ln">${th(c)}<div style="flex:1"><b>${c.n}</b>${tags(c)}<div style="margin-top:6px;display:flex;justify-content:space-between;align-items:center"><span class="qs"><button data-cq="${i}:-1">−</button>${F(c.q)}<button data-cq="${i}:1">+</button></span><span>${F(c.p*c.q)} تومان <button class="x" data-rm="${i}" aria-label="حذف">✕</button></span></div></div></div>`).join('')
- +`<div class="row" style="font-weight:800"><span>جمع کل</span><span>${F(tot())} تومان</span></div><input id="cn" placeholder="نام یا شماره میز (اختیاری)" value="${who}">`
- +`<button class="btn" style="width:100%;padding:13px;margin-top:12px" data-send="1">ثبت سفارش</button>`:'<p class="em">سبد خالی است</p>')+`<button class="chip" style="width:100%;margin-top:8px" data-x="1">ادامه انتخاب غذا</button>`;
++`<div class="row" style="font-weight:800"><span>جمع تخمینی</span><span>${F(tot())} تومان</span></div><input id="cn" placeholder="نام یا شماره میز (اختیاری)" value="${E(who)}" maxlength="40">${cartErr?`<div class="er">${E(cartErr)}</div>`:''}`
++`<button class="btn" style="width:100%;padding:13px;margin-top:12px" data-send="1"${sending||!canOrder()?' disabled':''}>ثبت سفارش</button>`:'<p class="em">سبد خالی است</p>')+`<button class="chip" style="width:100%;margin-top:8px" data-x="1">ادامه انتخاب غذا</button>`;
  const n=$('#cn');if(n)n.oninput=e=>who=e.target.value.replace(/</g,'')}
 function openCart(){cur=null;drawCart();$('#ov').classList.add('on')}
 $('#bar').onclick=openCart;$('#cb').onclick=openCart;
-function send(){const id=100+orders.length+1;orders.unshift({id,items:cart,s:0,t:tot(),who,tm:new Date().toLocaleTimeString('fa-IR',{hour:'2-digit',minute:'2-digit'})});save();cart=[];bar();mode='done';
- $('#sh').innerHTML=`<div style="text-align:center;padding:14px"><div style="font-size:64px">✅</div><h2 style="margin:0">سفارش شما ثبت شد</h2><p class="sub">شماره سفارش: ${F(id)}<br>رستوران سفارش شما را با همه جزئیات می‌بیند.</p><button class="btn" data-x="1">بستن</button></div>`}
+async function send(){
+ if(sending||!cart.length)return;
+ if(!canOrder()){cartErr='رستوران فعلاً سفارش نمی‌پذیرد.';drawCart();return}
+ if(cart.some(c=>!c.iid)){cartErr='اطلاعات یکی از غذاها کامل نیست؛ صفحه را دوباره بارگذاری کنید.';drawCart();return}
+ sending=1;cartErr='';drawCart();
+ try{
+  const r=await fetch(API+'/api/public/restaurants/'+RID+'/orders',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({table_label:who,lines:cart.map(c=>({item_id:c.iid,qty:c.q,selection:c.sl,removed:c.rr,note:c.note||''}))})}),j=await r.json().catch(()=>null);
+  if(!r.ok||!j||!j.ok||!j.order)throw new Error(emsg(j,r));
+  cart=[];bar();mode='done';$('#ov').classList.add('on');
+  $('#sh').innerHTML=`<div style="text-align:center;padding:14px"><div style="font-size:64px">✅</div><h2 style="margin:0">سفارش شما ثبت شد</h2><p class="sub">شماره سفارش: ${F(j.order.number)}<br>مبلغ نهایی: ${F(j.order.total)} تومان</p><button class="btn" data-x="1">بستن</button></div>`;
+ }catch(x){cartErr=netMsg(x)}
+ finally{sending=0;if(mode==='cart')drawCart()}}
 function toast(m){const t=$('#ts');t.textContent=m;t.style.display='block';clearTimeout(toast.t);toast.t=setTimeout(()=>t.style.display='none',1800)}
 
-/* --- ورود و پنل رستوران‌دار (فقط با کد دسترسی) --- */
-document.querySelectorAll('.ow').forEach(b=>b.onclick=()=>owner?openPanel():openLogin());
-function openLogin(){mode='login';cur=null;$('#sh').innerHTML=`<h2 style="margin:0">🔒 ورود رستوران‌دار</h2><p class="sub">این بخش فقط برای رستوران‌هایی است که سپیدار تأیید کرده است. کد دسترسی را وارد کنید.</p><input id="ac" placeholder="کد دسترسی" autocomplete="off"><div id="er" style="color:#c00;font-size:13px;min-height:22px"></div><button class="btn" style="width:100%;padding:12px" data-login="1">ورود</button><button class="chip" style="width:100%;margin-top:8px" data-req="1">کد ندارم — درخواست دسترسی</button><button class="chip" style="width:100%;margin-top:8px" data-x="1">بستن</button>`;$('#ov').classList.add('on')}
-function openPanel(){mode='panel';$('#sh').classList.add('big');drawPanel();$('#ov').classList.add('on')}
-function drawPanel(){$('#sh').innerHTML=`<div class="row" style="border:0"><h2 style="margin:0">📋 پنل رستوران</h2><span><button class="chip" data-out="1">خروج</button> <button class="chip" data-x="1">بستن</button></span></div>`
- +(orders.length?orders.map((o,i)=>`<div class="ord"><div class="row" style="border:0;padding:0 0 6px"><b>سفارش #${F(o.id)} ${o.who?'· '+o.who:''} <small style="color:var(--mut)">${o.tm||''}</small></b><span class="st s${o.s}">${stN[o.s]}</span></div>`
-  +o.items.map(c=>`<div class="ln">${th(c)}<div><b>${c.n} × ${F(c.q)}</b><br>${tags(c)}</div></div>`).join('')
-  +`<div class="row" style="border:0;padding-bottom:0"><b>${F(o.t)} تومان</b>${o.s<2?`<button class="btn" data-o="${i}">${o.s?'آماده شد':'شروع آماده‌سازی'}</button>`:'✅ تحویل داده شد'}</div></div>`).join(''):'<p class="em">هنوز سفارشی ثبت نشده است.</p>')}
+const E=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const U=s=>String(s).replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&quot;/g,'"').replace(/&amp;/g,'&');
+const remList=(c,it)=>Array.isArray(it&&it[6]&&it[6].rm)?it[6].rm:c.rem;
+const canOrder=()=>SHOP.status==='open'&&SHOP.accepting;
+let sending=0,cartErr='',glDone=0;
+const emsg=(j,r)=>j&&j.message?j.message:r&&r.status==429?'تعداد درخواست‌ها زیاد است؛ کمی بعد دوباره تلاش کنید.':'خطای سرور؛ دوباره تلاش کنید.';
+const netMsg=x=>x&&x.name==='TypeError'?'اتصال به سرور برقرار نشد. اینترنت خود را بررسی کنید.':(x&&x.message)||'خطای نامشخص';
 
-$('#f').onsubmit=e=>{e.preventDefault();$('#ok').textContent='درخواست شما ثبت شد؛ پس از تأیید، کد دسترسی برایتان ارسال می‌شود ✅';e.target.reset()};
-try{Object.keys(localStorage).filter(k=>/^cd\d*_/.test(k)&&!k.startsWith('cd10_')).forEach(k=>localStorage.removeItem(k))}catch(e){}
-renderCats();renderMenu();bar();glInit();
+async function jget(p){const r=await fetch(API+p),j=await r.json().catch(()=>null);if(!r.ok||!j||!j.ok)throw new Error(emsg(j,r));return j}
+const okC=(h,d)=>/^#[0-9a-f]{6}$/i.test(h)?h:d;
+function normCats(a){return Array.isArray(a)?a.map(c=>({id:E(c.id),n:E(c.n),e:E(c.e),c:[okC((c.c||[])[0],'#ffe0c2'),okC((c.c||[])[1],'#ffb36b')],opts:(c.opts||[]).map(g=>({t:E(g.t),type:g.type,list:g.list.map(x=>[E(x[0]),+x[1]||0])})),rem:(c.rem||[]).map(E),items:c.items.map(i=>[E(i[0]),E(i[1]),+i[2]||0,E(i[3]),/^https?:\/\//.test(i[4]||'')?i[4]:'',/^https?:\/\//.test(i[5]||'')?i[5]:'',{...(i[6]||{}),...(Array.isArray(i[6]&&i[6].rm)?{rm:i[6].rm.map(E)}:{})}])})):[]}
+function fail(m){CATS=[];$('#bn').innerHTML='';renderCats();$('#menu').innerHTML=`<div class="em"><p>${E(m)}</p><button class="btn" id="rt">تلاش دوباره</button></div>` ;$('#rt').onclick=boot}
+async function boot(){
+ $('#menu').innerHTML='<p class="em">در حال دریافت منو...</p>';
+ if(!RID_OK){fail('شناسه رستوران در آدرس نامعتبر است.');return}
+ try{
+  const[a,b]=await Promise.all([jget('/api/public/restaurants/'+RID),jget('/api/public/restaurants/'+RID+'/menu')]),r=a.restaurant;
+  SHOP={name:r.name||'',phone:r.phone||'',status:r.status,accepting:!!r.accepting_orders};applyShop();CATS=normCats(b.cats);
+  $('#bn').innerHTML=r.status!=='open'?'<div class="bnr">رستوران فعلاً بسته است؛ امکان ثبت سفارش وجود ندارد.</div>':!SHOP.accepting?'<div class="bnr">رستوران فعلاً سفارش جدید نمی‌پذیرد.</div>':'';
+  renderCats();renderMenu();bar();const heroFood=$('.hero-food');if(heroFood)heroFood.textContent=(CATS.find(c=>c.items.length)?.items[0]?.[3])||CATS[0]?.e||'🍽️';if(!glDone){glDone=1;glInit()}loadReviews();
+ }catch(x){fail(netMsg(x))}}
+async function loadReviews(){const el=$('#rv');
+ try{const j=await jget('/api/public/restaurants/'+RID+'/reviews'),s=j.summary;
+  el.innerHTML=`<h2 class="ct">⭐ نظرات مشتریان</h2><p class="hint">${s.count?`میانگین امتیاز ${F(s.avg)} از ۵ · ${F(s.count)} امتیاز ثبت‌شده`:'هنوز نظری ثبت نشده است.'}</p>`
+  +j.reviews.map(v=>`<div class="ord"><b style="color:#e8a100">${'★'.repeat(v.rating)}${'☆'.repeat(5-v.rating)}</b> ${E(v.author_name||'مشتری')}${v.item_name?` · <small>${E(v.item_name)}</small>`:''}${v.comment?`<p style="margin:4px 0">${E(v.comment)}</p>`:''}${v.reply?`<p class="sub">پاسخ رستوران: ${E(v.reply)}</p>`:''}</div>`).join('')
+  +`<form id="rf"><b>ثبت نظر</b><select name="rating" aria-label="امتیاز">${[5,4,3,2,1].map(n=>`<option value="${n}">${'★'.repeat(n)}</option>`).join('')}</select><input name="author_name" maxlength="40" placeholder="نام (اختیاری)" aria-label="نام"><textarea name="comment" rows="2" maxlength="600" placeholder="نظر شما (اختیاری)" aria-label="نظر"></textarea><button class="btn">ارسال نظر</button><div id="rok" style="font-weight:600"></div></form>`;
+  $('#rf').onsubmit=async e=>{e.preventDefault();const f=e.target,m=$('#rok'),b=f.querySelector('button');if(b.disabled)return;b.disabled=1;m.style.color='#555';m.textContent='در حال ارسال...';
+   try{const r=await fetch(API+'/api/public/restaurants/'+RID+'/reviews',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({rating:+f.rating.value,author_name:f.author_name.value.trim(),comment:f.comment.value.trim()})}),k=await r.json().catch(()=>null);
+    if(!r.ok||!k||!k.ok)throw new Error(emsg(k,r));
+    m.style.color='#11773a';m.textContent='نظر شما ثبت شد ✅';f.reset()}
+   catch(x){m.style.color='#c00';m.textContent=netMsg(x)}
+   b.disabled=0}
+ }catch(x){el.innerHTML='<p class="hint">نظرات در دسترس نیست.</p>'}}
+$('#f').onsubmit=async e=>{e.preventDefault();const f=e.target,ok=$('#ok'),b=f.querySelector('button');if(b.disabled)return;b.disabled=1;ok.style.color='#555';ok.textContent='در حال ارسال...';
+ try{const r=await fetch(API+'/api/public/leads',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({restaurant_name:f.restaurant_name.value.trim(),phone:f.phone.value.trim(),note:f.note.value.trim()})}),j=await r.json().catch(()=>null);
+  if(!r.ok||!j||!j.ok)throw new Error(emsg(j,r));
+  ok.style.color='#11773a';ok.textContent='درخواست شما ثبت شد ✅';f.reset()}
+ catch(x){ok.style.color='#c00';ok.textContent=netMsg(x)}
+ b.disabled=0};
+try{Object.keys(localStorage).filter(k=>/^cd\d*_/.test(k)&&!k.startsWith('cd11_')).forEach(k=>localStorage.removeItem(k))}catch(e){}
+function initExperience(){
+ const bar=$('#scrollProgress');let queued=false;
+ const progress=()=>{if(queued)return;queued=true;requestAnimationFrame(()=>{const max=document.documentElement.scrollHeight-window.innerHeight;const p=max>0?window.scrollY/max:0;bar.style.transform='scaleX('+Math.max(0,Math.min(1,p))+')';queued=false})};
+ window.addEventListener('scroll',progress,{passive:true});progress();
+ const scene=$('.hero-scene');
+ const supportsTilt=window.matchMedia('(hover:hover) and (pointer:fine)').matches&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ if(scene&&supportsTilt){
+  scene.addEventListener('pointermove',e=>{const r=scene.getBoundingClientRect();scene.style.setProperty('--mx',((e.clientX-r.left)/r.width-.5).toFixed(3));scene.style.setProperty('--my',((e.clientY-r.top)/r.height-.5).toFixed(3))},{passive:true});
+  scene.addEventListener('pointerleave',()=>{scene.style.setProperty('--mx','0');scene.style.setProperty('--my','0')},{passive:true});
+ }
+}
+initExperience();
+boot();
+
 </script>
+<div id="scrollProgress" aria-hidden="true"></div>
 </body>
 </html>
