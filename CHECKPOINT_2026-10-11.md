@@ -17,3 +17,10 @@ Continue on the feature branch only. Inspect current branch files before editing
 - Removed the customer display-name/profile section and renamed the header action to `تنظیمات سایت`; order tracking and appearance preferences remain.
 - Customer review cards support featured styles, click animation and thumbs-up/thumbs-down counts using the anonymous browser ID. The vote endpoint depends on panel migration `0005_review_reactions_and_featured.sql` and matching Worker route.
 - The app branch's new code was syntax-checked, but these changes have not been deployed or interactively tested. Keep the branch separate until panel API, D1 migration, and customer UI are validated together.
+
+
+## Final continuation update — 2026-10-11
+- Customer hero is now designed as one CSS-generated dimensional burger on its plate, without hero orbit/floating labels; customer-name/profile UI is removed and the header action routes to site appearance settings while preserving order tracking and appearance controls.
+- Review cards now include per-browser 👍/👎 counts and manager-highlight styles/interaction. Customer's procedural food renderer receives optional visual-effect codes configured for category customization options in the admin panel.
+- Static parse check passed for the current inline customer script after the latest renderer edits. Full mobile/desktop interactive verification is still pending; this is a feature-branch build only, not deployed to production.
+- Vote/highlight functionality depends on Worker route changes plus D1 migration 0005. Coordinate the release and test both sides together.
