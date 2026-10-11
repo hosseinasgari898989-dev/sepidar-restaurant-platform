@@ -729,6 +729,90 @@ body[data-theme="dark"] .sh .chip.rm.on{
   border-color:#a44b58!important;
 }
 
+
+
+/* ===== Final mobile audit: food-image wells and all selectable chips must follow dark palette ===== */
+body[data-theme="dark"] .fc,
+body[data-theme="dark"] .fc:focus-within {
+  background:var(--palette-surface)!important;
+  color:var(--fg)!important;
+  border-color:var(--palette-border)!important;
+  box-shadow:0 12px 28px #0003;
+}
+body[data-theme="dark"] .fc .ph,
+body[data-theme="dark"] .fc .ph[style],
+body[data-theme="dark"] .fc .th,
+body[data-theme="dark"] .fc .th[style],
+body[data-theme="dark"] .fc .pxc:not(img),
+body[data-theme="dark"] .fc .fb,
+body[data-theme="dark"] .fc .fb small {
+  background:radial-gradient(ellipse at 50% 18%,color-mix(in srgb,var(--or) 18%,transparent),transparent 68%),
+    linear-gradient(145deg,var(--palette-page),var(--palette-surface))!important;
+  color:var(--fg)!important;
+  border-color:var(--palette-border)!important;
+}
+body[data-theme="dark"] .fc .fb {background:var(--palette-surface)!important}
+body[data-theme="dark"] .fc .fb b,
+body[data-theme="dark"] .fc .fb .pr,
+body[data-theme="dark"] .fc .fb .price {color:var(--or)!important}
+body[data-theme="dark"] #phw,
+body[data-theme="dark"] #phw[style] {
+  background:radial-gradient(ellipse at 50% 20%,color-mix(in srgb,var(--or) 24%,transparent),transparent 58%),
+    linear-gradient(145deg,var(--palette-page),var(--palette-surface))!important;
+  border:1px solid var(--palette-border)!important;
+}
+body[data-theme="dark"] .chip:not(.on),
+body[data-theme="dark"] .chip.rm:not(.on),
+body[data-theme="dark"] .hub-tab:not(.active),
+body[data-theme="dark"] .accent-choice:not(.active),
+body[data-theme="dark"] .theme-option:not(.active) {
+  background:var(--palette-surface)!important;
+  color:var(--fg)!important;
+  border-color:var(--palette-border)!important;
+}
+body[data-theme="dark"] .chip.rm.on {
+  background:#3b2229!important;color:#ffc0c8!important;border-color:#a44b58!important;
+}
+body[data-theme="dark"] .fc .tg,
+body[data-theme="dark"] .sh .tg,
+body[data-theme="dark"] .nt {
+  background:var(--palette-soft)!important;color:var(--fg)!important;border-color:var(--palette-border)!important;
+}
+body[data-theme="dark"] .tg.rd,
+body[data-theme="dark"] .sh .tg.rd {
+  background:#3b2229!important;color:#ffc0c8!important;border-color:#71404a!important;
+}
+
+
+
+/* نسخه نهایی دارک‌مود: نواحی پشت تصاویر غذا با رنگ پوسته هماهنگ شوند */
+body[data-theme="dark"] .fc .ph,
+body[data-theme="dark"] .fc .ph[style],
+body[data-theme="dark"] .fc .th,
+body[data-theme="dark"] .fc .th[style],
+body[data-theme="dark"] .fc .pxc:not(img),
+body[data-theme="dark"] .fc .fb {
+  background:radial-gradient(ellipse at 50% 20%,color-mix(in srgb,var(--or) 18%,transparent),transparent 64%),
+    linear-gradient(145deg,var(--palette-page),var(--palette-surface))!important;
+  border-color:var(--palette-border)!important;
+}
+body[data-theme="dark"] #phw,
+body[data-theme="dark"] #phw[style] {
+  background:radial-gradient(ellipse at 50% 20%,color-mix(in srgb,var(--or) 23%,transparent),transparent 58%),
+    linear-gradient(145deg,var(--palette-page),var(--palette-surface))!important;
+  border-color:var(--palette-border)!important;
+}
+body[data-theme="dark"] .fc .ph img,
+body[data-theme="dark"] .fc .th img,
+body[data-theme="dark"] #phw img {background:transparent!important}
+body[data-theme="dark"] .chip:not(.on),
+body[data-theme="dark"] .chip.rm:not(.on) {
+  background:var(--palette-surface)!important;color:var(--fg)!important;border-color:var(--palette-border)!important;
+}
+body[data-theme="dark"] .chip.rm.on {
+  background:#3b2229!important;color:#ffc0c8!important;border-color:#a44b58!important;
+}
+
 </style>
 </head>
 <body>
