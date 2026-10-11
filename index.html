@@ -353,6 +353,13 @@ footer{background:linear-gradient(110deg,#12281f,#203d30);border-top:3px solid #
 .hub-save-status{min-height:20px;margin-top:8px;color:#17804a;font-size:12px;font-weight:800}
 body[data-accent="mint"]{--or:#0f956b;--or2:#42c99a;--soft:#e9fff5}
 body[data-accent="violet"]{--or:#7652d6;--or2:#a78bfa;--soft:#f2edff}
+body[data-theme="soft"]{background:#f5eee4;color:#322a22;--fg:#322a22;--mut:#776b5f;--line:#e8d9c7}
+body[data-theme="soft"] header,body[data-theme="soft"] .cats{background:#fffaf3;border-color:#e8d9c7}
+body[data-theme="soft"] .customer-hub{background:radial-gradient(ellipse at 100% 0,#ffead3 0,transparent 44%),linear-gradient(145deg,#fffaf3,#f7ecdd);border-color:#ead5bd}
+body[data-theme="soft"] .tracked-order-card,body[data-theme="soft"] .theme-option,body[data-theme="soft"] .accent-choice,body[data-theme="soft"] .pref-switch,body[data-theme="soft"] .hub-small-btn{background:#fffaf3;border-color:#e9d8c4;color:#322a22}
+body[data-theme="soft"] .hub-empty{background:#fff8ef;border-color:#e4c7a9}
+body[data-theme="soft"] .hub-form input,body[data-theme="soft"] .sr input,body[data-theme="soft"] .review-field input,body[data-theme="soft"] .review-field textarea,body[data-theme="soft"] textarea{background:#fffdf9;color:#322a22;border-color:#e4d4c0}
+body[data-theme="soft"] .order-eta{background:#fff0dc;border-color:#eed0a8;color:#84461d}
 body[data-theme="dark"]{background:#0d121b;color:#e7edf6;--fg:#e7edf6;--mut:#a3afc1;--line:#2a3546}
 body[data-theme="dark"] header,body[data-theme="dark"] .cats{background:#111824;border-color:#263244}
 body[data-theme="dark"] .customer-hub{background:radial-gradient(ellipse at 100% 0,#2b201b 0,transparent 44%),linear-gradient(145deg,#151d2a,#111824);border-color:#2a3546}
@@ -1109,7 +1116,7 @@ function setHubTab(tab){
 function readPrefs(){const p=localJSON(CUSTOMER_PREFS_KEY,{});return{theme:['light','dark','soft'].includes(p.theme)?p.theme:'light',accent:['orange','mint','violet'].includes(p.accent)?p.accent:'orange',reduceMotion:!!p.reduceMotion,compact:!!p.compact}}
 function applyPrefs(){
  const p=readPrefs();
- document.body.dataset.theme=p.theme==='soft'?'light':p.theme;
+ document.body.dataset.theme=p.theme;
  document.body.dataset.accent=p.accent;
  document.body.classList.toggle('compact-cards',p.compact);
  document.documentElement.classList.toggle('reduce-motion',p.reduceMotion);
