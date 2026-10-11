@@ -1088,12 +1088,23 @@ const phyl=(n,R,i)=>{const a=i*2.39996,p=(.1+.82*sq((i+.5)/n))*R;return[p*Math.c
 
 const RMS={pizza:{'بدون پیاز':'n','بدون فلفل':'g','بدون زیتون':'o','بدون قارچ':'m','بدون پپرونی':'p','بدون ریحان':'b'},burger:{'بدون پیاز':'o','بدون ترشی':'p','بدون کاهو':'l','بدون گوجه':'t','بدون پنیر':'c'},sand:{'بدون پیاز':'o','بدون ترشی':'p','بدون کاهو':'l','بدون گوجه':'t'},kebab:{'بدون پیاز':'o','بدون ریحان':'r','بدون ترشی':'p','بدون گوجه':'t'},start:{'بدون پیاز':'n','بدون ادویه':'x','بدون کروتون':'u','بدون پارمزان':'p','بدون زیتون':'o','بدون خیار':'q','بدون گوجه':'t','بدون فتا':'f'},drink:{'بدون نی':'s','بدون نعنا':'n','بدون لیمو':'l','بدون خامه':'m'},dessert:{'بدون خامه':'m','بدون بلوبری':'b'}};
 const XS={pizza:{'پپرونی':'p','قارچ':'m','زیتون':'o','فلفل دلمه':'g'},burger:{'پنیر چدار':'c','قارچ':'m','هالوپینو':'j','بیکن':'k','تخم‌مرغ':'e'},sand:{'پنیر':'c','قارچ':'m','ذرت':'q','ژامبون':'h'},kebab:{'گوجه کبابی':'t','کره':'u','سماق':'m','زعفران بیشتر':'y','سالاد شیرازی':'s'},start:{'پنیر پارمزان':'p','مرغ گریل':'c','زیتون':'o'},dessert:{'سس شکلات':'s','بستنی وانیل':'i','گردو':'w','خامه':'m'}};
-function recipe(c,it,sel,rm){const nm=[];c.opts.forEach((o,gi)=>[...sel[gi]].forEach(i=>nm.push(o.list[i][0])));
+function recipe(c,it,sel,rm){
+ const selected=[],nm=[],visualEffects=[];
+ c.opts.forEach((o,gi)=>[...sel[gi]].forEach(i=>{
+  const option=o.list[i];if(!option)return;
+  nm.push(option[0]);selected.push({name:option[0],visual:typeof option[2]==='string'?option[2]:''});
+  if(typeof option[2]==='string'&&option[2])visualEffects.push(option[2]);
+ }));
  const has=s=>nm.includes(s),m=it[6]||{},rn=[...rm].map(i=>remList(c,it)[i]),k=c.id;let b=m.b||'';
  rn.forEach(r=>{const l=RMS[k]&&RMS[k][r];if(l)b=b.split(l).join('')});
  nm.forEach(n=>{const l=XS[k]&&XS[k][n];if(l)b+=b.toLowerCase().includes(l)?l.toUpperCase():l});
+ const visualLetters={add_lettuce:'l',add_tomato:'t',add_cheese:'c',add_mushroom:'m',add_jalapeno:'j',add_bacon:'h',add_egg:'e',add_onion:'o',add_pickle:'p'};
+ selected.forEach(option=>{
+  const letter=visualLetters[option.visual];
+  if(letter&&(!XS[k]||XS[k][option.name]!==letter))b+=b.toLowerCase().includes(letter)?letter.toUpperCase():letter;
+ });
  const sas=nm.map(n=>SAUCE[n]).filter(Boolean);
- return{k,f:m.f||'',b,d:m.d,pro:has('مرغ')?'c':has('وگان')?'v':'b',c2:has('پنیر اضافه'),sz:has('بزرگ')||has('دونفره')?2:has('کوچک')?0:1,th:has('ضخیم')||has('لبه پنیری'),ec:has('لبه پنیری'),
+ return{k,f:m.f||'',b,nc:visualEffects.includes('remove_chicken'),ns:visualEffects.includes('remove_sausage'),d:m.d,pro:has('مرغ')?'c':has('وگان')?'v':'b',c2:has('پنیر اضافه'),sz:has('بزرگ')||has('دونفره')?2:has('کوچک')?0:1,th:has('ضخیم')||has('لبه پنیری'),ec:has('لبه پنیری'),
   s1:has('دو سیخ')?2:1,rice:has('برنج')||has('برنج + نان'),brd:has('نان سنگک')||has('برنج + نان'),bt:has('باگت')?'g':has('تورتیلا')?'t':'b',
   ice:has('بدون یخ')?0:has('یخ زیاد')?2:1,sw:has('کم‌شیرین')?1:has('بدون شکر')?2:0,fr:has('سیب‌زمینی')||has('سیب‌زمینی + نوشابه'),dr:has('نوشابه')||has('سیب‌زمینی + نوشابه'),
   sa:rn.includes('بدون سس')?[]:sas,sas:sas.length}}
@@ -1110,7 +1121,7 @@ function buildBurger(rc){if(rc.k=='sand'&&rc.bt=='t')return buildWrap(rc);if(rc.
  const pro=sd?'c':rc.pro,pp=(pro=='c'?['#f2b952','#d99034','#a85f18']:pro=='v'?['#8a9a4a','#667a38','#46582a']:['#7a3f2a','#5e2f20','#3d1d14']).map(k),cy=[k('#ffe36a'),k('#ffd23a'),k('#e0a010')];
  const pat=()=>{add(sd?7:11,(x,z,r,t,h)=>{if(r>R0-1)return 0;lo=r>R0-3?2:0;hi=h-1+Math.round(2*(1-(r/R0)**2));const q=hn(x,z);return q<.16||(pro=='b'&&Math.abs(Math.sin((x+z)*.45))>.95)?pp[2]:q>.88?pp[0]:pp[1]})};
  const chz=()=>add(3,(x,z,r,t,h)=>{if(r>R0+4)return 0;const d=Math.max(0,Math.cos(4*t))**2*Math.max(0,r-(R0-2))*.7;lo=-Math.round(d);hi=h-1;return hn(x,z)>.9?cy[0]:cy[1]});
- if(!sd||rc.f=='c')pat();
+ if(!sd||(rc.f=='c'&&!rc.nc))pat();
  const sg=[k('#e06a40'),k('#c4492a'),k('#8f2c18')];
  if(sd&&rc.f=='s')add(6,(x,z,r,t,h,x0,z0)=>{if(Math.abs(z0)>9||Math.abs(x0)>P.a+3)return 0;lo=0;hi=Math.round(11*sq(1-(z0/9)**2));if(Math.abs(x0)>P.a-2)hi=Math.max(0,hi-3);return Math.abs(z0)<2.5?sg[0]:z0>0?sg[2]:sg[1]});
  const fa=[k('#9a7a2e'),k('#6b4a1c'),k('#7ea03a')],FB=[-.7,-.35,0,.35,.7].map((u,i)=>[u*P.a,i%2?3:-3]);
@@ -1161,18 +1172,20 @@ function buildSub(rc){const a=58,b=20,H=25,B=rc.b.toLowerCase(),isF=rc.f=='f',sw
    if(slit){fill(ix,iz,lo,sf,'#f7ead0');if(B.includes('c'))fill(ix,iz,sf,sf+1.6,'#ffd23a');if(B.includes('h')&&(fl(x/9)&1))fill(ix,iz,sf,sf+1.4,'#f08c96');if(B.includes('q')&&hn(x,z)>.6)fill(ix,iz,sf,sf+1.8,'#f2b01a')}
    else if(dz<sw+2.6&&ax<a*.9)fill(ix,iz,lo,ht,'#f7ead0');
    else fill(ix,iz,lo,ht,e>.9?RP[5]:RP[Math.min(4,Math.floor(ht/H*5))])}
-  if(!isF){const xe=ax-(a-4),rs=xe>0?6.4*sq(Math.max(0,1-(xe/11)**2)):6.4;if(dz<rs&&rs>.5){const cy=sf+3.6,hh=sq(Math.max(0,rs*rs-dz*dz));fill(ix,iz,cy-hh,cy+hh,dz<1.8?'#e9774c':dz>rs*.78?'#a2381d':hn(x,z)>.86?'#8a2c15':'#cf5430');ft=cy+hh}}
+  if(!isF&&!rc.ns){const xe=ax-(a-4),rs=xe>0?6.4*sq(Math.max(0,1-(xe/11)**2)):6.4;if(dz<rs&&rs>.5){const cy=sf+3.6,hh=sq(Math.max(0,rs*rs-dz*dz));fill(ix,iz,cy-hh,cy+hh,dz<1.8?'#e9774c':dz>rs*.78?'#a2381d':hn(x,z)>.86?'#8a2c15':'#cf5430');ft=cy+hh}}
   for(const p of FB){const d=Math.hypot(x-p[0],z-p[1]);if(d<9&&d>2.6){const cy=sf+7,hh=sq(81-d*d)*.95;fill(ix,iz,cy-hh*.8,cy+hh,d>7.4?'#8a4514':hn(x,z)>.8?'#8f4a16':hh>8?'#d98b3a':'#b4601c');ft=cy+hh;break}}
   rc.sa.forEach((sc,j)=>{if(ft>0&&ax<a-6&&Math.abs(z-2*Math.sin(x*.5+j*2.1))<1.3)fill(ix,iz,ft,ft+1.2,sc)})});
- const act=[];if(B.includes('t'))act.push('t');if(B.includes('p'))act.push('p');if(B.includes('o'))act.push('o');if(B.includes('l'))act.push('l');if(B.includes('m'))act.push('m');
+ const act=[];if(B.includes('t'))act.push('t');if(B.includes('p'))act.push('p');if(B.includes('o'))act.push('o');if(B.includes('l'))act.push('l');if(B.includes('m'))act.push('m');if(B.includes('j'))act.push('j');if(B.includes('e'))act.push('e');
  const VP=isF?[[-50,5],[-30,-5],[-10,5],[10,-5],[30,5],[50,-5],[-40,-3],[-20,3],[0,-4],[20,4],[40,-3]]:[[-44,2],[-33,-2],[-22,2],[-11,-2],[0,2],[11,-2],[22,2],[33,-2],[44,2]],y=isF?sf+4:sf+9.4;
  if(act.length)VP.forEach((p,i)=>{const t=act[i%act.length];
   if(t=='m')sph(p[0],y,p[1],3.6,'#c9a070',.55);if(t=='t')sph(p[0],y,p[1],3.8,'#d63a2f',.55);if(t=='p')sph(p[0],y,p[1],3.5,'#9ccc4a',.5);
   if(t=='o')ob(p[0],p[1],4.2,(xx,zz,r2,tt,ix,iz)=>{if(r2>2)fill(ix,iz,y-1,y+.8,'#eed2f0')});
-  if(t=='l'){sph(p[0],y+.5,p[1],3.2,'#3a8a2a',.7);sph(p[0]+1.5,y+1.8,p[1]+1,2.4,'#4fb23c',.7)}})}
+  if(t=='l'){sph(p[0],y+.5,p[1],3.2,'#3a8a2a',.7);sph(p[0]+1.5,y+1.8,p[1]+1,2.4,'#4fb23c',.7)}
+  if(t=='j')sph(p[0],y+1,p[1],3.1,'#3fa83a',.7);
+  if(t=='e'){sph(p[0],y,p[1],3.6,'#fff3d5',.7);sph(p[0],y+2,p[1],1.6,'#ffd24a',.8)}})}
 function buildWrap(rc){const B=rc.b.toLowerCase(),a=52,b=17,cy=15.5,fil=[];
- if(rc.f=='c')fil.push('#d99034');if(rc.f=='f')fil.push('#8a6a2a');if(B.includes('c'))fil.push('#ffd23a');if(B.includes('h'))fil.push('#f08c96');if(B.includes('m'))fil.push('#c9a070');if(B.includes('q'))fil.push('#f2b01a');
- if(B.includes('t'))fil.push('#e8402f');if(B.includes('o'))fil.push('#e8c8e8');if(B.includes('p'))fil.push('#7aa832');if(B.includes('l'))fil.push('#4fb23c');if(!fil.length)fil.push('#d9c9a0');
+ if(rc.f=='c'&&!rc.nc)fil.push('#d99034');if(rc.f=='f')fil.push('#8a6a2a');if(B.includes('c'))fil.push('#ffd23a');if(B.includes('h'))fil.push('#f08c96');if(B.includes('m'))fil.push('#c9a070');if(B.includes('q'))fil.push('#f2b01a');
+ if(B.includes('t'))fil.push('#e8402f');if(B.includes('o'))fil.push('#e8c8e8');if(B.includes('p'))fil.push('#7aa832');if(B.includes('l'))fil.push('#4fb23c');if(B.includes('j'))fil.push('#3fa83a');if(B.includes('e'))fil.push('#fff3d5');if(!fil.length)fil.push('#d9c9a0');
  ob(0,0,a+8,(x,z,r,t,ix,iz)=>{const ax=Math.abs(x);if(ax>a+4||Math.abs(z)>b)return;const hy=15*sq(1-(z/b)**2);
   if(ax<=a-3){const e=ax>a-7?sq(Math.max(.05,1-((ax-(a-7))/4)**2)):1,h2=hy*e;fill(ix,iz,cy-h2,cy+h2,Math.abs(z)<b*.35?'#f6e6c4':'#efd8aa');
    rc.sa.forEach((sc,j)=>{if(Math.abs(z-3*Math.sin(x*.4+j*2))<1.5&&ax<a-8)fill(ix,iz,cy+h2-.2,cy+h2+1.2,sc)})}
@@ -1189,6 +1202,9 @@ function buildPizza(rc){const R=[34,40,46][rc.sz],k=h=>pal(h),T=[...rc.b.toLower
   if(t=='b')return (dx/7)**2+(dz/4)**2<1?[1,Math.abs(dz)<.8?'#57c24a':'#2f8a2f']:0;
   if(t=='h')return Math.abs(dx)<4.5&&Math.abs(dz)<4.5?[2,Math.abs(dx)>3.5||Math.abs(dz)>3.5?'#d06a78':'#f08c96']:0;
   if(t=='c')return d<4.8?[3,q<.25?'#d9b27a':'#f4dfb0']:0;
+  if(t=='t')return d<4.6&&d>1.8?[2.4,d>3.7?'#b92a1c':'#e8402f']:0;
+  if(t=='j')return d<4.3&&d>1.6?[2.2,q>.65?'#62b846':'#2f8a3d']:0;
+  if(t=='e')return d<4.3?[2.4,d<2.3?'#ffd24a':'#fff3d5']:0;
   if(t=='n')return d<5.5&&d>2.8?[1,'#ecd3ee']:0;return 0};
  ob(0,0,R+1,(x,z,r,t,ix,iz)=>{if(r>R)return;const q=hn(x,z);let hi,c;
   if(r>R-9){const u=(r-(R-4.5))/4.5;hi=base+Math.round(rim*sq(Math.max(0,1-u*u)));c=r>R-3?cr[1]:(rc.ec&&r<R-4.5?cr[3]:(q>.9?cr[2]:cr[0]))}
