@@ -573,12 +573,13 @@ const CARD={};let pq=[],pt=0,busy=0;
 const io='IntersectionObserver' in window?new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){io.unobserve(e.target);pq.push(e.target)}});if(pq.length&&!busy)stepPaint()},{rootMargin:'250px'}):null;
 function paintAll(){document.querySelectorAll('canvas[data-k]').forEach(cv=>{if(io)io.observe(cv);else pq.push(cv)});if(!io&&!busy)stepPaint()}
 function showCard(cv,k){if(!cv.isConnected||!CARD[k])return;cv.getContext('2d').drawImage(CARD[k],0,0,cv.width,cv.height);const e=cv.previousSibling;if(e&&e.className=='fe')e.remove()}
+function cardCacheKey(c,it,k){const raw=JSON.stringify([c.id,c.c,c.opts,c.rem,it]);let h=2166136261;for(let i=0;i<raw.length;i++){h^=raw.charCodeAt(i);h=Math.imul(h,16777619)}return 'cd11_'+k.replace(':','_')+'_'+(h>>>0).toString(36)}
 function stepPaint(){const cv=pq.shift();if(!cv){busy=0;return}busy=1;
  if(mode){pq.unshift(cv);pt=setTimeout(stepPaint,500);return}
  const k=cv.dataset.k;let wait=0;
- if(cv.isConnected&&!CARD[k]){let u=null;try{u=localStorage.getItem('cd10_'+k)}catch(e){}
+ if(cv.isConnected&&!CARD[k]){const[a,b]=k.split(':'),c=CATS.find(x=>x.id==a),it=c&&c.items[+b],cacheKey=c&&it?cardCacheKey(c,it,k):null;let u=null;try{if(cacheKey)u=localStorage.getItem(cacheKey)}catch(e){}
   if(u){const im=new Image();im.onload=()=>{const t=document.createElement('canvas');t.width=t.height=256;t.getContext('2d').drawImage(im,0,0);CARD[k]=t;showCard(cv,k)};im.src=u}
-  else{const[a,b]=k.split(':'),c=CATS.find(x=>x.id==a),it=c.items[+b],t=document.createElement('canvas');t.width=t.height=256;draw(t,rcOf(c,it,defSel(c,it),new Set()),M0,256);CARD[k]=t;wait=8;try{localStorage.setItem('cd10_'+k,t.toDataURL('image/webp',.92))}catch(e){}}}
+  else if(c&&it){const t=document.createElement('canvas');t.width=t.height=256;draw(t,rcOf(c,it,defSel(c,it),new Set()),M0,256);CARD[k]=t;wait=8;try{if(cacheKey)localStorage.setItem(cacheKey,t.toDataURL('image/webp',.92))}catch(e){}}}
  showCard(cv,k);pt=setTimeout(stepPaint,wait)}
 /* چرخش آزاد با انگشت: به هر طرف بکشید؛ می‌چرخد و بعد از مدتی آرام می‌ایستد؛ با هر تغییر شخصی‌سازی، به حالت اول برمی‌گردد */
 let M=M0,vx=0,vy=0,drag=0,raf=0,dirty=1,hiq=0,goHome=0,mvd=0,job=null,lastK='',wasMv=0;
@@ -703,7 +704,7 @@ $('#f').onsubmit=async e=>{e.preventDefault();const f=e.target,ok=$('#ok'),b=f.q
   ok.style.color='#11773a';ok.textContent='درخواست شما ثبت شد ✅';f.reset()}
  catch(x){ok.style.color='#c00';ok.textContent=netMsg(x)}
  b.disabled=0};
-try{Object.keys(localStorage).filter(k=>/^cd\d*_/.test(k)&&!k.startsWith('cd10_')).forEach(k=>localStorage.removeItem(k))}catch(e){}
+try{Object.keys(localStorage).filter(k=>/^cd\d*_/.test(k)&&!k.startsWith('cd11_')).forEach(k=>localStorage.removeItem(k))}catch(e){}
 boot();
 
 </script>
