@@ -904,6 +904,91 @@ body[data-theme="dark"] .review-vote-btn.selected{background:#183f29;color:#bbf2
 body[data-theme="dark"] .review-featured-badge{background:linear-gradient(120deg,#4a3717,#6b4a1b);color:#ffe2a3;border-color:#87632b}
 @media(prefers-reduced-motion:reduce){.review-featured.featured-shine::before,.review-card.featured-pop,.review-card.vote-pop{animation:none!important}}
 
+
+/* Mobile polish — compact header, hero and food instructions */
+@media(max-width:760px){
+  header .w{
+    height:52px!important;
+    min-height:52px;
+    gap:6px!important;
+    padding-inline:12px!important;
+  }
+  .logo{
+    min-width:0;
+    flex:0 1 auto;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    font-size:clamp(12px,3.6vw,15px)!important;
+    letter-spacing:-.35px;
+  }
+  .hd{gap:6px!important;flex:0 0 auto}
+  .hd #accountBtn{
+    max-width:108px;
+    padding:6px 8px!important;
+    font-size:11px!important;
+    line-height:1.2!important;
+    border-radius:12px;
+  }
+  .hd #cb{
+    min-width:40px;
+    padding:7px 9px!important;
+    font-size:12px!important;
+    border-radius:12px;
+  }
+  .sr{padding-top:8px!important}
+  .sr input{padding:9px 12px!important;font-size:13px!important;border-radius:12px}
+  .hero-scene{
+    margin-top:8px!important;
+    padding:17px 16px 8px!important;
+    gap:0!important;
+    min-height:0!important;
+    border-radius:22px!important;
+  }
+  .hero-kicker{font-size:10px!important;padding:5px 9px!important;gap:7px}
+  .hero h1{
+    font-size:clamp(26px,7.1vw,31px)!important;
+    line-height:1.32!important;
+    letter-spacing:-.65px!important;
+    margin:8px 0 6px!important;
+  }
+  .hero-copy>p{
+    font-size:12px!important;
+    line-height:1.75!important;
+    max-width:100%;
+  }
+  .hero-actions{margin-top:10px!important;gap:8px!important}
+  .hero-cta{padding:8px 12px!important;font-size:12px!important;border-radius:11px}
+  .hero-note{font-size:10px!important;line-height:1.55;max-width:none!important}
+  .hero-visual{
+    height:158px!important;
+    min-height:0!important;
+    margin-top:0!important;
+  }
+  .hero-visual .plate{width:min(72%,190px)!important}
+  .hero-burger{
+    width:clamp(135px,45vw,175px)!important;
+    height:98px!important;
+    transform:translate3d(0,-17px,52px) rotateX(-56deg) rotateZ(18deg)!important;
+  }
+  main>.hint{
+    margin:5px 2px 8px!important;
+    font-size:10.5px!important;
+    line-height:1.55!important;
+    letter-spacing:0!important;
+  }
+}
+@media(max-width:380px){
+  .hd #accountBtn{max-width:94px;font-size:10px!important;padding:5px 6px!important}
+  .logo{font-size:12px!important}
+  .hero-scene{padding:15px 13px 6px!important}
+  .hero h1{font-size:26px!important}
+  .hero-visual{height:145px!important}
+  .hero-visual .plate{width:min(70%,175px)!important}
+  .hero-burger{width:138px!important;height:90px!important}
+  main>.hint{font-size:10px!important}
+}
+
 </style>
 </head>
 <body>
@@ -943,7 +1028,7 @@ body[data-theme="dark"] .review-featured-badge{background:linear-gradient(120deg
 <div class="cats" id="cats"></div>
 <main class="w">
 <div id="bn"></div>
-<p class="hint">روی ➕ بزنید تا سریع اضافه شود، روی خود غذا بزنید تا هر چیزی را تغییر دهید؛ در پنجره غذا، با کشیدن انگشت آن را به هر طرف بچرخانید.</p>
+<p class="hint">برای افزودن سریع «＋» را بزنید؛ برای شخصی‌سازی، روی کارت غذا بزنید و مدل را بچرخانید.</p>
 <div id="menu"></div>
 
 <section id="customerHub" class="customer-hub reveal" aria-labelledby="hubTitle">
