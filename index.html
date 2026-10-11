@@ -1436,7 +1436,7 @@ function line(c,it,sel,rm,qn,note){const o=[];c.opts.forEach((gr,gi)=>[...sel[gi
  const cv=document.createElement('canvas');cv.width=cv.height=224;if(c.id!=='other'||it[4])draw(cv,rcOf(c,it,sel,rm),M0,224);
  const rems=remList(c,it);return{n:it[0],e:it[3],cc:c.c,im:it[4],sn:it[4]||(c.id==='other'?'':cv.toDataURL()),p:calc(c,it,sel),q:qn,o,r:[...rm].map(i=>rems[i]),note,iid:it[6]&&it[6].id,sl:Object.fromEntries(c.opts.map((g,gi)=>[U(g.t),[...sel[gi]].map(i=>U(g.list[i][0]))])),rr:[...rm].map(i=>U(rems[i]))}}
 const defSel=(c,it)=>c.opts.map((o,gi)=>new Set(o.type=='one'?[(it&&it[6]&&it[6].s&&it[6].s[gi])||0]:[]));
-function quick(cid,i){const c=CATS.find(x=>x.id==cid);cart.push(line(c,c.items[i],defSel(c,c.items[i]),new Set(),1,''));bar();toast('اضافه شد ✅')}
+function quick(cid,i){const c=CATS.find(x=>x.id==cid);const it=c&&c.items[i];if(!it)return;if(c.id==='other'&&!it[4]){toast('برای دسته «سایر» ابتدا باید عکس واقعی محصول بارگذاری شود.');return}cart.push(line(c,it,defSel(c,it),new Set(),1,''));bar();toast('اضافه شد ✅')}
 
 /* --- پنجره شخصی‌سازی: عکس همیشه بالای پنجره می‌ماند و با اسکرول گم نمی‌شود --- */
 function openItem(cid,i){const c=CATS.find(x=>x.id==cid);cur={c,it:c.items[i],sel:defSel(c,c.items[i]),rem:new Set(),q:1,note:''};mode='item';
@@ -1449,7 +1449,7 @@ function drawItem(){const{c,it}=cur,sc=$('#sh').scrollTop,ri=remIdx();[...cur.re
  +c.opts.map((o,gi)=>`<div class="lb">${o.t}${o.type=='one'?'':' <small>(اختیاری)</small>'}</div><div class="chips">${o.list.map((x,i)=>`<button class="chip${cur.sel[gi].has(i)?' on':''}" data-g="${gi}" data-i="${i}">${x[0]}${x[1]?` ${x[1]>0?'+':'−'}${F(Math.abs(x[1]))}`:''}</button>`).join('')}</div>`).join('')
  +(ri.length?`<div class="lb">حذف مواد</div><div class="chips">${ri.map(i=>`<button class="chip rm${cur.rem.has(i)?' on':''}" data-r="${i}">${E(remList(c,it)[i])}</button>`).join('')}</div>`:'')
  +`<textarea id="nt" rows="2" placeholder="توضیحات برای آشپز (مثلاً: کم‌نمک)">${cur.note}</textarea>`
- +`<div class="stb"><span class="qs"><button data-q="-1">−</button><b>${F(cur.q)}</b><button data-q="1">+</button></span><button class="btn" style="flex:1;padding:12px" data-add="1">افزودن به سبد — ${F(price()*cur.q)} تومان</button></div>`;
+ +`<div class="stb"><span class="qs"><button data-q="-1">−</button><b>${F(cur.q)}</b><button data-q="1">+</button></span><button class="btn" style="flex:1;padding:12px" data-add="1" ${cur.c.id==='other'&&!cur.it[4]?'disabled':''}>${cur.c.id==='other'&&!cur.it[4]?'ابتدا عکس واقعی محصول لازم است':'افزودن به سبد — '+F(price()*cur.q)+' تومان'}</button></div>`;
  $('#nt').oninput=e=>cur.note=e.target.value.replace(/</g,'');$('#sh').scrollTop=sc}
 function closeOv(){cancelAnimationFrame(raf);$('#ov').classList.remove('on');$('#sh').classList.remove('big');cur=null;mode=''}
 $('#ov').onclick=e=>{if(e.target.id=='ov')closeOv()};
