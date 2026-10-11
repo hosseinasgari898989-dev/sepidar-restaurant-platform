@@ -1098,9 +1098,13 @@ function recipe(c,it,sel,rm){
  const has=s=>nm.includes(s),m=it[6]||{},rn=[...rm].map(i=>remList(c,it)[i]),k=c.id;let b=m.b||'';
  rn.forEach(r=>{const l=RMS[k]&&RMS[k][r];if(l)b=b.split(l).join('')});
  nm.forEach(n=>{const l=XS[k]&&XS[k][n];if(l)b+=b.toLowerCase().includes(l)?l.toUpperCase():l});
- const visualLetters={add_lettuce:'l',add_tomato:'t',add_cheese:'c',add_mushroom:'m',add_jalapeno:'j',add_bacon:'h',add_egg:'e',add_onion:'o',add_pickle:'p'};
+ const visualLetters={
+  burger:{add_lettuce:'l',add_tomato:'t',add_cheese:'c',add_mushroom:'m',add_jalapeno:'j',add_bacon:'h',add_egg:'e',add_onion:'o',add_pickle:'p'},
+  sand:{add_lettuce:'l',add_tomato:'t',add_cheese:'c',add_mushroom:'m',add_jalapeno:'j',add_bacon:'h',add_egg:'e',add_onion:'o',add_pickle:'p'},
+  pizza:{add_lettuce:'l',add_tomato:'t',add_cheese:'c',add_mushroom:'m',add_jalapeno:'j',add_bacon:'h',add_egg:'e',add_onion:'n'},
+ };
  selected.forEach(option=>{
-  const letter=visualLetters[option.visual];
+  const letter=visualLetters[k]?.[option.visual];
   if(letter&&(!XS[k]||XS[k][option.name]!==letter))b+=b.toLowerCase().includes(letter)?letter.toUpperCase():letter;
  });
  const sas=nm.map(n=>SAUCE[n]).filter(Boolean);
