@@ -863,12 +863,53 @@ body[data-theme="dark"] .photo-required{background:linear-gradient(145deg,var(--
 
 .review-privacy-note{display:block;margin-top:8px;color:var(--mut);font-size:11px;line-height:1.8}
 body[data-theme="dark"] .review-privacy-note{color:var(--mut)!important}
+
+/* سپیدار: قهرمان صفحه با فقط یک غذای سه‌بعدی روی بشقاب */
+.hero-orbit,.hero-float,.hero-spark{display:none!important}
+.hero-visual{isolation:isolate;min-height:290px;perspective:1000px}
+.plate-front{overflow:visible}
+.hero-burger{position:relative;width:clamp(165px,25vw,235px);height:clamp(110px,17vw,150px);transform-style:preserve-3d;transform:translate3d(0,-26px,75px) rotateX(-56deg) rotateZ(18deg);animation:foodHover 5s ease-in-out infinite;filter:drop-shadow(0 17px 12px #1a241e40)}
+.hero-burger span{position:absolute;display:block;left:4%;right:4%}
+.burger-bun-top{top:0;height:39%;border-radius:100% 100% 36% 36%/100% 100% 28% 28%;background:radial-gradient(ellipse at 48% 18%,#ffe29b 0 4%,transparent 5%),radial-gradient(ellipse at 30% 33%,#ffe3a0 0 3%,transparent 4%),radial-gradient(ellipse at 68% 30%,#ffe3a0 0 3%,transparent 4%),radial-gradient(ellipse at 52% 44%,#ffe3a0 0 3%,transparent 4%),linear-gradient(180deg,#ffc96f 0%,#f6a638 48%,#bb5b20 100%);box-shadow:inset 0 7px 5px #fff4bb7a,inset 0 -7px 4px #8a3c1978,0 5px 0 #a74b1b;transform:translateZ(23px)}
+.burger-lettuce{top:34%;height:13%;left:0!important;right:0!important;background:linear-gradient(180deg,#a9e56b,#3d9c3e 65%,#20703a);clip-path:polygon(0 35%,7% 4%,15% 35%,24% 0,33% 36%,43% 5%,53% 34%,63% 0,73% 38%,84% 4%,93% 36%,100% 0,100% 100%,0 100%);transform:translateZ(32px)}
+.burger-tomato{top:42%;height:10%;left:8%!important;right:8%!important;border-radius:12px;background:linear-gradient(180deg,#ff8b64,#c93221);box-shadow:inset 0 3px 0 #ffb28f,0 3px 0 #8e291f;transform:translateZ(35px)}
+.burger-cheese{top:47%;height:20%;left:1%!important;right:1%!important;background:linear-gradient(145deg,#ffe76a,#ffbf27 68%,#e78a18);clip-path:polygon(0 0,100% 0,100% 78%,91% 65%,82% 100%,72% 75%,60% 100%,49% 75%,36% 100%,25% 73%,14% 95%,0 76%);filter:drop-shadow(0 3px 1px #92501c60);transform:translateZ(38px)}
+.burger-patty{top:44%;height:18%;left:2%!important;right:2%!important;border-radius:12px;background:linear-gradient(180deg,#87502f,#4c271b 66%,#2f2019);box-shadow:inset 0 4px 3px #c58251,0 5px 0 #42251a;transform:translateZ(30px)}
+.burger-bun-bottom{top:59%;height:27%;border-radius:18% 18% 35% 35%/15% 15% 70% 70%;background:linear-gradient(180deg,#e9a04b,#c66d28 84%,#99441c);box-shadow:inset 0 5px 4px #ffda8a75,0 7px 0 #713519;transform:translateZ(20px)}
+.hero-visual .plate{width:min(74%,300px)}
+@media(max-width:620px){.hero-visual{min-height:260px;height:260px}.hero-burger{width:clamp(160px,54vw,215px);height:120px}.hero-visual .plate{width:min(78%,290px)}}
+@media(prefers-reduced-motion:reduce){.hero-burger{animation:none!important}}
+/* رأی‌دادن تمیز و جلوه‌های ویژه برای نظرهای منتخب مدیر */
+.review-votes{display:flex;gap:8px;align-items:center;margin-top:14px;padding-top:12px;border-top:1px solid #e7e1d7}
+.review-vote-btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-width:72px;min-height:38px;padding:6px 12px;border:1px solid #dfe5dd;border-radius:12px;background:#f8fbf6;color:#314438;font:inherit;font-size:13px;font-weight:800;cursor:pointer;transition:transform .16s,background .16s,border-color .16s,box-shadow .16s}
+.review-vote-btn .vote-symbol{font-size:16px;line-height:1}
+.review-vote-btn .vote-count{font-variant-numeric:tabular-nums}
+.review-vote-btn:hover{transform:translateY(-2px);border-color:#b8d5bd;box-shadow:0 6px 16px #284d3015}
+.review-vote-btn.selected{background:#e3f4e6;border-color:#58a86d;color:#185b31;box-shadow:0 0 0 2px #58a86d1c}
+.review-vote-btn:disabled{opacity:.65;cursor:wait}
+.review-card.review-featured{position:relative;overflow:hidden;border-color:#e5ab58;box-shadow:0 13px 34px #c8763026}
+.review-featured-badge{display:inline-flex;align-items:center;gap:6px;width:max-content;max-width:100%;margin-bottom:10px;padding:5px 10px;border:1px solid #f1c779;border-radius:999px;background:linear-gradient(120deg,#fff5cf,#ffe5a2);color:#81500e;font-size:11px;font-weight:900;letter-spacing:.1px}
+.review-featured-badge span{font-size:15px;color:#db7b1f}
+.review-featured.featured-glow{box-shadow:0 0 0 1px #f0bd68,0 10px 30px #e8a23c2e}
+.review-featured.featured-shine::before{content:"";position:absolute;inset:-40% auto -40% -70%;width:45%;background:linear-gradient(100deg,transparent,#fff9d4a8,transparent);transform:skewX(-18deg);animation:reviewShine 4s ease-in-out infinite;pointer-events:none}
+.review-featured.featured-burst::after{content:"✦     ✧     ✦";position:absolute;right:10px;top:36px;color:#d99a32;font-size:16px;letter-spacing:13px;opacity:.35;pointer-events:none}
+.review-card.featured-pop{animation:reviewFeaturedPop .75s cubic-bezier(.2,.8,.2,1)}
+.review-card.vote-pop{animation:reviewVotePop .5s ease-out}
+@keyframes reviewFeaturedPop{0%{transform:scale(1)}35%{transform:scale(1.025) rotate(-.3deg);box-shadow:0 0 0 5px #efb84a4a,0 20px 45px #bd76294a}100%{transform:scale(1)}}
+@keyframes reviewVotePop{0%{transform:scale(1)}45%{transform:scale(1.012)}100%{transform:scale(1)}}
+@keyframes reviewShine{0%,55%{left:-70%;opacity:0}68%{opacity:.8}100%{left:130%;opacity:0}}
+body[data-theme="dark"] .review-votes{border-color:#39463d}
+body[data-theme="dark"] .review-vote-btn{background:#202b25;color:#e3efe5;border-color:#3c5144}
+body[data-theme="dark"] .review-vote-btn.selected{background:#183f29;color:#bbf2c9;border-color:#52ac70}
+body[data-theme="dark"] .review-featured-badge{background:linear-gradient(120deg,#4a3717,#6b4a1b);color:#ffe2a3;border-color:#87632b}
+@media(prefers-reduced-motion:reduce){.review-featured.featured-shine::before,.review-card.featured-pop,.review-card.vote-pop{animation:none!important}}
+
 </style>
 </head>
 <body>
 <header><div class="w">
 <div class="logo" id="lg"></div>
-<div class="hd"><button class="btn ghost" id="accountBtn" type="button" aria-label="حساب و تنظیمات مشتری">👤 حساب من</button><button class="btn" id="cb">🛒 <span id="cc"></span></button></div>
+<div class="hd"><button class="btn ghost" id="accountBtn" type="button" aria-label="تنظیمات سایت">⚙️ تنظیمات سایت</button><button class="btn" id="cb">🛒 <span id="cc"></span></button></div>
 </div></header>
 
 <div class="w">
@@ -884,11 +925,17 @@ body[data-theme="dark"] .review-privacy-note{color:var(--mut)!important}
     </div>
   </div>
   <div class="hero-visual" aria-hidden="true">
-    <div class="hero-orbit orbit-a"></div><div class="hero-orbit orbit-b"></div>
-    <div class="plate plate-back"></div><div class="plate plate-front"><span class="hero-food">🍔</span></div>
-    <div class="hero-float float-top"><span>✦</span> انتخابِ خودت</div>
-    <div class="hero-float float-bottom"><b>+۱</b><span>مخلفات دلخواه</span></div>
-    <span class="hero-spark spark-one">✦</span><span class="hero-spark spark-two">✧</span>
+    <div class="plate plate-back"></div>
+    <div class="plate plate-front">
+      <div class="hero-burger">
+        <span class="burger-bun-top"></span>
+        <span class="burger-lettuce"></span>
+        <span class="burger-tomato"></span>
+        <span class="burger-cheese"></span>
+        <span class="burger-patty"></span>
+        <span class="burger-bun-bottom"></span>
+      </div>
+    </div>
   </div>
 </section>
 </div>
@@ -901,26 +948,18 @@ body[data-theme="dark"] .review-privacy-note{color:var(--mut)!important}
 
 <section id="customerHub" class="customer-hub reveal" aria-labelledby="hubTitle">
   <div class="hub-title">
-    <div><span class="hub-eyebrow">✦ فضای شخصی سپیدار</span><h2 id="hubTitle">حساب من و پیگیری سفارش‌ها</h2><p id="customerGreeting">سفارش‌ها و ظاهر سایت را از همین‌جا مدیریت کن.</p></div>
-    <div class="hub-avatar" aria-hidden="true">👤</div>
+    <div><span class="hub-eyebrow">✦ فضای شخصی سپیدار</span><h2 id="hubTitle">تنظیمات سایت و پیگیری سفارش‌ها</h2><p id="customerGreeting">سفارش‌ها، رنگ و ظاهر سایت را از همین‌جا مدیریت کن.</p></div>
   </div>
   <div class="hub-tabs" role="tablist" aria-label="بخش‌های حساب مشتری">
     <button class="hub-tab active" type="button" data-hub-tab="orders" role="tab" aria-selected="true">🧾 سفارش‌های من</button>
-    <button class="hub-tab" type="button" data-hub-tab="profile" role="tab" aria-selected="false">👤 نمایه من</button>
-    <button class="hub-tab" type="button" data-hub-tab="appearance" role="tab" aria-selected="false">🎨 ظاهر سایت</button>
+    <button class="hub-tab" type="button" data-hub-tab="appearance" role="tab" aria-selected="false">⚙️ تنظیمات سایت</button>
   </div>
   <div id="hubOrders" class="hub-panel" role="tabpanel">
     <div class="hub-panel-head"><div><h3>سفارش‌های ثبت‌شده</h3><p>وضعیت و زمان تقریبی آماده‌شدن را زنده پیگیری کن.</p></div><button class="hub-small-btn" type="button" id="refreshOrders">↻ به‌روزرسانی</button></div>
     <div id="customerOrders" class="order-list"><div class="hub-empty"><span>🍽️</span><b>در حال بررسی سفارش‌ها…</b></div></div>
   </div>
-  <div id="hubProfile" class="hub-panel" role="tabpanel" hidden>
-    <div class="hub-panel-head"><div><h3>نمایه مشتری</h3><p>برای خوشامدگویی شخصی‌سازی‌شده، نامت را ذخیره کن.</p></div></div>
-    <form id="profileForm" class="hub-form"><label for="profileName">نام نمایشی<input id="profileName" name="profileName" maxlength="40" autocomplete="nickname" placeholder="مثلاً علی"></label><button class="btn" type="submit">ذخیره نمایه</button></form>
-    <div id="profileSaved" class="hub-save-status" aria-live="polite"></div>
-    <p class="hub-note">حساب فعلی محلی است: نام و تنظیمات ظاهر فقط در همین مرورگر و دستگاه ذخیره می‌شود. برای حساب واقعی چنددستگاهی باید ورود امن مشتریان جداگانه فعال شود.</p>
-  </div>
   <div id="hubAppearance" class="hub-panel" role="tabpanel" hidden>
-    <div class="hub-panel-head"><div><h3>سلیقه‌ی خودت را انتخاب کن</h3><p>تغییرها خودکار ذخیره می‌شوند و با برگشتن به سایت می‌مانند.</p></div></div>
+    <div class="hub-panel-head"><div><h3>تنظیمات سایت</h3><p>پوسته، رنگ و حرکت‌های سایت در همین دستگاه ذخیره می‌شوند.</p></div></div>
     <div class="theme-grid" aria-label="انتخاب پوسته">
       <button class="theme-option active" type="button" data-theme-choice="light"><span class="theme-preview light"><span></span><span></span><span></span></span><span><b>روشن</b><small>روشن، تمیز و رنگی</small></span></button>
       <button class="theme-option" type="button" data-theme-choice="dark"><span class="theme-preview dark"><span></span><span></span><span></span></span><span><b>تاریک</b><small>تیره و هماهنگ با رنگ انتخابی</small></span></button>
@@ -1554,12 +1593,26 @@ async function boot(){
   const[a,b]=await Promise.all([jget('/api/public/restaurants/'+RID),jget('/api/public/restaurants/'+RID+'/menu')]),r=a.restaurant;
   SHOP={name:r.name||'',phone:r.phone||'',status:r.status,accepting:!!r.accepting_orders};applyShop();CATS=normCats(b.cats);
   $('#bn').innerHTML=r.status!=='open'?'<div class="bnr">رستوران فعلاً بسته است؛ امکان ثبت سفارش وجود ندارد.</div>':!SHOP.accepting?'<div class="bnr">رستوران فعلاً سفارش جدید نمی‌پذیرد.</div>':'';
-  renderCats();renderMenu();bar();const heroFood=$('.hero-food');if(heroFood)heroFood.textContent=(CATS.find(c=>c.items.length)?.items[0]?.[3])||CATS[0]?.e||'🍽️';if(!glDone){glDone=1;glInit()}loadReviews();
+  renderCats();renderMenu();bar();if(!glDone){glDone=1;glInit()}loadReviews();
  }catch(x){fail(netMsg(x))}}
 async function loadReviews(){const el=$('#rv');
- try{const j=await jget('/api/public/restaurants/'+RID+'/reviews'),s=j.summary;
+ try{const j=await jget('/api/public/restaurants/'+RID+'/reviews?client_id='+encodeURIComponent(visitorId())),s=j.summary;
   el.innerHTML='<div class="reviews-head"><div><span class="review-eyebrow">صدای شما، مهم است</span><h2 class="ct">⭐ تجربه‌ات را ثبت کن</h2><p class="hint">'+(s.count?('میانگین '+F(s.avg)+' از ۵ · '+F(s.count)+' نظر ثبت‌شده'):'اولین نفری باش که تجربه‌اش را به اشتراک می‌گذارد.')+'</p></div><div class="review-score"><strong>'+F(s.avg||0)+'</strong><span>'+('★'.repeat(Math.round(Number(s.avg)||0)))+'</span><small>'+F(s.count||0)+' امتیاز</small></div></div>'
-  +'<div class="review-list">'+(j.reviews.length?j.reviews.map((v,i)=>'<article class="review-card reveal" style="--delay:'+Math.min(i,6)*65+'ms"><div class="review-card-top"><span class="review-avatar">'+E((v.author_name||'م').trim().slice(0,1))+'</span><div class="review-author"><b>'+E(v.author_name||'مشتری')+'</b><small>'+(v.item_name?E(v.item_name):'مشتری سپیدار')+'</small></div><span class="review-stars-static" aria-label="'+v.rating+' از ۵">'+('★'.repeat(v.rating))+('<i>★</i>'.repeat(5-v.rating))+'</span></div>'+(v.comment?'<p class="review-comment">'+E(v.comment)+'</p>':'')+(v.reply?'<div class="review-reply"><b>پاسخ رستوران</b><p>'+E(v.reply)+'</p></div>':'')+'</article>').join(''):'<div class="review-empty"><span>✦</span><b>هنوز نظری نیست</b><p>تجربه‌ی خوبت را با بقیه به اشتراک بگذار.</p></div>')+'</div>'
+  +'<div class="review-list">'+(j.reviews.length?j.reviews.map((v,i)=>{
+   const styles=['glow','shine','burst'];
+   const featureStyle=styles.includes(v.feature_style)?v.feature_style:'glow';
+   const featureClass=v.featured?' review-featured featured-'+featureStyle:'';
+   const featureBadge=v.featured?'<span class="review-featured-badge"><span aria-hidden="true">✦</span> نظر محبوب مدیریت</span>':'';
+   const voteMarkup='<div class="review-votes" role="group" aria-label="بازخورد درباره این نظر">'
+    +'<button type="button" class="review-vote-btn'+(v.my_vote==='like'?' selected':'')+'" data-review-vote="'+E(v.id)+'" data-vote="like" aria-pressed="'+(v.my_vote==='like')+'" aria-label="مفید بود"><span class="vote-symbol" aria-hidden="true">👍</span><span class="vote-count">'+F(v.likes||0)+'</span></button>'
+    +'<button type="button" class="review-vote-btn'+(v.my_vote==='dislike'?' selected':'')+'" data-review-vote="'+E(v.id)+'" data-vote="dislike" aria-pressed="'+(v.my_vote==='dislike')+'" aria-label="مفید نبود"><span class="vote-symbol" aria-hidden="true">👎</span><span class="vote-count">'+F(v.dislikes||0)+'</span></button></div>';
+   return '<article class="review-card reveal'+featureClass+'" data-review-card="1" data-review-id="'+E(v.id)+'" style="--delay:'+Math.min(i,6)*65+'ms">'
+    +featureBadge
+    +'<div class="review-card-top"><span class="review-avatar">'+E((v.author_name||'م').trim().slice(0,1))+'</span><div class="review-author"><b>'+E(v.author_name||'مشتری')+'</b><small>'+(v.item_name?E(v.item_name):'مشتری سپیدار')+'</small></div><span class="review-stars-static" aria-label="'+v.rating+' از ۵">'+('★'.repeat(v.rating))+('<i>★</i>'.repeat(5-v.rating))+'</span></div>'
+    +(v.comment?'<p class="review-comment">'+E(v.comment)+'</p>':'')
+    +(v.reply?'<div class="review-reply"><b>پاسخ رستوران</b><p>'+E(v.reply)+'</p></div>':'')
+    +voteMarkup+'</article>';
+  }).join(''):'<div class="review-empty"><span>✦</span><b>هنوز نظری نیست</b><p>تجربه‌ی خوبت را با بقیه به اشتراک بگذار.</p></div>')+'</div>'
   +'<form id="rf" class="review-form"><div class="review-form-title"><span>✦</span><div><b>چند ستاره می‌دهی؟</b><small>امتیازت را مستقیم انتخاب کن</small></div></div><div class="star-picker" role="radiogroup" aria-label="انتخاب امتیاز">'+[1,2,3,4,5].map(n=>'<button type="button" class="star-choice'+(n===5?' selected':'')+'" role="radio" aria-checked="'+(n===5?'true':'false')+'" data-rating="'+n+'" aria-label="'+n+' ستاره">'+(n===5?'★':'☆')+'</button>').join('')+'</div><div id="ratingHint" class="rating-hint" aria-live="polite">عالی بود! 🤩</div><input type="hidden" name="rating" value="5"><label class="review-field"><span>نامت <small>(اختیاری)</small></span><input name="author_name" maxlength="40" placeholder="مثلاً علی" aria-label="نام (اختیاری)"></label><label class="review-field"><span>نظرت درباره‌ی غذا <small>(اختیاری)</small></span><textarea name="comment" rows="3" maxlength="600" placeholder="طعم، کیفیت یا تجربه‌ات را بنویس..." aria-label="نظر"></textarea></label><button class="btn review-submit" type="submit"><span>ثبت تجربه</span><b>←</b></button><small class="review-privacy-note">برای جلوگیری از اسپم، شناسه‌ای ناشناس و هش‌شده استفاده می‌شود؛ حساب کاربری ساخته نمی‌شود.</small><div id="rok" class="review-status" aria-live="polite"></div></form>';
   const f=$('#rf'), hint=$('#ratingHint'), hidden=f.elements.rating;
   const labels={1:'اصلاً راضی نبودم',2:'می‌توانست بهتر باشد',3:'خوب بود 🙂',4:'خیلی خوب بود ✨',5:'عالی بود! 🤩'};
@@ -1567,6 +1620,33 @@ async function loadReviews(){const el=$('#rv');
   f.onsubmit=async e=>{e.preventDefault();const m=$('#rok'),b=f.querySelector('button[type="submit"]');if(b.disabled)return;b.disabled=true;m.className='review-status is-loading';m.textContent='در حال ارسال تجربه‌ات...';
    try{const r=await fetch(API+'/api/public/restaurants/'+RID+'/reviews',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({client_id:visitorId(),rating:+hidden.value,author_name:f.author_name.value.trim(),comment:f.comment.value.trim()})}),k=await r.json().catch(()=>null);if(!r.ok||!k||!k.ok){const err=new Error(emsg(k,r));err.code=k&&k.error;throw err}m.className='review-status is-success';m.textContent='ممنون از امتیازت! ✨ ثبت شد.';f.reset();hidden.value='5';f.querySelectorAll('.star-choice').forEach(b=>{const on=+b.dataset.rating<=5;b.classList.toggle('selected',on);b.textContent=on?'★':'☆';b.setAttribute('aria-checked',String(+b.dataset.rating===5))});hint.textContent=labels[5];await loadReviews()}
    catch(x){m.className='review-status is-error';m.textContent=netMsg(x);if(x.code==='review_banned'){b.dataset.banned='1';b.disabled=true;f.querySelectorAll('input,textarea').forEach(z=>z.disabled=true)}}finally{if(!b.dataset.banned)b.disabled=false}
+  };
+  el.onclick=async e=>{
+   const vote=e.target.closest('[data-review-vote]');
+   if(vote){
+    if(vote.disabled)return;
+    const card=vote.closest('[data-review-card]'),reviewId=vote.dataset.reviewVote,choice=vote.dataset.vote;
+    if(!card||!reviewId)return;
+    vote.disabled=true;
+    try{
+     const response=await fetch(API+'/api/public/restaurants/'+RID+'/reviews/'+encodeURIComponent(reviewId)+'/vote',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({client_id:visitorId(),vote:choice})});
+     const result=await response.json().catch(()=>null);
+     if(!response.ok||!result||!result.ok)throw new Error(emsg(result,response));
+     card.querySelectorAll('[data-vote]').forEach(btn=>{
+      const selected=btn.dataset.vote===result.my_vote;
+      btn.classList.toggle('selected',selected);
+      btn.setAttribute('aria-pressed',String(selected));
+      const count=btn.querySelector('.vote-count');
+      if(count)count.textContent=F(btn.dataset.vote==='like'?result.likes:result.dislikes);
+     });
+     card.classList.remove('vote-pop');void card.offsetWidth;card.classList.add('vote-pop');
+     setTimeout(()=>card.classList.remove('vote-pop'),650);
+    }catch(err){toast(netMsg(err))}
+    finally{if(vote.isConnected)vote.disabled=false}
+    return;
+   }
+   const card=e.target.closest('.review-featured');
+   if(card){card.classList.remove('featured-pop');void card.offsetWidth;card.classList.add('featured-pop');setTimeout(()=>card.classList.remove('featured-pop'),1000)}
   };
   revealOnScroll(el);
  }catch(x){el.innerHTML='<p class="hint">نظرات در دسترس نیست.</p>'}}
@@ -1580,7 +1660,6 @@ try{Object.keys(localStorage).filter(k=>/^cd\d*_/.test(k)&&!k.startsWith('cd11_'
 
 /* ===== حساب مشتری، پیگیری امن سفارش‌ها و تنظیمات نمای ظاهری ===== */
 const CUSTOMER_ORDERS_KEY='sepidar.customer.orders.v1';
-const CUSTOMER_PROFILE_KEY='sepidar.customer.profile.v1';
 const CUSTOMER_PREFS_KEY='sepidar.customer.appearance.v1';
 const CUSTOMER_STATES={
  new:{label:'در انتظار تأیید',icon:'🕒',cls:'new'},
@@ -1634,7 +1713,7 @@ async function refreshTrackedOrders(specificId=null){
  }finally{customerRefreshBusy=false;renderCustomerOrders()}
 }
 function setHubTab(tab){
- const map={orders:'#hubOrders',profile:'#hubProfile',appearance:'#hubAppearance'};
+ const map={orders:'#hubOrders',appearance:'#hubAppearance'};
  if(!map[tab])tab='orders';
  document.querySelectorAll('[data-hub-tab]').forEach(b=>{const on=b.dataset.hubTab===tab;b.classList.toggle('active',on);b.setAttribute('aria-selected',String(on))});
  Object.entries(map).forEach(([key,selector])=>{const el=$(selector);if(el)el.hidden=key!==tab});
@@ -1652,17 +1731,10 @@ function applyPrefs(){
  if(motion)motion.checked=p.reduceMotion;if(compact)compact.checked=p.compact;
 }
 function updatePrefs(changes){const next={...readPrefs(),...changes};writeJSON(CUSTOMER_PREFS_KEY,next);applyPrefs()}
-function renderCustomerProfile(){
- const p=localJSON(CUSTOMER_PROFILE_KEY,{name:''}),name=typeof p.name==='string'?p.name:'';
- const input=$('#profileName');if(input)input.value=name;
- const greeting=$('#customerGreeting');if(greeting)greeting.textContent=name?'خوش برگشتی، '+name+'! سفارش‌ها و ظاهر سایت در اختیار توست.':'سفارش‌ها و ظاهر سایت را از همین‌جا مدیریت کن.';
- const avatar=$('.hub-avatar');if(avatar)avatar.textContent=name?E(name.trim().slice(0,1)):'👤';
-}
 function initCustomerHub(){
- applyPrefs();renderCustomerProfile();setHubTab('orders');
- const acct=$('#accountBtn');if(acct)acct.onclick=()=>{$('#customerHub').scrollIntoView({behavior:readPrefs().reduceMotion?'auto':'smooth',block:'start'});setHubTab('profile')};
+ applyPrefs();setHubTab('orders');
+ const acct=$('#accountBtn');if(acct)acct.onclick=()=>{$('#customerHub').scrollIntoView({behavior:readPrefs().reduceMotion?'auto':'smooth',block:'start'});setHubTab('appearance')};
  document.querySelectorAll('[data-hub-tab]').forEach(b=>b.onclick=()=>setHubTab(b.dataset.hubTab));
- const profile=$('#profileForm');if(profile)profile.onsubmit=e=>{e.preventDefault();const name=String($('#profileName').value||'').trim().slice(0,40);writeJSON(CUSTOMER_PROFILE_KEY,{name});renderCustomerProfile();$('#profileSaved').textContent='نمایه ذخیره شد ✓';setTimeout(()=>{const el=$('#profileSaved');if(el)el.textContent=''},2200)};
  const appearance=$('#hubAppearance');if(appearance)appearance.onclick=e=>{
   const theme=e.target.closest('[data-theme-choice]');if(theme){updatePrefs({theme:theme.dataset.themeChoice});return}
   const accent=e.target.closest('[data-accent-choice]');if(accent){updatePrefs({accent:accent.dataset.accentChoice});return}
