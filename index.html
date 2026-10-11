@@ -342,7 +342,7 @@ footer{background:linear-gradient(110deg,#12281f,#203d30);border-top:3px solid #
 .theme-option.active{border-color:var(--or);box-shadow:0 0 0 3px color-mix(in srgb,var(--or) 12%,transparent)}
 .theme-preview{height:52px;border-radius:10px;margin-bottom:8px;display:flex;align-items:center;gap:4px;padding:7px;border:1px solid #ddd}
 .theme-preview span{display:block;height:7px;border-radius:99px;background:var(--or)}.theme-preview span:nth-child(1){width:28%}.theme-preview span:nth-child(2){width:45%;opacity:.4}.theme-preview span:nth-child(3){width:17%;height:17px;border-radius:5px;margin-right:auto}
-.theme-preview.light{background:#fffaf3}.theme-preview.dark{background:#111827;border-color:#344052}.theme-preview.dark span:nth-child(2){background:#e6edf7}.theme-preview.soft{background:#f5eee5}.theme-option b{display:block;font-size:12px}.theme-option small{display:block;color:var(--mut);font-size:10px;margin-top:2px}
+.theme-preview.light{background:#fffaf3}.theme-preview.dark{background:#111827;border-color:#344052}.theme-preview.dark span:nth-child(2){background:#e6edf7}.theme-option b{display:block;font-size:12px}.theme-option small{display:block;color:var(--mut);font-size:10px;margin-top:2px}
 .accent-choices{display:flex;gap:9px;flex-wrap:wrap;margin-top:15px}
 .accent-choice{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);border-radius:99px;padding:7px 11px;background:#fff;color:var(--fg);font-size:12px;font-weight:800;cursor:pointer}
 .accent-choice i{width:15px;height:15px;border-radius:50%;background:var(--swatch);box-shadow:inset 0 0 0 2px #ffffff66}
@@ -353,13 +353,6 @@ footer{background:linear-gradient(110deg,#12281f,#203d30);border-top:3px solid #
 .hub-save-status{min-height:20px;margin-top:8px;color:#17804a;font-size:12px;font-weight:800}
 body[data-accent="mint"]{--or:#0f956b;--or2:#42c99a;--soft:#e9fff5}
 body[data-accent="violet"]{--or:#7652d6;--or2:#a78bfa;--soft:#f2edff}
-body[data-theme="soft"]{background:#f5eee4;color:#322a22;--fg:#322a22;--mut:#776b5f;--line:#e8d9c7}
-body[data-theme="soft"] header,body[data-theme="soft"] .cats{background:#fffaf3;border-color:#e8d9c7}
-body[data-theme="soft"] .customer-hub{background:radial-gradient(ellipse at 100% 0,#ffead3 0,transparent 44%),linear-gradient(145deg,#fffaf3,#f7ecdd);border-color:#ead5bd}
-body[data-theme="soft"] .tracked-order-card,body[data-theme="soft"] .theme-option,body[data-theme="soft"] .accent-choice,body[data-theme="soft"] .pref-switch,body[data-theme="soft"] .hub-small-btn{background:#fffaf3;border-color:#e9d8c4;color:#322a22}
-body[data-theme="soft"] .hub-empty{background:#fff8ef;border-color:#e4c7a9}
-body[data-theme="soft"] .hub-form input,body[data-theme="soft"] .sr input,body[data-theme="soft"] .review-field input,body[data-theme="soft"] .review-field textarea,body[data-theme="soft"] textarea{background:#fffdf9;color:#322a22;border-color:#e4d4c0}
-body[data-theme="soft"] .order-eta{background:#fff0dc;border-color:#eed0a8;color:#84461d}
 body[data-theme="dark"]{background:#0d121b;color:#e7edf6;--fg:#e7edf6;--mut:#a3afc1;--line:#2a3546}
 body[data-theme="dark"] header,body[data-theme="dark"] .cats{background:#111824;border-color:#263244}
 body[data-theme="dark"] .customer-hub{background:radial-gradient(ellipse at 100% 0,#2b201b 0,transparent 44%),linear-gradient(145deg,#151d2a,#111824);border-color:#2a3546}
@@ -379,6 +372,52 @@ html.reduce-motion *,html.reduce-motion *::before,html.reduce-motion *::after{an
 html.reduce-motion .reveal-ready .reveal{opacity:1!important;transform:none!important}
 @media(max-width:680px){.order-list{grid-template-columns:1fr}.hub-form{grid-template-columns:1fr}.theme-grid{grid-template-columns:1fr}.theme-option{display:grid;grid-template-columns:82px 1fr;gap:10px;align-items:center}.theme-preview{height:42px;margin:0}.theme-option small{margin-top:1px}.customer-hub{border-radius:21px;padding:17px}.order-card-meta{font-size:10.5px}.hub-tabs{gap:4px}.hub-tab{padding:8px 10px}.hub-avatar{width:42px;height:42px}}
 @media(prefers-reduced-motion:reduce){.hub-panel{animation:none}.tracked-order-card,.theme-option,.hub-tab{transition:none}}
+
+
+/* ===== سامانه‌ی یکپارچه‌ی پوسته و رنگ سراسری ===== */
+:root{
+ color-scheme:light;
+ --palette-page:#fff8f1;--palette-surface:#fffdf8;--palette-soft:#fff0e3;--palette-border:#eddfd1;
+}
+body[data-theme="light"]{color-scheme:light;--fg:#202820;--mut:#71776d;--line:var(--palette-border);background:var(--palette-page)!important;color:var(--fg)}
+body[data-theme="light"][data-accent="orange"]{--or:#eb672d;--or2:#ffad58;--or-ink:#b94718;--soft:#fff0e4;--palette-page:#fff8f1;--palette-surface:#fffdf8;--palette-soft:#fff0e3;--palette-border:#eddfd1}
+body[data-theme="light"][data-accent="mint"]{--or:#0f956b;--or2:#4dcba0;--or-ink:#087451;--soft:#e8fbf2;--palette-page:#f1faf6;--palette-surface:#fcfffd;--palette-soft:#e6f7ee;--palette-border:#d6ece1}
+body[data-theme="light"][data-accent="violet"]{--or:#7652d6;--or2:#a78bfa;--or-ink:#5935b3;--soft:#f1ecff;--palette-page:#f7f5ff;--palette-surface:#fdfcff;--palette-soft:#eee9ff;--palette-border:#e2daf7}
+body[data-theme="dark"]{color-scheme:dark;--fg:#e8edf6;--mut:#a7b5c9;--line:var(--palette-border);background:var(--palette-page)!important;color:var(--fg)}
+body[data-theme="light"]::before{opacity:.13;background-image:radial-gradient(color-mix(in srgb,var(--or) 20%,transparent) .55px,transparent .55px)}
+body[data-theme="dark"]::before{opacity:.1;background-image:radial-gradient(color-mix(in srgb,var(--or) 18%,transparent) .55px,transparent .55px)}
+body[data-theme="dark"][data-accent="orange"]{--or:#ff9657;--or2:#ffc078;--or-ink:#ffba8a;--soft:#38271e;--palette-page:#10151e;--palette-surface:#161e2a;--palette-soft:#28232a;--palette-border:#303a49}
+body[data-theme="dark"][data-accent="mint"]{--or:#48d3a0;--or2:#7ce6bd;--or-ink:#72e6bc;--soft:#18352e;--palette-page:#0e1919;--palette-surface:#142322;--palette-soft:#1a3830;--palette-border:#2b4641}
+body[data-theme="dark"][data-accent="violet"]{--or:#b19aff;--or2:#d0c0ff;--or-ink:#c4b4ff;--soft:#302544;--palette-page:#131321;--palette-surface:#1d1c30;--palette-soft:#302544;--palette-border:#393650}
+body[data-theme="light"] header,body[data-theme="light"] .cats{background:color-mix(in srgb,var(--palette-surface) 94%,transparent)!important;border-color:var(--palette-border)!important}
+body[data-theme="light"] .sr input,body[data-theme="light"] .chip,body[data-theme="light"] .fc,body[data-theme="light"] .review-card,body[data-theme="light"] .review-form,body[data-theme="light"] .review-score,body[data-theme="light"] #sh,body[data-theme="light"] .tracked-order-card,body[data-theme="light"] .theme-option,body[data-theme="light"] .accent-choice,body[data-theme="light"] .pref-switch,body[data-theme="light"] .hub-small-btn,body[data-theme="light"] .hub-empty,body[data-theme="light"] .hub-form input,body[data-theme="light"] .review-field input,body[data-theme="light"] .review-field textarea,body[data-theme="light"] textarea{background:var(--palette-surface)!important;color:var(--fg)!important;border-color:var(--palette-border)!important}
+body[data-theme="light"] .fc,body[data-theme="light"] .review-card,body[data-theme="light"] .review-form,body[data-theme="light"] .review-score,body[data-theme="light"] #sh,body[data-theme="light"] .tracked-order-card{box-shadow:0 10px 28px color-mix(in srgb,var(--or) 7%,transparent)}
+body[data-theme="light"] .customer-hub{background:radial-gradient(ellipse at 100% 0,color-mix(in srgb,var(--or) 12%,transparent) 0,transparent 44%),linear-gradient(145deg,var(--palette-surface),var(--palette-page))!important;border-color:var(--palette-border)!important}
+body[data-theme="light"] .hub-empty,body[data-theme="light"] .order-eta{background:var(--palette-soft)!important;border-color:var(--palette-border)!important;color:var(--fg)!important}
+body[data-theme="light"] .chip.on,body[data-theme="light"] .theme-option.active,body[data-theme="light"] .accent-choice.active{background:var(--palette-soft)!important;border-color:var(--or)!important;color:var(--or-ink)!important}
+body[data-theme="light"] .hero-scene{background:radial-gradient(ellipse at 78% 50%,color-mix(in srgb,var(--or) 34%,#21372d) 0%,transparent 38%),radial-gradient(ellipse at 5% 110%,color-mix(in srgb,var(--or) 35%,transparent) 0%,transparent 46%),linear-gradient(122deg,#11251f 0%,color-mix(in srgb,var(--or) 25%,#1b3329) 55%,#243d2b 100%)!important}
+body[data-theme="light"] .btn{box-shadow:0 8px 20px color-mix(in srgb,var(--or) 22%,transparent)}
+body[data-theme="light"] .btn.ghost{background:var(--palette-surface)!important;color:var(--fg)!important;border-color:var(--palette-border)!important}
+body[data-theme="light"] .why,body[data-theme="light"] .tl>div,body[data-theme="light"] .low>section,body[data-theme="light"] .own{color:var(--fg)}
+body[data-theme="dark"] header,body[data-theme="dark"] .cats{background:color-mix(in srgb,var(--palette-surface) 94%,transparent)!important;border-color:var(--palette-border)!important;box-shadow:0 8px 26px #0002}
+body[data-theme="dark"] .w,body[data-theme="dark"] main,body[data-theme="dark"] #menu,body[data-theme="dark"] .low,body[data-theme="dark"] footer{color:var(--fg)}
+body[data-theme="dark"] .sr input,body[data-theme="dark"] .chip,body[data-theme="dark"] .fc,body[data-theme="dark"] .review-card,body[data-theme="dark"] .review-form,body[data-theme="dark"] .review-score,body[data-theme="dark"] #sh,body[data-theme="dark"] .tracked-order-card,body[data-theme="dark"] .theme-option,body[data-theme="dark"] .accent-choice,body[data-theme="dark"] .pref-switch,body[data-theme="dark"] .hub-small-btn,body[data-theme="dark"] .hub-empty,body[data-theme="dark"] .hub-form input,body[data-theme="dark"] .review-field input,body[data-theme="dark"] .review-field textarea,body[data-theme="dark"] textarea,body[data-theme="dark"] input,body[data-theme="dark"] select{background:var(--palette-surface)!important;color:var(--fg)!important;border-color:var(--palette-border)!important}
+body[data-theme="dark"] .fc,body[data-theme="dark"] .review-card,body[data-theme="dark"] .review-form,body[data-theme="dark"] .review-score,body[data-theme="dark"] #sh,body[data-theme="dark"] .tracked-order-card{box-shadow:0 12px 30px #0003}
+body[data-theme="dark"] .customer-hub{background:radial-gradient(ellipse at 100% 0,color-mix(in srgb,var(--or) 20%,transparent) 0,transparent 45%),linear-gradient(145deg,var(--palette-surface),var(--palette-page))!important;border-color:var(--palette-border)!important;color:var(--fg)}
+body[data-theme="dark"] .hub-eyebrow,body[data-theme="dark"] .hub-note,body[data-theme="dark"] .hub-empty,body[data-theme="dark"] .order-eta,body[data-theme="dark"] .order-eta.late{background:var(--palette-soft)!important;border-color:var(--palette-border)!important;color:var(--fg)!important}
+body[data-theme="dark"] .order-cancel{background:#351f28!important;border-color:#673744!important;color:#ffd0d7!important}
+body[data-theme="dark"] .hero-scene{background:radial-gradient(ellipse at 76% 50%,color-mix(in srgb,var(--or) 30%,#192720) 0%,transparent 38%),radial-gradient(ellipse at 4% 110%,color-mix(in srgb,var(--or) 38%,transparent) 0%,transparent 44%),linear-gradient(122deg,#101b18 0%,color-mix(in srgb,var(--or) 18%,#172820) 54%,#1d3027 100%)!important}
+body[data-theme="dark"] .chip.on,body[data-theme="dark"] .theme-option.active,body[data-theme="dark"] .accent-choice.active{background:var(--palette-soft)!important;border-color:var(--or)!important;color:var(--or-ink)!important}
+body[data-theme="dark"] .hint,body[data-theme="dark"] .fb small,body[data-theme="dark"] .hub-panel-head p,body[data-theme="dark"] .review-form p,body[data-theme="dark"] .low p{color:var(--mut)}
+body[data-theme="dark"] .why,body[data-theme="dark"] .tl>div,body[data-theme="dark"] .low>section,body[data-theme="dark"] .own{background-color:var(--palette-surface)!important;border-color:var(--palette-border)!important;color:var(--fg)!important}
+body[data-theme="dark"] .pr,body[data-theme="dark"] .order-card-title,body[data-theme="dark"] .logo{color:var(--or)!important}
+body[data-theme="dark"] #scrollProgress{background:linear-gradient(90deg,var(--or2),var(--or));box-shadow:0 0 14px color-mix(in srgb,var(--or) 55%,transparent)}
+body[data-theme="dark"] .btn.ghost{background:var(--palette-surface)!important;color:var(--fg)!important;border-color:var(--palette-border)!important}
+body[data-theme="dark"] .btn{color:#111824}
+body[data-theme="dark"] .hero-scene .btn{background:#fff!important;color:var(--or-ink)!important}
+body[data-theme="dark"] .theme-preview.light{background:#fffaf3}
+body[data-theme="dark"] .theme-preview.dark{background:#111827}
+@media(prefers-reduced-motion:reduce){body[data-theme="dark"] .hero-scene{animation:none}}
 
 </style>
 </head>
@@ -439,17 +478,17 @@ html.reduce-motion .reveal-ready .reveal{opacity:1!important;transform:none!impo
   <div id="hubAppearance" class="hub-panel" role="tabpanel" hidden>
     <div class="hub-panel-head"><div><h3>سلیقه‌ی خودت را انتخاب کن</h3><p>تغییرها خودکار ذخیره می‌شوند و با برگشتن به سایت می‌مانند.</p></div></div>
     <div class="theme-grid" aria-label="انتخاب پوسته">
-      <button class="theme-option active" type="button" data-theme-choice="light"><span class="theme-preview light"><span></span><span></span><span></span></span><span><b>روشن</b><small>تمیز و کلاسیک</small></span></button>
-      <button class="theme-option" type="button" data-theme-choice="dark"><span class="theme-preview dark"><span></span><span></span><span></span></span><span><b>تاریک</b><small>مناسب شب و چشم</small></span></button>
-      <button class="theme-option" type="button" data-theme-choice="soft"><span class="theme-preview soft"><span></span><span></span><span></span></span><span><b>گرم و ملایم</b><small>پس‌زمینه کرمی</small></span></button>
+      <button class="theme-option active" type="button" data-theme-choice="light"><span class="theme-preview light"><span></span><span></span><span></span></span><span><b>روشن</b><small>روشن، تمیز و رنگی</small></span></button>
+      <button class="theme-option" type="button" data-theme-choice="dark"><span class="theme-preview dark"><span></span><span></span><span></span></span><span><b>تاریک</b><small>تیره و هماهنگ با رنگ انتخابی</small></span></button>
     </div>
-    <div class="accent-choices" aria-label="رنگ تأکیدی">
+    <div class="accent-choices" aria-label="رنگ سراسری">
       <button class="accent-choice active" type="button" data-accent-choice="orange" style="--swatch:#ff6a00"><i></i>نارنجی سپیدار</button>
       <button class="accent-choice" type="button" data-accent-choice="mint" style="--swatch:#0f956b"><i></i>سبز نعنایی</button>
       <button class="accent-choice" type="button" data-accent-choice="violet" style="--swatch:#7652d6"><i></i>بنفش</button>
     </div>
+    <p class="hub-note palette-help">رنگ انتخابی فقط برای دکمه‌ها نیست؛ پس‌زمینه، کارت‌ها، کادرها، بخش‌های منو و رنگ تأکیدی کل سایت را هماهنگ می‌کند.</p>
     <div class="pref-switches"><label class="pref-switch"><input type="checkbox" id="motionToggle"> انیمیشن کمتر</label><label class="pref-switch"><input type="checkbox" id="compactToggle"> کارت‌های جمع‌وجورتر</label></div>
-    <p class="hub-note">انتخاب‌ها قابل تغییرند؛ با «روشن» و «نارنجی سپیدار» ظاهر اولیه برمی‌گردد.</p>
+    <p class="hub-note">برای بازگشت به ظاهر اولیه، «روشن» و «نارنجی سپیدار» را انتخاب کن.</p>
   </div>
 </section>
 
@@ -1113,7 +1152,7 @@ function setHubTab(tab){
  document.querySelectorAll('[data-hub-tab]').forEach(b=>{const on=b.dataset.hubTab===tab;b.classList.toggle('active',on);b.setAttribute('aria-selected',String(on))});
  Object.entries(map).forEach(([key,selector])=>{const el=$(selector);if(el)el.hidden=key!==tab});
 }
-function readPrefs(){const p=localJSON(CUSTOMER_PREFS_KEY,{});return{theme:['light','dark','soft'].includes(p.theme)?p.theme:'light',accent:['orange','mint','violet'].includes(p.accent)?p.accent:'orange',reduceMotion:!!p.reduceMotion,compact:!!p.compact}}
+function readPrefs(){const p=localJSON(CUSTOMER_PREFS_KEY,{});return{theme:['light','dark'].includes(p.theme)?p.theme:'light',accent:['orange','mint','violet'].includes(p.accent)?p.accent:'orange',reduceMotion:!!p.reduceMotion,compact:!!p.compact}}
 function applyPrefs(){
  const p=readPrefs();
  document.body.dataset.theme=p.theme;
