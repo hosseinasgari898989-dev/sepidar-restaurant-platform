@@ -384,6 +384,8 @@ body[data-theme="light"][data-accent="orange"]{--or:#eb672d;--or2:#ffad58;--or-i
 body[data-theme="light"][data-accent="mint"]{--or:#0f956b;--or2:#4dcba0;--or-ink:#087451;--soft:#e8fbf2;--palette-page:#f1faf6;--palette-surface:#fcfffd;--palette-soft:#e6f7ee;--palette-border:#d6ece1}
 body[data-theme="light"][data-accent="violet"]{--or:#7652d6;--or2:#a78bfa;--or-ink:#5935b3;--soft:#f1ecff;--palette-page:#f7f5ff;--palette-surface:#fdfcff;--palette-soft:#eee9ff;--palette-border:#e2daf7}
 body[data-theme="dark"]{color-scheme:dark;--fg:#e8edf6;--mut:#a7b5c9;--line:var(--palette-border);background:var(--palette-page)!important;color:var(--fg)}
+body[data-theme="light"]::before{opacity:.13;background-image:radial-gradient(color-mix(in srgb,var(--or) 20%,transparent) .55px,transparent .55px)}
+body[data-theme="dark"]::before{opacity:.1;background-image:radial-gradient(color-mix(in srgb,var(--or) 18%,transparent) .55px,transparent .55px)}
 body[data-theme="dark"][data-accent="orange"]{--or:#ff9657;--or2:#ffc078;--or-ink:#ffba8a;--soft:#38271e;--palette-page:#10151e;--palette-surface:#161e2a;--palette-soft:#28232a;--palette-border:#303a49}
 body[data-theme="dark"][data-accent="mint"]{--or:#48d3a0;--or2:#7ce6bd;--or-ink:#72e6bc;--soft:#18352e;--palette-page:#0e1919;--palette-surface:#142322;--palette-soft:#1a3830;--palette-border:#2b4641}
 body[data-theme="dark"][data-accent="violet"]{--or:#b19aff;--or2:#d0c0ff;--or-ink:#c4b4ff;--soft:#302544;--palette-page:#131321;--palette-surface:#1d1c30;--palette-soft:#302544;--palette-border:#393650}
@@ -397,7 +399,6 @@ body[data-theme="light"] .hero-scene{background:radial-gradient(ellipse at 78% 5
 body[data-theme="light"] .btn{box-shadow:0 8px 20px color-mix(in srgb,var(--or) 22%,transparent)}
 body[data-theme="light"] .btn.ghost{background:var(--palette-surface)!important;color:var(--fg)!important;border-color:var(--palette-border)!important}
 body[data-theme="light"] .why,body[data-theme="light"] .tl>div,body[data-theme="light"] .low>section,body[data-theme="light"] .own{color:var(--fg)}
-body[data-theme="dark"] body{color:var(--fg)}
 body[data-theme="dark"] header,body[data-theme="dark"] .cats{background:color-mix(in srgb,var(--palette-surface) 94%,transparent)!important;border-color:var(--palette-border)!important;box-shadow:0 8px 26px #0002}
 body[data-theme="dark"] .w,body[data-theme="dark"] main,body[data-theme="dark"] #menu,body[data-theme="dark"] .low,body[data-theme="dark"] footer{color:var(--fg)}
 body[data-theme="dark"] .sr input,body[data-theme="dark"] .chip,body[data-theme="dark"] .fc,body[data-theme="dark"] .review-card,body[data-theme="dark"] .review-form,body[data-theme="dark"] .review-score,body[data-theme="dark"] #sh,body[data-theme="dark"] .tracked-order-card,body[data-theme="dark"] .theme-option,body[data-theme="dark"] .accent-choice,body[data-theme="dark"] .pref-switch,body[data-theme="dark"] .hub-small-btn,body[data-theme="dark"] .hub-empty,body[data-theme="dark"] .hub-form input,body[data-theme="dark"] .review-field input,body[data-theme="dark"] .review-field textarea,body[data-theme="dark"] textarea,body[data-theme="dark"] input,body[data-theme="dark"] select{background:var(--palette-surface)!important;color:var(--fg)!important;border-color:var(--palette-border)!important}
