@@ -40,3 +40,12 @@ Continue on the feature branch only. Inspect current branch files before editing
 - Customer menu normalization now retains optional third customization values (3D-effect codes) so administrator-defined codes reach the existing procedural model renderer.
 - Review vote client request uses `Content-Type: text/plain;charset=UTF-8` to avoid a cross-origin preflight. Worker vote handler accepts this content type and validates Origin. Live public GET reviews works, but no real POST vote was tested with a browser; owner tap test is still needed.
 - Static syntax check for the customer inline script passed; public GitHub Pages returns updated short hint. Visual screenshot-based mobile rendering and interaction should still be checked on the real device.
+
+
+## HANDOVER — customer site + AI price search (2026-10-11)
+- Continue from panel checkpoint: `hosseinasgari898989-dev/sepidar-restaurant-panel/CHECKPOINT_2026-10-11.md`, section “HANDOVER — AI price search + admin review visibility”.
+- Customer site: https://hosseinasgari898989-dev/sepidar-restaurant-platform/ ; management panel: https://sepidar-restaurant-panel.willow-poppy-10df.workers.dev/panel/ .
+- User confirmed ImageKit upload and customer 👍/👎 votes work. Preserve current customer layout: floating burger without plate, category row not sticky, one food search in admin plus separate AI price search, touch text-copy disabled except editable inputs, and customization-effect metadata reaching compatible 3D models.
+- Outstanding: AI price search still showed “عامل هوشمند نتوانست منابع را درست ارزیابی کند؛ دوباره تلاش کن”; panel Worker source currently shows `2026-10-panel-14` with Tavily + Cloudflare Workers AI source classifier, structured response parsing and strict food/menu evidence. Authenticated search after the final deployment needs reproducible retest with logs; do not assume resolved yet.
+- Outstanding: user requests all review highlight/effects to be directly visible inside admin review list. Source `worker/public/panel/js/views/reviews.js` includes active style/status and 👍/👎 totals, but verify live pinned asset + CSS visually before marking done.
+- Panel UI assets are pinned in `worker/src/lib/panel-overrides.js`; when admin source JS/CSS changes, update the matching pinned asset too. Backups exist on both repositories at `backup/pre-sepidar-ux-bugfix-2026-10-11`.
