@@ -244,6 +244,52 @@ footer{background:linear-gradient(110deg,#12281f,#203d30);border-top:3px solid #
 }
 @media(hover:none){.fc:hover,.tl div:hover{transform:none}}
 
+
+/* Motion system: every major customer-facing section */
+@keyframes sectionRise{from{opacity:0;transform:translateY(22px) scale(.99)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes softPop{0%{transform:scale(.86) rotate(-7deg);opacity:0}70%{transform:scale(1.07) rotate(2deg)}100%{transform:scale(1) rotate(0);opacity:1}}
+@keyframes starGlow{0%,100%{filter:drop-shadow(0 0 0 #ffb84d00)}50%{filter:drop-shadow(0 0 10px #ffb84d99)}}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .65s ease,transform .65s cubic-bezier(.2,.7,.2,1);transition-delay:var(--delay,0ms)}
+.reveal.is-visible{opacity:1;transform:translateY(0)}
+.hero-scene{animation:sectionRise .8s both cubic-bezier(.2,.7,.2,1)}
+.sr,.cats,main>.ct,main>.hint,.why,.tl,.own,#rv,footer{animation:sectionRise .65s both;animation-timing-function:cubic-bezier(.2,.7,.2,1)}
+.fc{transform-style:preserve-3d;will-change:transform}
+.fc .ph{overflow:hidden}
+.fc .fe,.fc .pxc{transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.fc:hover .fe{transform:translateY(-4px) scale(1.06)}
+.fc:hover .pxc{transform:translateZ(12px)}
+.review-eyebrow{display:inline-block;color:#c85a25;background:#fff0e4;border:1px solid #f4d4bc;padding:6px 11px;border-radius:99px;font-size:11px;font-weight:800}
+.reviews-head{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:19px}
+.reviews-head .ct{margin:10px 0 5px}
+.review-score{flex:0 0 108px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:15px 10px;border-radius:22px;background:linear-gradient(145deg,#fff0dc,#fffaf1);border:1px solid #f0d8bc;box-shadow:0 10px 24px #7a44100d}
+.review-score strong{font-size:29px;line-height:1.1;color:#9b4a20}.review-score>span{color:#eea329;letter-spacing:2px}.review-score small{font-size:10px;color:#777}
+.review-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:13px;margin:15px 0 24px}
+.review-card{padding:17px;border-radius:21px;background:linear-gradient(145deg,#fffefa,#fff8ee);border:1px solid #eee0ce;box-shadow:0 9px 23px #38271208;transition:transform .25s,box-shadow .25s,border-color .25s}
+.review-card:hover{transform:translateY(-4px);box-shadow:0 16px 32px #38271213;border-color:#e8c5a3}
+.review-card-top{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.review-avatar{width:40px;height:40px;display:grid;place-items:center;border-radius:14px;background:linear-gradient(145deg,#1c3b2c,#42644a);color:#fff;font-weight:900;box-shadow:0 5px 12px #1c3b2c24}
+.review-author{display:flex;flex-direction:column;gap:3px;min-width:65px;flex:1}.review-author b{font-size:13px}.review-author small{color:#818176;font-size:11px}
+.review-stars-static{color:#efa62b;letter-spacing:1px;white-space:nowrap;font-size:14px}.review-stars-static i{font-style:normal;color:#e8e0d4}
+.review-comment{font-size:13px;line-height:1.95;margin:13px 0 0;color:#51574e;overflow-wrap:anywhere}
+.review-reply{margin-top:13px;border-right:3px solid #e97539;background:#fff0e4;border-radius:10px;padding:10px 12px}.review-reply b{font-size:11px;color:#a9471d}.review-reply p{margin:4px 0 0;font-size:12px;line-height:1.8}
+.review-empty{grid-column:1/-1;text-align:center;padding:25px 15px;border:1px dashed #e5d4be;background:#fffaf1;border-radius:20px;color:#74766d}.review-empty>span{display:block;color:#e87536;font-size:25px;margin-bottom:6px}.review-empty b{color:#333d32}.review-empty p{margin:5px 0 0;font-size:12px}
+.review-form{padding:clamp(18px,3vw,28px);border:1px solid #e9dcc9;border-radius:27px;background:radial-gradient(ellipse at 100% 0%,#ffead7a0,transparent 38%),linear-gradient(145deg,#fffefa,#fff8ed);box-shadow:0 18px 45px #3c2a160d;max-width:760px;margin:0 auto;position:relative;overflow:hidden}
+.review-form:before{content:"";position:absolute;width:170px;height:170px;left:-70px;bottom:-100px;border-radius:50%;border:1px solid #e8a46c40;box-shadow:0 0 0 17px #e8a46c0b,0 0 0 36px #e8a46c08;pointer-events:none}
+.review-form-title{display:flex;align-items:center;gap:11px;position:relative}.review-form-title>span{display:grid;place-items:center;width:43px;height:43px;border-radius:15px;background:linear-gradient(145deg,#fce3c8,#fff3e2);color:#d75e26;font-size:22px}.review-form-title div{display:flex;flex-direction:column;gap:4px}.review-form-title b{font-size:15px}.review-form-title small{color:#77796f;font-size:11px}
+.star-picker{display:flex;direction:ltr;justify-content:flex-start;gap:7px;margin:17px 0 4px;position:relative}
+.star-choice{border:1px solid #efdfc8;background:#fffdf8;color:#d5c8b5;border-radius:15px;width:clamp(42px,9vw,55px);height:clamp(42px,9vw,55px);font-size:clamp(25px,5vw,32px);display:grid;place-items:center;cursor:pointer;transition:transform .18s,background .18s,color .18s,box-shadow .18s,border-color .18s}
+.star-choice:hover,.star-choice.preview{transform:translateY(-3px) scale(1.06);background:#fff0d1;color:#eea329;border-color:#f1c875;box-shadow:0 7px 15px #c98c2b18}
+.star-choice.selected{background:linear-gradient(145deg,#fff0ca,#fff8e8);color:#eaa025;border-color:#efca7c;animation:softPop .24s both}
+.rating-hint{min-height:24px;font-size:12px;color:#ad622b;font-weight:800;margin-bottom:13px}
+.review-field{display:block;margin-top:12px;position:relative}.review-field>span{display:block;font-size:12px;font-weight:800;margin-bottom:6px}.review-field>span small{color:#939187;font-weight:500}
+.review-field input,.review-field textarea{width:100%;border:1px solid #e8dccb;background:#fffdf9;border-radius:14px;padding:12px 14px;color:#293329;outline:none;transition:border-color .2s,box-shadow .2s;resize:vertical}
+.review-field input:focus,.review-field textarea:focus{border-color:#e77b43;box-shadow:0 0 0 4px #eb672d15}
+.review-submit{width:100%;display:flex;align-items:center;justify-content:space-between;margin-top:16px;padding:13px 17px;border-radius:15px;font-weight:800}
+.review-submit b{font-size:20px;transition:transform .2s}.review-submit:hover b{transform:translateX(-4px)}
+.review-status{min-height:22px;margin-top:9px;font-size:12px;font-weight:700}.review-status.is-loading{color:#7c7465}.review-status.is-success{color:#177544}.review-status.is-error{color:#b42318}
+@media(max-width:520px){.reviews-head{align-items:flex-start}.review-score{flex-basis:85px;padding:12px 7px;border-radius:17px}.review-score strong{font-size:24px}.review-list{grid-template-columns:1fr}.review-card{padding:14px}.star-picker{gap:6px}.review-form{border-radius:22px}.review-card-top{gap:8px}}
+@media(prefers-reduced-motion:reduce){.reveal,.hero-scene,.sr,.cats,main>.ct,main>.hint,.why,.tl,.own,#rv,footer{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+
 </style>
 </head>
 <body>
@@ -856,15 +902,17 @@ async function boot(){
  }catch(x){fail(netMsg(x))}}
 async function loadReviews(){const el=$('#rv');
  try{const j=await jget('/api/public/restaurants/'+RID+'/reviews'),s=j.summary;
-  el.innerHTML=`<h2 class="ct">⭐ نظرات مشتریان</h2><p class="hint">${s.count?`میانگین امتیاز ${F(s.avg)} از ۵ · ${F(s.count)} امتیاز ثبت‌شده`:'هنوز نظری ثبت نشده است.'}</p>`
-  +j.reviews.map(v=>`<div class="ord"><b style="color:#e8a100">${'★'.repeat(v.rating)}${'☆'.repeat(5-v.rating)}</b> ${E(v.author_name||'مشتری')}${v.item_name?` · <small>${E(v.item_name)}</small>`:''}${v.comment?`<p style="margin:4px 0">${E(v.comment)}</p>`:''}${v.reply?`<p class="sub">پاسخ رستوران: ${E(v.reply)}</p>`:''}</div>`).join('')
-  +`<form id="rf"><b>ثبت نظر</b><select name="rating" aria-label="امتیاز">${[5,4,3,2,1].map(n=>`<option value="${n}">${'★'.repeat(n)}</option>`).join('')}</select><input name="author_name" maxlength="40" placeholder="نام (اختیاری)" aria-label="نام"><textarea name="comment" rows="2" maxlength="600" placeholder="نظر شما (اختیاری)" aria-label="نظر"></textarea><button class="btn">ارسال نظر</button><div id="rok" style="font-weight:600"></div></form>`;
-  $('#rf').onsubmit=async e=>{e.preventDefault();const f=e.target,m=$('#rok'),b=f.querySelector('button');if(b.disabled)return;b.disabled=1;m.style.color='#555';m.textContent='در حال ارسال...';
-   try{const r=await fetch(API+'/api/public/restaurants/'+RID+'/reviews',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({rating:+f.rating.value,author_name:f.author_name.value.trim(),comment:f.comment.value.trim()})}),k=await r.json().catch(()=>null);
-    if(!r.ok||!k||!k.ok)throw new Error(emsg(k,r));
-    m.style.color='#11773a';m.textContent='نظر شما ثبت شد ✅';f.reset()}
-   catch(x){m.style.color='#c00';m.textContent=netMsg(x)}
-   b.disabled=0}
+  el.innerHTML='<div class="reviews-head"><div><span class="review-eyebrow">صدای شما، مهم است</span><h2 class="ct">⭐ تجربه‌ات را ثبت کن</h2><p class="hint">'+(s.count?('میانگین '+F(s.avg)+' از ۵ · '+F(s.count)+' نظر ثبت‌شده'):'اولین نفری باش که تجربه‌اش را به اشتراک می‌گذارد.')+'</p></div><div class="review-score"><strong>'+F(s.avg||0)+'</strong><span>'+('★'.repeat(Math.round(Number(s.avg)||0)))+'</span><small>'+F(s.count||0)+' امتیاز</small></div></div>'
+  +'<div class="review-list">'+(j.reviews.length?j.reviews.map((v,i)=>'<article class="review-card reveal" style="--delay:'+Math.min(i,6)*65+'ms"><div class="review-card-top"><span class="review-avatar">'+E((v.author_name||'م').trim().slice(0,1))+'</span><div class="review-author"><b>'+E(v.author_name||'مشتری')+'</b><small>'+(v.item_name?E(v.item_name):'مشتری سپیدار')+'</small></div><span class="review-stars-static" aria-label="'+v.rating+' از ۵">'+('★'.repeat(v.rating))+('<i>★</i>'.repeat(5-v.rating))+'</span></div>'+(v.comment?'<p class="review-comment">'+E(v.comment)+'</p>':'')+(v.reply?'<div class="review-reply"><b>پاسخ رستوران</b><p>'+E(v.reply)+'</p></div>':'')+'</article>').join(''):'<div class="review-empty"><span>✦</span><b>هنوز نظری نیست</b><p>تجربه‌ی خوبت را با بقیه به اشتراک بگذار.</p></div>')+'</div>'
+  +'<form id="rf" class="review-form"><div class="review-form-title"><span>✦</span><div><b>چند ستاره می‌دهی؟</b><small>امتیازت را مستقیم انتخاب کن</small></div></div><div class="star-picker" role="radiogroup" aria-label="انتخاب امتیاز">'+[1,2,3,4,5].map(n=>'<button type="button" class="star-choice'+(n===5?' selected':'')+'" role="radio" aria-checked="'+(n===5?'true':'false')+'" data-rating="'+n+'" aria-label="'+n+' ستاره">'+(n===5?'★':'☆')+'</button>').join('')+'</div><div id="ratingHint" class="rating-hint" aria-live="polite">عالی بود! 🤩</div><input type="hidden" name="rating" value="5"><label class="review-field"><span>نامت <small>(اختیاری)</small></span><input name="author_name" maxlength="40" placeholder="مثلاً علی" aria-label="نام (اختیاری)"></label><label class="review-field"><span>نظرت درباره‌ی غذا <small>(اختیاری)</small></span><textarea name="comment" rows="3" maxlength="600" placeholder="طعم، کیفیت یا تجربه‌ات را بنویس..." aria-label="نظر"></textarea></label><button class="btn review-submit" type="submit"><span>ثبت تجربه</span><b>←</b></button><div id="rok" class="review-status" aria-live="polite"></div></form>';
+  const f=$('#rf'), hint=$('#ratingHint'), hidden=f.elements.rating;
+  const labels={1:'اصلاً راضی نبودم',2:'می‌توانست بهتر باشد',3:'خوب بود 🙂',4:'خیلی خوب بود ✨',5:'عالی بود! 🤩'};
+  f.querySelectorAll('.star-choice').forEach(btn=>{btn.addEventListener('click',()=>{const n=+btn.dataset.rating;hidden.value=String(n);f.querySelectorAll('.star-choice').forEach(b=>{const on=+b.dataset.rating<=n;b.classList.toggle('selected',on);b.textContent=on?'★':'☆';b.setAttribute('aria-checked',String(+b.dataset.rating===n))});hint.textContent=labels[n];f.dataset.rating=String(n)});btn.addEventListener('pointerenter',()=>{const n=+btn.dataset.rating;f.querySelectorAll('.star-choice').forEach(b=>b.classList.toggle('preview',+b.dataset.rating<=n))});btn.addEventListener('pointerleave',()=>f.querySelectorAll('.star-choice').forEach(b=>b.classList.remove('preview')))});
+  f.onsubmit=async e=>{e.preventDefault();const m=$('#rok'),b=f.querySelector('button[type="submit"]');if(b.disabled)return;b.disabled=true;m.className='review-status is-loading';m.textContent='در حال ارسال تجربه‌ات...';
+   try{const r=await fetch(API+'/api/public/restaurants/'+RID+'/reviews',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({rating:+hidden.value,author_name:f.author_name.value.trim(),comment:f.comment.value.trim()})}),k=await r.json().catch(()=>null);if(!r.ok||!k||!k.ok)throw new Error(emsg(k,r));m.className='review-status is-success';m.textContent='ممنون از امتیازت! ✨ ثبت شد.';f.reset();hidden.value='5';f.querySelectorAll('.star-choice').forEach(b=>{const on=+b.dataset.rating<=5;b.classList.toggle('selected',on);b.textContent=on?'★':'☆';b.setAttribute('aria-checked',String(+b.dataset.rating===5))});hint.textContent=labels[5];await loadReviews()}
+   catch(x){m.className='review-status is-error';m.textContent=netMsg(x)}finally{b.disabled=false}
+  };
+  revealOnScroll(el);
  }catch(x){el.innerHTML='<p class="hint">نظرات در دسترس نیست.</p>'}}
 $('#f').onsubmit=async e=>{e.preventDefault();const f=e.target,ok=$('#ok'),b=f.querySelector('button');if(b.disabled)return;b.disabled=1;ok.style.color='#555';ok.textContent='در حال ارسال...';
  try{const r=await fetch(API+'/api/public/leads',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({restaurant_name:f.restaurant_name.value.trim(),phone:f.phone.value.trim(),note:f.note.value.trim()})}),j=await r.json().catch(()=>null);
@@ -873,6 +921,12 @@ $('#f').onsubmit=async e=>{e.preventDefault();const f=e.target,ok=$('#ok'),b=f.q
  catch(x){ok.style.color='#c00';ok.textContent=netMsg(x)}
  b.disabled=0};
 try{Object.keys(localStorage).filter(k=>/^cd\d*_/.test(k)&&!k.startsWith('cd11_')).forEach(k=>localStorage.removeItem(k))}catch(e){}
+function revealOnScroll(root=document){
+ const nodes=[...root.querySelectorAll('.reveal')];
+ if(!('IntersectionObserver' in window)){nodes.forEach(n=>n.classList.add('is-visible'));return}
+ const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('is-visible');io.unobserve(e.target)}}),{threshold:.08,rootMargin:'0px 0px -25px 0px'});
+ nodes.forEach(n=>io.observe(n));
+}
 function initExperience(){
  const bar=$('#scrollProgress');let queued=false;
  const progress=()=>{if(queued)return;queued=true;requestAnimationFrame(()=>{const max=document.documentElement.scrollHeight-window.innerHeight;const p=max>0?window.scrollY/max:0;bar.style.transform='scaleX('+Math.max(0,Math.min(1,p))+')';queued=false})};
