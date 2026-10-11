@@ -622,6 +622,32 @@ body[data-theme="dark"] footer .ow {color:var(--fg)!important}
   body[data-theme="dark"] .stb {padding-bottom:calc(6px + env(safe-area-inset-bottom))}
 }
 
+
+
+/* حالات تعذر/لغو سفارش و حذف مواد نیز باید با پالت دارک هماهنگ باشند */
+body[data-theme="dark"] .chip.rm.on {
+  background:#3b2229!important;color:#ffc0c8!important;border-color:#a44b58!important;
+}
+body[data-theme="dark"] .order-state {
+  background:var(--palette-soft)!important;color:var(--fg)!important;border-color:var(--palette-border)!important;
+}
+body[data-theme="dark"] .order-state.preparing {
+  background:#3b321e!important;color:#f8d98a!important;border-color:#66532b!important;
+}
+body[data-theme="dark"] .order-state.ready,
+body[data-theme="dark"] .order-state.delivered {
+  background:#17382b!important;color:#a6f0c2!important;border-color:#2b6046!important;
+}
+body[data-theme="dark"] .order-state.cancelled {
+  background:#3b2229!important;color:#ffc0c8!important;border-color:#71404a!important;
+}
+body[data-theme="dark"] .review-reply {
+  background:var(--palette-soft)!important;color:var(--fg)!important;border-color:var(--or)!important;
+}
+body[data-theme="dark"] .review-empty {
+  background:var(--palette-surface)!important;color:var(--mut)!important;border-color:var(--palette-border)!important;
+}
+
 </style>
 </head>
 <body>
