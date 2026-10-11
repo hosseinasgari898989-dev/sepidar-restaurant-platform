@@ -56,3 +56,10 @@ Continue in this feature branch; production has not been changed or merged.
 5. Check token/session lifecycle and server-side rate limits against handlers, not only UI.
 6. To finish real image upload, owner must enable R2 in Cloudflare, create/confirm bucket `sepidar-food-images`, then add `r2_buckets` binding in `worker/wrangler.jsonc`. Do not deploy before this setup is verified.
 7. Create draft PRs only after the static audit completes; no merge, deploy, or live writes yet.
+
+
+## Continuation update after mobile-app crash (2026-10-11)
+- Before the latest customer UI tweak, backed up the exact current `index.html` to `backups/2026-10-11/index-before-theme-grid-fix.html` (backup commit `87e4752d14d0a733f25805b2c0e2dec4d8530430`).
+- Corrected the theme chooser layout from three desktop columns to two because the chooser exposes only light/dark. The small-screen rule still collapses it to one column. Current `index.html` content SHA: `3e1d0aafa5c6bbd54e4849dddecca76b82214048`; commit `fecc998d2f9da888252cb15a0688da43e339101d`.
+- Revalidated current customer page: inline JavaScript parse check passes; CSS braces balanced; exactly two theme choices (`light`, `dark`) and three accent choices (`orange`, `mint`, `violet`). No warm/mild theme option labels remain; the one Persian `آرام` occurrence is a food-rotation comment, not a theme.
+- Production still has not been changed; branch changes are not certified as live. Browser visual testing is still outstanding.
