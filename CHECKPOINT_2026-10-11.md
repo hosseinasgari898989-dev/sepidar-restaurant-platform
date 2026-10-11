@@ -24,3 +24,6 @@ Continue on the feature branch only. Inspect current branch files before editing
 - Review cards now include per-browser 👍/👎 counts and manager-highlight styles/interaction. Customer's procedural food renderer receives optional visual-effect codes configured for category customization options in the admin panel.
 - Static parse check passed for the current inline customer script after the latest renderer edits. Full mobile/desktop interactive verification is still pending; this is a feature-branch build only, not deployed to production.
 - Vote/highlight functionality depends on Worker route changes plus D1 migration 0005. Coordinate the release and test both sides together.
+
+
+- The latest customer renderer commit maps configurable 3D effects per food family; e.g. cheese/tomato/mushroom/egg/jalapeño for compatible 3D food models, and hide chicken/sausage only for compatible chicken-sandwich/hot-dog models. The customer inline script passed static syntax parsing. Not deployed to production.
