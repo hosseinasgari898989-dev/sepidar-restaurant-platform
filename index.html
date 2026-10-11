@@ -685,6 +685,50 @@ body[data-theme="dark"] .review-submit {
 body[data-theme="dark"] .review-score>span,
 body[data-theme="dark"] .star-choice.selected {color:var(--or-ink)!important}
 
+
+
+/* تصحیح نهایی کنتراست فرم همکاری در دارک‌مود؛ ID فرم برای غلبه بر قواعد قدیمی فرم */
+body[data-theme="dark"] #f,
+body[data-theme="dark"] .own #f{
+  background:var(--palette-surface)!important;
+  color:var(--fg)!important;
+  border-color:var(--palette-border)!important;
+}
+body[data-theme="dark"] #f input,
+body[data-theme="dark"] #f textarea,
+body[data-theme="dark"] .own #f input,
+body[data-theme="dark"] .own #f textarea{
+  background:var(--palette-page)!important;
+  color:var(--fg)!important;
+  border:1px solid var(--palette-border)!important;
+  caret-color:var(--or);
+  color-scheme:dark;
+}
+body[data-theme="dark"] #f input::placeholder,
+body[data-theme="dark"] #f textarea::placeholder,
+body[data-theme="dark"] .own #f input::placeholder,
+body[data-theme="dark"] .own #f textarea::placeholder{
+  color:var(--mut)!important;
+  opacity:1!important;
+}
+body[data-theme="dark"] #f input:focus,
+body[data-theme="dark"] #f textarea:focus{
+  background:var(--palette-surface)!important;
+  border-color:var(--or)!important;
+  box-shadow:0 0 0 3px color-mix(in srgb,var(--or) 22%,transparent)!important;
+}
+body[data-theme="dark"] .sh .chip:not(.on),
+body[data-theme="dark"] .sh .chip.rm{
+  background:var(--palette-surface)!important;
+  color:var(--fg)!important;
+  border-color:var(--palette-border)!important;
+}
+body[data-theme="dark"] .sh .chip.rm.on{
+  background:#3b2229!important;
+  color:#ffc0c8!important;
+  border-color:#a44b58!important;
+}
+
 </style>
 </head>
 <body>
