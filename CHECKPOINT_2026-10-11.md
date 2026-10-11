@@ -33,3 +33,10 @@ Continue on the feature branch only. Inspect current branch files before editing
 - The admin Worker is being changed to upload images to ImageKit and store the returned public URL in D1; the customer page already displays `image_url` values from the public menu response.
 - New ImageKit URLs are planned under the account endpoint `https://ik.imagekit.io/amup8gp0i` and the server-managed `/sepidar/{restaurantId}/` path.
 - This is feature-branch code only; the ImageKit private-key Secret is not configured yet, and no live upload/display regression test has been run. Keep customer and admin changes coordinated before deploying.
+
+
+## Mobile/review follow-up deployed — 2026-10-11 13:58 UTC
+- Updated the customer main `index.html`: hero has no plate markup and uses the CSS food model directly; category bar is no longer sticky; instruction hint is shortened; long-press selection/context menu is prevented except on editable form fields.
+- Customer menu normalization now retains optional third customization values (3D-effect codes) so administrator-defined codes reach the existing procedural model renderer.
+- Review vote client request uses `Content-Type: text/plain;charset=UTF-8` to avoid a cross-origin preflight. Worker vote handler accepts this content type and validates Origin. Live public GET reviews works, but no real POST vote was tested with a browser; owner tap test is still needed.
+- Static syntax check for the customer inline script passed; public GitHub Pages returns updated short hint. Visual screenshot-based mobile rendering and interaction should still be checked on the real device.
