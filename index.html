@@ -417,7 +417,7 @@ function buildDessert(rc){const F=rc.f,B=rc.b,sc=rc.sz==2?1.18:1,PR=46*sc,CM='#f
 /* ---- ساخت صحنه ---- */
 const BLD={burger:buildBurger,sand:buildBurger,pizza:buildPizza,kebab:buildKebab,start:buildStart,drink:buildDrink,dessert:buildDessert};
 function ensure(rc){const key=JSON.stringify(rc);if(key==BK)return;BK=key;V.fill(0);C0.fill(32767);C1.fill(-1);PAL=[0];GL=[0];GS=[0];PM={};EX=[1e9,-1,1e9,-1,1e9,-1];
- BLD[rc.k](rc);if(rc.k=='burger'){if(rc.fr)fries(-74,1.25,null,0);if(rc.dr)cup(72,{sz:2,ice:1,sw:0,b:'s'},'D')}
+ if(BLD[rc.k])BLD[rc.k](rc);else{cyl(0,0,0,2,46,'#f6f3ee');sph(0,18,0,22,(x,z,r,h)=>h<6?'#e0a043':r>18?'#d38a34':'#f4c56b',.7)}if(rc.k=='burger'){if(rc.fr)fries(-74,1.25,null,0);if(rc.dr)cup(72,{sz:2,ice:1,sw:0,b:'s'},'D')}
  VC=[(EX[0]+EX[1]+1)/2,(EX[2]+EX[3]+1)/2,(EX[4]+EX[5]+1)/2];let m=0;
  for(let iz=EX[4];iz<=EX[5];iz++)for(let ix=EX[0];ix<=EX[1];ix++){const ci=ix+GX*iz;if(C1[ci]<0)continue;const d=(ix+.5-VC[0])**2+(iz+.5-VC[2])**2+Math.max((C0[ci]-VC[1])**2,(C1[ci]+1-VC[1])**2);if(d>m)m=d}
  BR=sq(m)/Q+1;blurField()}
