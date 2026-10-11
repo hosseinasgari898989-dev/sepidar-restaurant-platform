@@ -852,7 +852,7 @@ async function boot(){
   const[a,b]=await Promise.all([jget('/api/public/restaurants/'+RID),jget('/api/public/restaurants/'+RID+'/menu')]),r=a.restaurant;
   SHOP={name:r.name||'',phone:r.phone||'',status:r.status,accepting:!!r.accepting_orders};applyShop();CATS=normCats(b.cats);
   $('#bn').innerHTML=r.status!=='open'?'<div class="bnr">رستوران فعلاً بسته است؛ امکان ثبت سفارش وجود ندارد.</div>':!SHOP.accepting?'<div class="bnr">رستوران فعلاً سفارش جدید نمی‌پذیرد.</div>':'';
-  renderCats();renderMenu();bar();if(!glDone){glDone=1;glInit()}loadReviews();
+  renderCats();renderMenu();bar();const heroFood=$('.hero-food');if(heroFood)heroFood.textContent=(CATS.find(c=>c.items.length)?.items[0]?.[3])||CATS[0]?.e||'🍽️';if(!glDone){glDone=1;glInit()}loadReviews();
  }catch(x){fail(netMsg(x))}}
 async function loadReviews(){const el=$('#rv');
  try{const j=await jget('/api/public/restaurants/'+RID+'/reviews'),s=j.summary;
