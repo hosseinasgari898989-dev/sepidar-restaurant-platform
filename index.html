@@ -1689,7 +1689,7 @@ if(!window.__sepidarSelectionGuard){
  },true);
 }
 const okC=(h,d)=>/^#[0-9a-f]{6}$/i.test(h)?h:d;
-function normCats(a){return Array.isArray(a)?a.map(c=>({id:E(c.id),n:E(c.n),e:E(c.e),c:[okC((c.c||[])[0],'#ffe0c2'),okC((c.c||[])[1],'#ffb36b')],opts:(c.opts||[]).map(g=>({t:E(g.t),type:g.type,list:g.list.map(x=>[E(x[0]),+x[1]||0])})),rem:(c.rem||[]).map(E),items:c.items.map(i=>[E(i[0]),E(i[1]),+i[2]||0,E(i[3]),/^https?:\/\//.test(i[4]||'')?i[4]:'',/^https?:\/\//.test(i[5]||'')?i[5]:'',{...(i[6]||{}),...(Array.isArray(i[6]&&i[6].rm)?{rm:i[6].rm.map(E)}:{})}])})):[]}
+function normCats(a){return Array.isArray(a)?a.map(c=>({id:E(c.id),n:E(c.n),e:E(c.e),c:[okC((c.c||[])[0],'#ffe0c2'),okC((c.c||[])[1],'#ffb36b')],opts:(c.opts||[]).map(g=>({t:E(g.t),type:g.type,list:g.list.map(x=>[E(x[0]),+x[1]||0,typeof x[2]==="string"?x[2]:""])})),rem:(c.rem||[]).map(E),items:c.items.map(i=>[E(i[0]),E(i[1]),+i[2]||0,E(i[3]),/^https?:\/\//.test(i[4]||'')?i[4]:'',/^https?:\/\//.test(i[5]||'')?i[5]:'',{...(i[6]||{}),...(Array.isArray(i[6]&&i[6].rm)?{rm:i[6].rm.map(E)}:{})}])})):[]}
 function fail(m){CATS=[];$('#bn').innerHTML='';renderCats();$('#menu').innerHTML=`<div class="em"><p>${E(m)}</p><button class="btn" id="rt">تلاش دوباره</button></div>` ;$('#rt').onclick=boot}
 async function boot(){
  $('#menu').innerHTML='<p class="em">در حال دریافت منو...</p>';
@@ -1734,7 +1734,7 @@ async function loadReviews(){const el=$('#rv');
     if(!card||!reviewId)return;
     vote.disabled=true;
     try{
-     const response=await fetch(API+'/api/public/restaurants/'+RID+'/reviews/'+encodeURIComponent(reviewId)+'/vote',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({client_id:visitorId(),vote:choice})});
+     const response=await fetch(API+'/api/public/restaurants/'+RID+'/reviews/'+encodeURIComponent(reviewId)+'/vote',{method:'POST',headers:{'Content-Type':'text/plain;charset=UTF-8'},body:JSON.stringify({client_id:visitorId(),vote:choice})});
      const result=await response.json().catch(()=>null);
      if(!response.ok||!result||!result.ok)throw new Error(emsg(result,response));
      card.querySelectorAll('[data-vote]').forEach(btn=>{
