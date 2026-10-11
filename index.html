@@ -23,7 +23,7 @@ header .w{display:flex;align-items:center;justify-content:space-between;height:5
 .sr input:focus{border-color:var(--or)}
 .hero{margin-top:12px;background:linear-gradient(135deg,var(--or),var(--or2));color:#fff;border-radius:18px;padding:14px 18px;display:flex;align-items:center;justify-content:space-between;gap:10px;font-weight:600}
 .hero .btn{background:#fff;color:var(--or)}
-.cats{position:sticky;top:56px;z-index:10;background:#fff;padding:10px 16px;display:flex;gap:8px;overflow-x:auto;white-space:nowrap}
+.cats{position:relative;top:auto;z-index:10;background:#fff;padding:10px 16px;display:flex;gap:8px;overflow-x:auto;white-space:nowrap}
 .chip{border:1px solid var(--line);background:#fff;border-radius:20px;padding:6px 14px;font-size:13.5px;cursor:pointer;color:var(--fg)}
 .chip.on{background:var(--soft);border-color:var(--or);color:#c24d00;font-weight:600}
 .chip.rm.on{background:#fff0f0;border-color:#e55;color:#b00;text-decoration:line-through}
@@ -989,6 +989,52 @@ body[data-theme="dark"] .review-featured-badge{background:linear-gradient(120deg
   main>.hint{font-size:10px!important}
 }
 
+
+/* سپیدار: قهرمان بدون بشقاب، همبرگر معلق و راهنمای مرتب */
+.cats{position:relative!important;top:auto!important;box-shadow:none!important}
+.hero-visual{height:215px!important;min-height:215px!important;perspective:1050px;isolation:isolate;overflow:visible}
+.hero-visual .plate,.hero-visual .plate-back,.hero-visual .plate-front{display:none!important}
+.hero-visual::after{content:"";position:absolute;z-index:-1;left:50%;bottom:18%;width:min(52%,215px);height:14px;translate:-50% 0;border-radius:50%;background:#0005;filter:blur(15px);pointer-events:none}
+.hero-burger{position:relative;width:clamp(185px,34vw,245px)!important;height:155px!important;transform-style:preserve-3d;transform:translate3d(0,-8px,0) rotateX(-8deg) rotateZ(-3deg)!important;animation:burgerFloat 4.5s ease-in-out infinite!important;filter:drop-shadow(0 16px 12px #0b130f52)}
+.burger-bun-top{height:43%!important;border-radius:50% 50% 24% 24%/70% 70% 30% 30%!important}
+.burger-patty{top:43%!important;height:17%!important}
+.burger-cheese{top:48%!important;height:15%!important}
+.burger-lettuce{top:38%!important;height:10%!important}
+.burger-tomato{top:41%!important;height:9%!important}
+.burger-bun-bottom{top:59%!important;height:26%!important;border-radius:14% 14% 32% 32%/18% 18% 70% 70%!important}
+@keyframes burgerFloat{0%,100%{translate:0 0}50%{translate:0 -9px}}
+html,body,body *{-webkit-user-select:none!important;user-select:none!important;-webkit-touch-callout:none}
+input,textarea,select,[contenteditable="true"],[data-allow-select]{-webkit-user-select:text!important;user-select:text!important;-webkit-touch-callout:default}
+@media(max-width:760px){
+ header .w{height:52px!important;min-height:52px;gap:6px!important;padding-inline:12px!important}
+ .logo{min-width:0;flex:0 1 auto;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:clamp(12px,3.6vw,15px)!important;letter-spacing:-.35px}
+ .hd{gap:6px!important;flex:0 0 auto}
+ .hd #accountBtn{max-width:108px;padding:6px 8px!important;font-size:11px!important;line-height:1.2!important;border-radius:12px}
+ .hd #cb{min-width:40px;padding:7px 9px!important;font-size:12px!important;border-radius:12px}
+ .hero-scene{grid-template-columns:1fr;gap:0!important;padding:17px 16px 8px!important;margin-top:8px!important;min-height:0!important;border-radius:22px!important}
+ .hero h1{font-size:clamp(27px,7vw,32px)!important;line-height:1.32!important;letter-spacing:-.65px!important;margin:8px 0 6px!important}
+ .hero-copy>p{font-size:12px!important;line-height:1.75!important}
+ .hero-actions{margin-top:10px!important;gap:8px!important}
+ .hero-cta{padding:8px 12px!important;font-size:12px!important}
+ .hero-note{font-size:10px!important;line-height:1.55}
+ .hero-visual{height:177px!important;min-height:177px!important;margin-top:0!important}
+ .hero-burger{width:clamp(165px,51vw,205px)!important;height:138px!important}
+ .hero-visual::after{bottom:18%;width:55%;height:11px}
+ .cats{padding:8px 12px!important;gap:7px!important}
+ .chip{padding:7px 12px!important;font-size:12px!important}
+ main>.hint{margin:5px 2px 9px!important;font-size:10.5px!important;line-height:1.55!important;letter-spacing:0!important}
+}
+@media(max-width:380px){
+ .hd #accountBtn{max-width:94px;font-size:10px!important;padding:5px 6px!important}
+ .logo{font-size:12px!important}
+ .hero-scene{padding:15px 13px 6px!important}
+ .hero h1{font-size:26px!important}
+ .hero-visual{height:155px!important;min-height:155px!important}
+ .hero-burger{width:158px!important;height:125px!important}
+ main>.hint{font-size:10px!important}
+}
+@media(prefers-reduced-motion:reduce){.hero-burger{animation:none!important;translate:0 0!important}}
+
 </style>
 </head>
 <body>
@@ -1010,16 +1056,13 @@ body[data-theme="dark"] .review-featured-badge{background:linear-gradient(120deg
     </div>
   </div>
   <div class="hero-visual" aria-hidden="true">
-    <div class="plate plate-back"></div>
-    <div class="plate plate-front">
-      <div class="hero-burger">
-        <span class="burger-bun-top"></span>
-        <span class="burger-lettuce"></span>
-        <span class="burger-tomato"></span>
-        <span class="burger-cheese"></span>
-        <span class="burger-patty"></span>
-        <span class="burger-bun-bottom"></span>
-      </div>
+    <div class="hero-burger">
+      <span class="burger-bun-top"></span>
+      <span class="burger-lettuce"></span>
+      <span class="burger-tomato"></span>
+      <span class="burger-cheese"></span>
+      <span class="burger-patty"></span>
+      <span class="burger-bun-bottom"></span>
     </div>
   </div>
 </section>
@@ -1677,14 +1720,13 @@ function visitorId(){
 }
 if(!window.__sepidarSelectionGuard){
  window.__sepidarSelectionGuard=true;
- const guardedTouchTarget="button,a,[role=button],.fc,.mcard,.chip,.ph,.card,.rv,.review-card,.tracked-order-card,.theme-option,.accent-choice,.pref-switch,#sh,#bar,#ts";
- const editableTarget="input,textarea,select,[contenteditable=true],[data-allow-select],code,pre";
+ const editableTarget="input,textarea,select,[contenteditable=true],[data-allow-select]";
  document.addEventListener("selectstart",e=>{
-  if(e.target.closest(editableTarget)||!e.target.closest(guardedTouchTarget))return;
+  if(e.target.closest(editableTarget))return;
   e.preventDefault();
  },true);
  document.addEventListener("contextmenu",e=>{
-  if(e.target.closest("input,textarea,select,[contenteditable=true],[data-allow-contextmenu]")||!e.target.closest(guardedTouchTarget))return;
+  if(e.target.closest("input,textarea,select,[contenteditable=true],[data-allow-contextmenu]"))return;
   e.preventDefault();
  },true);
 }
