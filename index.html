@@ -783,6 +783,36 @@ body[data-theme="dark"] .sh .tg.rd {
   background:#3b2229!important;color:#ffc0c8!important;border-color:#71404a!important;
 }
 
+
+
+/* نسخه نهایی دارک‌مود: نواحی پشت تصاویر غذا با رنگ پوسته هماهنگ شوند */
+body[data-theme="dark"] .fc .ph,
+body[data-theme="dark"] .fc .ph[style],
+body[data-theme="dark"] .fc .th,
+body[data-theme="dark"] .fc .th[style],
+body[data-theme="dark"] .fc .pxc:not(img),
+body[data-theme="dark"] .fc .fb {
+  background:radial-gradient(ellipse at 50% 20%,color-mix(in srgb,var(--or) 18%,transparent),transparent 64%),
+    linear-gradient(145deg,var(--palette-page),var(--palette-surface))!important;
+  border-color:var(--palette-border)!important;
+}
+body[data-theme="dark"] #phw,
+body[data-theme="dark"] #phw[style] {
+  background:radial-gradient(ellipse at 50% 20%,color-mix(in srgb,var(--or) 23%,transparent),transparent 58%),
+    linear-gradient(145deg,var(--palette-page),var(--palette-surface))!important;
+  border-color:var(--palette-border)!important;
+}
+body[data-theme="dark"] .fc .ph img,
+body[data-theme="dark"] .fc .th img,
+body[data-theme="dark"] #phw img {background:transparent!important}
+body[data-theme="dark"] .chip:not(.on),
+body[data-theme="dark"] .chip.rm:not(.on) {
+  background:var(--palette-surface)!important;color:var(--fg)!important;border-color:var(--palette-border)!important;
+}
+body[data-theme="dark"] .chip.rm.on {
+  background:#3b2229!important;color:#ffc0c8!important;border-color:#a44b58!important;
+}
+
 </style>
 </head>
 <body>
