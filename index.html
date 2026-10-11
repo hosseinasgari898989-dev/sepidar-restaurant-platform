@@ -1433,8 +1433,8 @@ function bindSheet(){const cv=$('#big'),w=$('#phw');cancelAnimationFrame(raf);M=
  w.onpointerup=w.onpointercancel=()=>{drag=0;if(performance.now()-lt>90)vx=vy=0}}
 function calc(c,it,sel){const s=ss=>c.opts.reduce((a,gr,gi)=>a+[...ss[gi]].reduce((b,i)=>b+gr.list[i][1],0),0);return it[2]+s(sel)-s(defSel(c,it))}
 function line(c,it,sel,rm,qn,note){const o=[];c.opts.forEach((gr,gi)=>[...sel[gi]].forEach(i=>o.push(gr.list[i][0])));
- const cv=document.createElement('canvas');cv.width=cv.height=224;draw(cv,rcOf(c,it,sel,rm),M0,224);
- const rems=remList(c,it);return{n:it[0],e:it[3],cc:c.c,im:it[4],sn:it[4]||cv.toDataURL(),p:calc(c,it,sel),q:qn,o,r:[...rm].map(i=>rems[i]),note,iid:it[6]&&it[6].id,sl:Object.fromEntries(c.opts.map((g,gi)=>[U(g.t),[...sel[gi]].map(i=>U(g.list[i][0]))])),rr:[...rm].map(i=>U(rems[i]))}}
+ const cv=document.createElement('canvas');cv.width=cv.height=224;if(c.id!=='other'||it[4])draw(cv,rcOf(c,it,sel,rm),M0,224);
+ const rems=remList(c,it);return{n:it[0],e:it[3],cc:c.c,im:it[4],sn:it[4]||(c.id==='other'?'':cv.toDataURL()),p:calc(c,it,sel),q:qn,o,r:[...rm].map(i=>rems[i]),note,iid:it[6]&&it[6].id,sl:Object.fromEntries(c.opts.map((g,gi)=>[U(g.t),[...sel[gi]].map(i=>U(g.list[i][0]))])),rr:[...rm].map(i=>U(rems[i]))}}
 const defSel=(c,it)=>c.opts.map((o,gi)=>new Set(o.type=='one'?[(it&&it[6]&&it[6].s&&it[6].s[gi])||0]:[]));
 function quick(cid,i){const c=CATS.find(x=>x.id==cid);cart.push(line(c,c.items[i],defSel(c,c.items[i]),new Set(),1,''));bar();toast('اضافه شد ✅')}
 
@@ -1508,8 +1508,15 @@ async function jget(p){const r=await fetch(API+p),j=await r.json().catch(()=>nul
 // شناسه‌ی ناشناس مرورگر خارج از localStorage هم در کوکی سایت می‌ماند؛ پاک‌کردن localStorage آن را حذف نمی‌کند.
 function visitorId(){
  let cookie="";
- try{cookie=(document.cookie.match(/(?:^|;\\s*)sepidar_visitor_v1=([a-f0-9]{32,64})/i)||[])[1]||""}catch{}
- if(cookie){try{localStorage.setItem("sepidar.visitor.id.v1",cookie)}catch{}return cookie.toLowerCase()}
+ try{
+  const part=document.cookie.split(";").map(x=>x.trim()).find(x=>x.startsWith("sepidar_visitor_v1="));
+  cookie=part?part.slice("sepidar_visitor_v1=".length):"";
+ }catch{}
+ if(/^[a-f0-9]{32,64}$/i.test(cookie)){
+  cookie=cookie.toLowerCase();
+  try{localStorage.setItem("sepidar.visitor.id.v1",cookie)}catch{}
+  return cookie;
+ }
  let id="";
  try{id=localStorage.getItem("sepidar.visitor.id.v1")||""}catch{}
  if(!/^[a-f0-9]{32,64}$/i.test(id)){
