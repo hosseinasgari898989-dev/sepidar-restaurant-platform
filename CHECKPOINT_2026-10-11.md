@@ -27,3 +27,9 @@ Continue on the feature branch only. Inspect current branch files before editing
 
 
 - The latest customer renderer commit maps configurable 3D effects per food family; e.g. cheese/tomato/mushroom/egg/jalapeño for compatible 3D food models, and hide chicken/sausage only for compatible chicken-sandwich/hot-dog models. The customer inline script passed static syntax parsing. Not deployed to production.
+
+
+## ImageKit storage provider update — 2026-10-11
+- The admin Worker is being changed to upload images to ImageKit and store the returned public URL in D1; the customer page already displays `image_url` values from the public menu response.
+- New ImageKit URLs are planned under the account endpoint `https://ik.imagekit.io/amup8gp0i` and the server-managed `/sepidar/{restaurantId}/` path.
+- This is feature-branch code only; the ImageKit private-key Secret is not configured yet, and no live upload/display regression test has been run. Keep customer and admin changes coordinated before deploying.
