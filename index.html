@@ -816,10 +816,10 @@ body[data-theme="dark"] .chip.rm.on {
 
 
 /* ===== Mobile hardening: prevent blue long-press selection and escaped sheet content ===== */
-html,body,body *{
+/* Disable long-press selection on interactive controls/cards only; keep normal page copy selectable. */
+button,a,[role="button"],.fc,.mcard,.chip,.ph,.card,.rv,.review-card,.tracked-order-card,.theme-option,.accent-choice,.pref-switch,#sh,#bar,#ts{
   -webkit-user-select:none!important;user-select:none!important;
-  -webkit-touch-callout:none;
-  -webkit-tap-highlight-color:transparent;
+  -webkit-touch-callout:none;-webkit-tap-highlight-color:transparent;
 }
 input,textarea,select,[contenteditable="true"],[data-allow-select],code,pre{
   -webkit-user-select:text!important;user-select:text!important;
@@ -1533,8 +1533,16 @@ function visitorId(){
 }
 if(!window.__sepidarSelectionGuard){
  window.__sepidarSelectionGuard=true;
- document.addEventListener("selectstart",e=>{if(!e.target.closest("input,textarea,select,[contenteditable=true],[data-allow-select],code,pre"))e.preventDefault()},true);
- document.addEventListener("contextmenu",e=>{if(!e.target.closest("input,textarea,select,[contenteditable=true],[data-allow-contextmenu]"))e.preventDefault()},true);
+ const guardedTouchTarget="button,a,[role=button],.fc,.mcard,.chip,.ph,.card,.rv,.review-card,.tracked-order-card,.theme-option,.accent-choice,.pref-switch,#sh,#bar,#ts";
+ const editableTarget="input,textarea,select,[contenteditable=true],[data-allow-select],code,pre";
+ document.addEventListener("selectstart",e=>{
+  if(e.target.closest(editableTarget)||!e.target.closest(guardedTouchTarget))return;
+  e.preventDefault();
+ },true);
+ document.addEventListener("contextmenu",e=>{
+  if(e.target.closest("input,textarea,select,[contenteditable=true],[data-allow-contextmenu]")||!e.target.closest(guardedTouchTarget))return;
+  e.preventDefault();
+ },true);
 }
 const okC=(h,d)=>/^#[0-9a-f]{6}$/i.test(h)?h:d;
 function normCats(a){return Array.isArray(a)?a.map(c=>({id:E(c.id),n:E(c.n),e:E(c.e),c:[okC((c.c||[])[0],'#ffe0c2'),okC((c.c||[])[1],'#ffb36b')],opts:(c.opts||[]).map(g=>({t:E(g.t),type:g.type,list:g.list.map(x=>[E(x[0]),+x[1]||0])})),rem:(c.rem||[]).map(E),items:c.items.map(i=>[E(i[0]),E(i[1]),+i[2]||0,E(i[3]),/^https?:\/\//.test(i[4]||'')?i[4]:'',/^https?:\/\//.test(i[5]||'')?i[5]:'',{...(i[6]||{}),...(Array.isArray(i[6]&&i[6].rm)?{rm:i[6].rm.map(E)}:{})}])})):[]}
